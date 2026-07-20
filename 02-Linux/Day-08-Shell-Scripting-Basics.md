@@ -156,3 +156,7 @@ touch index.html style.css
 
 ## 🎯 Day 8 Summary
 Shell scripting is how DevOps engineers manage fleets of thousands of virtual machines. You create a `.sh` file, declare the interpreter using a **Shebang** (`#!/bin/bash`), grant the file execute permissions using **`chmod`**, and execute it directly using `./script.sh`.
+
+
+---
+**[⬅️ Previous: Day 7 - Linux Basics](./Day-07-Linux-Basics.md)**

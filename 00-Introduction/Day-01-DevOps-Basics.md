@@ -154,3 +154,7 @@ An open-source Operating System (OS). Most servers in the world run Linux becaus
 - The goal is faster, higher-quality software delivery.
 - Automation reduces manual work and human errors.
 - A DevOps Engineer automates deployments, manages infrastructure, monitors applications, and ensures reliable delivery.
+
+
+---
+**[➡️ Next: Day 2 - SDLC & Basics](./Day-02-SDLC-and-Basics.md)**

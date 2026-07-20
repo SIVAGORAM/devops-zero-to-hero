@@ -103,3 +103,7 @@ IaC allows you to write a configuration file (in YAML or JSON) describing the in
 
 ## 🎯 Day 6 Summary
 To be a DevOps engineer, you must move away from clicking buttons. You connect to servers via **SSH**, you manage your cloud resources using the **AWS CLI**, and you build massive architectures by writing **Infrastructure as Code** with tools like **Terraform** or **CloudFormation**.
+
+
+---
+**[⬅️ Previous: Day 5 - AWS EC2 Foundations](./Day-05-AWS-EC2-Basics.md)** | **[➡️ Next: Day 7 - Linux Basics](../02-Linux/Day-07-Linux-Basics.md)**

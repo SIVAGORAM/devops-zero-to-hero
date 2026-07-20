@@ -123,3 +123,7 @@ Quality Assurance / QA (Verifies the Application)
 Deployment ➔ Production ➔ Customers
 ```
 This workflow is the absolute backbone of modern DevOps! As you continue your learning, tools like Jenkins, Docker, Kubernetes, and AWS will fit naturally into different stages of this pipeline.
+
+
+---
+**[⬅️ Previous: Day 1 - DevOps Basics](./Day-01-DevOps-Basics.md)** | **[➡️ Next: Day 3 - Roles & Agile](./Day-03-Company-Roles-and-Agile.md)**

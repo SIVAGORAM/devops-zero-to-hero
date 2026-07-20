@@ -87,3 +87,7 @@ While software developers usually use **Scrum** (working in strict 2-week sprint
 - A DevOps Engineer works closely with Developers, QA, Architects, and Security teams to automate builds, deployments, and infrastructure.
 - **Jira** is the standard tool used to organize and track your daily work via Epics, Stories, and Tasks.
 - Modern software companies use **Agile (Scrum)** to deliver software continuously in 2-week **Sprints**.
+
+
+---
+**[⬅️ Previous: Day 2 - SDLC & Basics](./Day-02-SDLC-and-Basics.md)** | **[➡️ Next: Day 4 - OS & Virtualization](../01-Operating-System/Day-04-OS-and-Virtualization.md)**
