@@ -61,3 +61,7 @@ These questions test your practical knowledge of the terminal, authentication, a
 ### Q10: If an application running on an EC2 instance needs to use the AWS CLI to access an S3 bucket, should you run `aws configure` on the server?
 **Interview Answer:**  
 "No, absolutely not. Hardcoding Access Keys on an EC2 instance is a massive security risk because if the server is compromised, the keys are compromised. Instead, you should create an IAM Role with the necessary S3 permissions and attach that role directly to the EC2 instance. The AWS CLI running on the instance will automatically inherit the temporary, secure credentials provided by the IAM Role without needing any hardcoded keys."
+
+
+---
+**[⬅️ Previous: Day 5 - AWS EC2 Questions](./Day-05-AWS-EC2-Questions.md)** | **[➡️ Next: Day 7 - Linux Questions](./Day-07-Linux-Questions.md)**

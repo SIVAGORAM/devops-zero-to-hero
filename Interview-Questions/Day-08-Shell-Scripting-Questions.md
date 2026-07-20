@@ -49,3 +49,7 @@ These questions test your understanding of how Linux interprets and executes scr
 ### Q8: What is Command Substitution in a shell script and how is it written?
 **Interview Answer:**  
 "Command substitution allows you to execute a Linux command and capture its standard output so it can be used as a value—usually to store inside a variable. The modern syntax is to wrap the command inside `$()`. For example, `CURRENT_DATE=$(date)` will execute the `date` command and store the resulting output string directly into the `CURRENT_DATE` variable."
+
+
+---
+**[⬅️ Previous: Day 7 - Linux Questions](./Day-07-Linux-Questions.md)**

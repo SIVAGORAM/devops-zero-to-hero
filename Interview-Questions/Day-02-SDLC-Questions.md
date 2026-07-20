@@ -61,3 +61,7 @@ Here are simple, conversational answers for foundational SDLC and Pipeline conce
 ### Q10: What is the difference between Continuous Delivery and Continuous Deployment?
 **Interview Answer:**  
 "Both represent the 'CD' in CI/CD. Continuous Delivery means the code is automatically built, tested, and prepared for release, but a human must manually click 'approve' to send it to the live production environment. Continuous Deployment means there is no human intervention at all—if the code passes all automated tests, it deploys straight to production. Because of the high risk, most enterprise companies stick to Continuous Delivery."
+
+
+---
+**[⬅️ Previous: Day 1 - DevOps Basics Questions](./00-Introduction-Questions.md)** | **[➡️ Next: Day 3 - Roles & Agile Questions](./Day-03-Roles-Questions.md)**

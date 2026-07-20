@@ -73,3 +73,7 @@ If an interviewer asks you about these basic concepts, you want to give a simple
 ### Q11: What is the difference between On-Premise and Cloud Computing?
 **Interview Answer:**  
 "On-Premise means a company owns, powers, and maintains its own physical servers in its own building. Cloud computing, like AWS, allows us to rent servers over the internet on a pay-as-you-go basis. In DevOps, the cloud is essential because it allows us to instantly provision, scale, and destroy infrastructure using code (IaC), which is impossible with physical on-premise hardware."
+
+
+---
+**[➡️ Next: Day 2 - SDLC Questions](./Day-02-SDLC-Questions.md)**

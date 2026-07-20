@@ -79,3 +79,7 @@ These questions test your fundamental understanding of hardware, virtualization,
 ### Q13: What is DNS?
 **Interview Answer:**  
 "DNS stands for Domain Name System. It essentially acts as the internet's phonebook, translating human-readable domain names like `google.com` into the machine-readable Public IP addresses that servers use to communicate. This ensures that users don't have to memorize complex strings of numbers just to access a website."
+
+
+---
+**[⬅️ Previous: Day 3 - Roles & Agile Questions](./Day-03-Roles-Questions.md)** | **[➡️ Next: Day 5 - AWS EC2 Questions](./Day-05-AWS-EC2-Questions.md)**

@@ -55,3 +55,7 @@ These questions test your practical knowledge of launching and securing cloud se
 ### Q9: What is an EBS Volume, and what happens to the Root Volume when an EC2 instance is terminated?
 **Interview Answer:**  
 "An EBS (Elastic Block Store) volume is the persistent virtual hard drive attached to an EC2 instance. The specific volume where the Operating System is installed is called the Root Volume. A critical thing to remember is that by default, when you terminate an EC2 instance, the Root Volume is automatically deleted along with it. To prevent data loss, you must either back it up using EBS Snapshots or explicitly disable the 'Delete on Termination' attribute before deleting the server."
+
+
+---
+**[⬅️ Previous: Day 4 - OS & Virtualization Questions](./Day-04-Virtualization-Questions.md)** | **[➡️ Next: Day 6 - AWS CLI Questions](./Day-06-AWS-CLI-Questions.md)**

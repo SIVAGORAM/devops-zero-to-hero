@@ -55,3 +55,7 @@ These questions test your understanding of Linux architecture and essential trou
 ### Q9: How do you install software on a Linux server without a graphical interface?
 **Interview Answer:**  
 "In Linux, software is installed using command-line Package Managers that fetch software from official, secure repositories. The tool you use depends on the Linux distribution. If I am working on an Ubuntu or Debian server, I use the `apt` package manager (for example, `sudo apt install docker`). If I am managing an Amazon Linux or Red Hat server, I use the `yum` package manager."
+
+
+---
+**[⬅️ Previous: Day 6 - AWS CLI Questions](./Day-06-AWS-CLI-Questions.md)** | **[➡️ Next: Day 8 - Shell Scripting Questions](./Day-08-Shell-Scripting-Questions.md)**

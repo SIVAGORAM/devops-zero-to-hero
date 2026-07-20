@@ -49,3 +49,7 @@ These questions test your understanding of how a real-world enterprise software 
 ### Q8: What happens in a Sprint Review vs Backlog Refinement?
 **Interview Answer:**  
 "A Sprint Review happens at the end of the sprint where the team demonstrates the working software we just built to the stakeholders. Backlog Refinement, on the other hand, happens during the sprint to review and clarify future user stories so they are ready for the *next* sprint planning session."
+
+
+---
+**[⬅️ Previous: Day 2 - SDLC Questions](./Day-02-SDLC-Questions.md)** | **[➡️ Next: Day 4 - OS & Virtualization Questions](./Day-04-Virtualization-Questions.md)**
