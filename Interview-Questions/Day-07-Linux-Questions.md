@@ -31,3 +31,27 @@ These questions test your understanding of Linux architecture and essential trou
 ### Q5: What is the difference between `rm` and `rm -r`?
 **Interview Answer:**  
 "The `rm` command is used to delete individual files. However, it cannot delete directories. To delete a directory and all of the files and subdirectories inside it, you must use `rm -r`, which stands for recursive remove. It is a powerful command that should be used carefully, as Linux does not have a 'Recycle Bin' by default."
+
+---
+
+### Q6: How do you view the most recent errors in a massive 50GB log file without crashing the server?
+**Interview Answer:**  
+"You should never open a massive log file using a text editor like `vi` or `nano` because it will try to load the entire file into RAM, which will severely impact or crash the server. Instead, I use the `tail` command, specifically `tail -n 100 /var/log/syslog` to view only the last 100 lines. I can also use `tail -f` to 'follow' the live output of the log, or use `grep "error" /var/log/syslog` to instantly search the entire file for specific error messages."
+
+---
+
+### Q7: What is the purpose of the `chmod` and `chown` commands in Linux?
+**Interview Answer:**  
+"In Linux, file security is based on ownership and permissions. `chown` (Change Owner) is used to change which user and group officially owns a file or directory. `chmod` (Change Mode) is used to modify the read, write, and execute (rwx) permissions of that file for the owner, the group, and everyone else. A classic example is running `chmod 600` on an SSH private key to ensure only the owner can read it."
+
+---
+
+### Q8: What is the `sudo` command and why is it necessary?
+**Interview Answer:**  
+"The `sudo` command stands for 'Super User Do'. It allows a standard user to execute a command with administrative (root) privileges. In Linux, regular users are restricted from modifying system configurations or installing global software to prevent accidental or malicious damage. Whenever I need to perform administrative tasks, like editing a configuration file in the `/etc` directory, I must prefix my command with `sudo`."
+
+---
+
+### Q9: How do you install software on a Linux server without a graphical interface?
+**Interview Answer:**  
+"In Linux, software is installed using command-line Package Managers that fetch software from official, secure repositories. The tool you use depends on the Linux distribution. If I am working on an Ubuntu or Debian server, I use the `apt` package manager (for example, `sudo apt install docker`). If I am managing an Amazon Linux or Red Hat server, I use the `yum` package manager."

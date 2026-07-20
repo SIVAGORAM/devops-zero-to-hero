@@ -58,6 +58,32 @@ The default text editor in Linux.
 4. Press `Esc` to exit Insert Mode.
 5. Type `:wq` and press `Enter` to **Write (save)** and **Quit**.
 
+### Viewing & Searching Files (Crucial for Logs)
+When an application crashes, you shouldn't open massive log files in `vi` (loading a 10GB log file into an editor will crash the server). Instead, use these commands:
+- `cat <filename>`: Prints the entire contents of a file to the screen.
+- `tail -n 50 <filename>`: Prints only the last 50 lines of a file (perfect for seeing the most recent errors). Use `tail -f` to watch the file update live.
+- `grep "error" <filename>`: Searches inside a file and prints only the lines containing the specific word "error".
+
+### File Permissions (`chmod` & `chown`)
+In Linux, security is entirely based on **Permissions** (Read `r`, Write `w`, Execute `x`) and **Ownership** (User, Group).
+- `chmod`: **Change Mode.** Used to change the `rwx` permissions of a file. (Example: In Day 6, we used `chmod 600 key.pem` to make our SSH key readable *only* by the owner).
+- `chown`: **Change Owner.** Changes which user and group owns the file.
+
+### Installing Software & Root Access (`sudo`, `apt`)
+In Windows, you install software by downloading a `.exe` file. In Linux, you use a **Package Manager** directly from the terminal to download software from official repositories.
+- **Ubuntu/Debian:** Uses the `apt` package manager.
+- **Amazon Linux/CentOS:** Uses the `yum` package manager.
+
+**The `sudo` Command (Super User Do):**
+Regular users are intentionally blocked from installing software or modifying system files to prevent accidental damage. To run a command with full administrative (Root) privileges, you must type `sudo` in front of it.
+```bash
+# Update the package list
+sudo apt update
+
+# Install Nginx web server
+sudo apt install nginx -y
+```
+
 ---
 
 ## 4. System Monitoring Commands (Interview Favorites)
