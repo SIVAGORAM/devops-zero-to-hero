@@ -130,9 +130,34 @@ CURRENT_DATE=$(date)
 echo "The script was executed on: $CURRENT_DATE"
 ```
 
+### Output Redirection (`>` and `>>`)
+When you run a script, the output prints to your screen. In DevOps, we usually want to save that output into a log file so we can review it later.
+- `>` (Overwrite): Writes the output to a file. If the file already exists, it completely overwrites it.
+- `>>` (Append): Adds the output to the end of a file without deleting the old data.
+```bash
+# Append the output of the script to a log file
+./script.sh >> /var/log/my-script.log
+```
+
 ---
 
-## 6. Example: A Real Shell Script
+## 6. Automating Scripts with Cron Jobs
+
+You wrote a shell script and it works perfectly. But if you have to manually type `./script.sh` every single day at 2 AM, it is not truly automated!
+
+To run scripts on an automatic schedule, Linux uses a built-in time-based job scheduler called **Cron**.
+- You configure it by typing `crontab -e` in the terminal.
+- A Cron expression uses 5 asterisks `* * * * *` representing (Minute, Hour, Day of Month, Month, Day of Week).
+
+```bash
+# Example: Run the backup script every day exactly at 2:00 AM
+0 2 * * * /home/ubuntu/backup-script.sh
+```
+This is the ultimate goal of shell scripting: Write the code once, schedule it with Cron, and let the server do the work forever.
+
+---
+
+## 7. Example: A Real Shell Script
 
 Let's write a script that creates a folder, moves into it, and creates two files.
 

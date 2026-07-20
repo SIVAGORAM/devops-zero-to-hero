@@ -50,6 +50,18 @@ These questions test your understanding of how Linux interprets and executes scr
 **Interview Answer:**  
 "Command substitution allows you to execute a Linux command and capture its standard output so it can be used as a value—usually to store inside a variable. The modern syntax is to wrap the command inside `$()`. For example, `CURRENT_DATE=$(date)` will execute the `date` command and store the resulting output string directly into the `CURRENT_DATE` variable."
 
+---
+
+### Q9: How do you save the output of a shell script to a file instead of displaying it on the terminal?
+**Interview Answer:**  
+"To save the output of a script to a file, you use I/O (Input/Output) redirection. Using a single bracket `>` will redirect the standard output to a file and completely overwrite any existing contents. Using double brackets `>>` will append the standard output to the end of the file. For example, running `./deploy.sh >> deployment.log` is commonly used to maintain a continuous, historical log of script executions without losing previous data."
+
+---
+
+### Q10: You wrote a shell script to back up a database. How do you ensure it runs completely automatically every night at 2 AM?
+**Interview Answer:**  
+"To automate the execution of a script on a schedule, I would use a Linux Cron Job. By running the `crontab -e` command, I can add a scheduled task using the standard 5-field cron syntax (Minute, Hour, Day, Month, Day of Week). To run a script daily at exactly 2 AM, I would add the line `0 2 * * * /path/to/backup.sh`. The cron daemon runs silently in the background and will execute the script perfectly on schedule without any manual intervention."
+
 
 ---
 **[⬅️ Previous: Day 7 - Linux Questions](./Day-07-Linux-Questions.md)**
