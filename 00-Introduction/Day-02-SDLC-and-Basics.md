@@ -80,6 +80,27 @@ The process of testing the built software to ensure it works correctly and meets
 A DevOps practice where every code change is automatically built and tested whenever a developer pushes code to a shared repository (like GitHub).
 - **Goal:** Detect problems early and keep the codebase healthy without manual intervention.
 
+### What is Continuous Delivery vs Continuous Deployment (CD)?
+We always hear "CI/CD". Since CI is the first half, CD is the second half:
+- **Continuous Delivery:** The code is automatically built, tested, and prepped for release. It is completely ready to go live, but a human must manually click an "Approve" button to push it to production.
+- **Continuous Deployment:** There is absolutely zero human intervention. The moment a developer pushes the code, if it passes all automated tests, it goes straight to live production automatically.
+
+---
+
+## 5. Crucial Industry Concepts: Agile & Microservices
+If you are learning DevOps, you **must** understand *why* the industry shifted to DevOps in the first place. This shift was driven by two major changes:
+
+### Waterfall vs. Agile Methodology
+Before DevOps, software was built using the **Waterfall** model:
+- **Waterfall:** A rigid SDLC where each phase must finish completely before the next begins. It took months or years to release software. 
+- **Agile:** A flexible SDLC where software is built in small, iterative chunks (sprints) taking 2-4 weeks. 
+- **The DevOps Connection:** Agile sped up Development so much that manual Operations (deployments) couldn't keep up. DevOps was created to bridge this gap by automating deployments to match Agile's speed.
+
+### Monolithic vs. Microservices Architecture
+- **Monolith:** The entire application is written as one single, massive codebase. If one part fails, the whole application crashes, and updating it requires redeploying everything.
+- **Microservices:** The application is broken down into tiny, independent services (e.g., a Payment Service, a User Service). They communicate via APIs. 
+- **The DevOps Connection:** Managing and deploying 50 microservices manually is impossible. DevOps tools like Docker and Kubernetes were adopted specifically to manage, deploy, and scale these microservices.
+
 ---
 
 ## 🔗 How It All Connects (The DevOps Workflow)

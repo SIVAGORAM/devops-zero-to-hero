@@ -43,3 +43,21 @@ Here are simple, conversational answers for foundational SDLC and Pipeline conce
 ### Q7: What is Continuous Integration (CI)?
 **Interview Answer:**  
 "Continuous Integration is a practice where every time a developer pushes new code to a central repository like GitHub, an automated pipeline immediately builds the code and runs tests against it. This ensures that bugs are caught instantly, keeping the main codebase clean and stable at all times."
+
+---
+
+### Q8: What is Agile and how does it relate to DevOps?
+**Interview Answer:**  
+"Agile is a software development methodology that focuses on delivering software in small, rapid iterations rather than one massive release. While Agile dramatically sped up the *development* process, it caused a bottleneck in *operations* because manual deployments couldn't keep up. DevOps was born to solve this bottleneck by automating deployment and testing, allowing Operations to keep pace with Agile Development."
+
+---
+
+### Q9: What is the difference between a Monolith and Microservices?
+**Interview Answer:**  
+"A monolithic application is built as a single, unified codebase—if one small component fails, the entire application can crash. Microservices architecture breaks the application down into small, independent services communicating via APIs. As a DevOps engineer, microservices are crucial because they allow us to deploy, scale, and update individual parts of the application independently using container tools like Docker and Kubernetes."
+
+---
+
+### Q10: What is the difference between Continuous Delivery and Continuous Deployment?
+**Interview Answer:**  
+"Both represent the 'CD' in CI/CD. Continuous Delivery means the code is automatically built, tested, and prepared for release, but a human must manually click 'approve' to send it to the live production environment. Continuous Deployment means there is no human intervention at all—if the code passes all automated tests, it deploys straight to production. Because of the high risk, most enterprise companies stick to Continuous Delivery."

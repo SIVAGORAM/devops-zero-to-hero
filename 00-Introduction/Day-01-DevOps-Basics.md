@@ -94,6 +94,10 @@ The live environment where real users interact with your application. Because an
 ### 6. What is a Data Center?
 A facility containing thousands of servers, networking equipment, storage devices, and cooling systems. When you use cloud providers like AWS or Google Cloud, your applications are running inside their massive data centers.
 
+### 6.5 On-Premise vs Cloud Computing
+Before the Cloud, companies had to buy, power, and physically maintain their own servers in their own buildings (**On-Premise**). 
+Today, we use **Cloud Computing** (like AWS, Azure, GCP). This means we rent servers from massive data centers owned by Amazon or Microsoft and only pay for what we use. As a DevOps engineer, the Cloud is vital because it allows us to create servers instantly using code, rather than waiting weeks for physical hardware to be delivered.
+
 ### 7. What is Linux?
 An open-source Operating System (OS). Most servers in the world run Linux because it is secure, stable, fast, and free.
 - **Why DevOps engineers use it:** Almost every cloud server runs Linux. It has a powerful command-line interface perfectly suited for automation.

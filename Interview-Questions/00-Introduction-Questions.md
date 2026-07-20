@@ -67,3 +67,9 @@ If an interviewer asks you about these basic concepts, you want to give a simple
 ### Q10: What is Linux and why is it important in DevOps?
 **Interview Answer:**  
 "Linux is a free, secure, and highly stable operating system. It is absolutely critical in DevOps because almost all servers in the cloud run on Linux. I use Linux every single day to write automation scripts, troubleshoot servers, and configure networking using the command line."
+
+---
+
+### Q11: What is the difference between On-Premise and Cloud Computing?
+**Interview Answer:**  
+"On-Premise means a company owns, powers, and maintains its own physical servers in its own building. Cloud computing, like AWS, allows us to rent servers over the internet on a pay-as-you-go basis. In DevOps, the cloud is essential because it allows us to instantly provision, scale, and destroy infrastructure using code (IaC), which is impossible with physical on-premise hardware."
