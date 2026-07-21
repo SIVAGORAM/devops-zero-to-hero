@@ -82,4 +82,35 @@ These questions test your fundamental understanding of hardware, virtualization,
 
 
 ---
+
+### Q14: What is the difference between User Space and Kernel Space?
+**Interview Answer:**  
+"The operating system is divided into two areas for security. The Kernel Space is where the core of the OS runs, with unrestricted access to the CPU, RAM, and hardware. User Space is where normal applications like Docker, Nginx, or Python run. Applications in User Space cannot access hardware directly; they must make a System Call (Syscall) to politely ask the kernel to perform hardware tasks on their behalf."
+
+---
+
+### Q15: What is a Zombie Process, and how do you kill it?
+**Interview Answer:**  
+"A Zombie Process is a child process that has finished executing and died, but its parent process hasn't read its exit status yet. It uses no CPU or memory, but it takes up a slot in the process table. Because it's already dead, you cannot kill a zombie process directly. To remove it, you must either wait for the parent to read the status, or you must forcefully kill the parent process itself."
+
+---
+
+### Q16: Why might a Linux server show 95% RAM usage, but the system is actually perfectly healthy?
+**Interview Answer:**  
+"Linux intentionally uses almost all free, unused RAM to cache frequently accessed disk files (known as the Page Cache) to dramatically speed up read operations. If you run `free -h`, the 'Used' column might look dangerously high, but the 'Available' column will show the true amount of RAM that can instantly be reclaimed if an application actually needs it."
+
+---
+
+### Q17: What is the OOM Killer and why is it important in containerized environments?
+**Interview Answer:**  
+"The Out-Of-Memory (OOM) Killer is a kernel feature that activates when the server completely runs out of RAM. To prevent the entire OS from crashing, it calculates a score and mercilessly kills the process consuming the most memory. In environments like Docker and Kubernetes, if a container exceeds its memory limit, the OS triggers the OOM Killer on that specific container, resulting in an `OOMKilled` exit status."
+
+---
+
+### Q18: What are Namespaces and Cgroups, and how do they relate to Docker?
+**Interview Answer:**  
+"Namespaces and Cgroups are native Linux kernel features that make containers possible. Namespaces provide isolation by restricting what a process can *see* (giving it a private process tree, network stack, and mount points). Cgroups (Control Groups) provide resource limiting by restricting what a process can *use* (capping its CPU and RAM). Docker is fundamentally just a user-friendly tool that manages these two features to run isolated processes."
+
+
+---
 **[⬅️ Previous: Day 3 - Roles & Agile Questions](./Day-03-Roles-Questions.md)** | **[➡️ Next: Day 5 - AWS EC2 Questions](./Day-05-AWS-EC2-Questions.md)**

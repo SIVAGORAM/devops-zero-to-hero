@@ -1,4 +1,4 @@
-# Day 7: Linux Operating System & Basics of Shell Scripting
+# Day 7 (Part 3): Linux Operating System & Basics of Shell Scripting
 
 In DevOps, 80-90% of servers run Linux. Today we cover what Linux actually is, its architecture, and the fundamental commands you will use every day as a DevOps engineer.
 
