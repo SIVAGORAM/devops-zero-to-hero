@@ -1,4 +1,4 @@
-# Day 5: AWS EC2 Foundations & VM Automation
+﻿# Day 5: AWS EC2 Foundations & VM Automation
 
 Welcome to Day 5! In the last class, we learned what a Virtual Machine is. Today, we learn how to actually create them in the cloud (AWS) and how DevOps engineers automate this process.
 
@@ -12,7 +12,7 @@ You log into the AWS Management Console (the website), click "Launch Instance", 
 
 **Automated Creation (For DevOps Engineers):**
 DevOps is all about efficiency through automation. Instead of clicking buttons, we write code (scripts) to interact with the **AWS API**. 
-- Your Script ➔ AWS API ➔ AWS Creates 100 VMs instantly.
+- Your Script âž” AWS API âž” AWS Creates 100 VMs instantly.
 
 ### Popular Automation Tools
 DevOps engineers use various tools to talk to the AWS API:
@@ -86,19 +86,19 @@ Once you launch your Ubuntu EC2 instance in AWS, you need to log into it from yo
 
 1. **Get the IP:** Go to the AWS Console and copy your EC2 instance's **Public IPv4 Address**.
 2. **Download MobaXterm:** Since the default Windows command prompt isn't always great for SSH, download and install *MobaXterm Home Edition*.
-3. **Start SSH Session:** Open MobaXterm ➔ Session ➔ SSH.
+3. **Start SSH Session:** Open MobaXterm âž” Session âž” SSH.
 4. **Enter Details:**
    - **Remote Host:** Paste the Public IP (e.g., `54.xxx.xxx.xxx`).
    - **Username:** Type `ubuntu`.
-5. **Use the Private Key:** Click Advanced SSH Settings ➔ Check "Use private key" ➔ Upload the `.pem` file you downloaded when creating the instance.
+5. **Use the Private Key:** Click Advanced SSH Settings âž” Check "Use private key" âž” Upload the `.pem` file you downloaded when creating the instance.
 6. **Connect:** Click OK. You are now inside your remote AWS server!
 
 ---
 
-## 🎯 Day 5 Summary
+## ðŸŽ¯ Day 5 Summary
 You have now bridged the gap between basic virtualization and actual Cloud Computing. 
-Workflow: **AWS Console ➔ Choose Region & AZ ➔ Choose AMI (Ubuntu) ➔ Choose Instance Type (t2.micro) ➔ Create Key Pair ➔ Configure Security Group (Open Port 22) ➔ Launch EC2 ➔ Connect via SSH (MobaXterm).**
-
+Workflow: **AWS Console âž” Choose Region & AZ âž” Choose AMI (Ubuntu) âž” Choose Instance Type (t2.micro) âž” Create Key Pair âž” Configure Security Group (Open Port 22) âž” Launch EC2 âž” Connect via SSH (MobaXterm).**
 
 ---
-**[⬅️ Previous: Day 4 - OS & Virtualization](../01-Operating-System/Day-04-OS-and-Virtualization.md)** | **[➡️ Next: Day 6 - AWS CLI & IaC](./Day-06-AWS-CLI-and-IaC.md)**
+**[⬅️ Previous: Day 4 (Advanced) - OS for DevOps](../01-Operating-System/Day-04-Advanced-OS-for-DevOps.md)** | **[➡️ Next: Day 6 - AWS CLI & IaC](./Day-06-AWS-CLI-and-IaC.md)**
+
