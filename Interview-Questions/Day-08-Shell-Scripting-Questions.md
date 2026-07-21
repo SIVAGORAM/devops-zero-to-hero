@@ -64,4 +64,64 @@ These questions test your understanding of how Linux interprets and executes scr
 
 
 ---
+
+### Q11: What is `set -x` used for in a shell script?
+**Interview Answer:**  
+"It enables debug mode. When a script runs with `set -x`, it prints each command and its expanded arguments to the terminal before executing it. This makes it much easier to trace the script's execution flow and identify exactly where it might be failing."
+
+---
+
+### Q12: What is the purpose of the `set -e` command?
+**Interview Answer:**  
+"By default, if a command inside a shell script fails, the script will just continue executing the next commands. `set -e` changes this behavior so that the script exits immediately if any command returns a non-zero (failure) exit status. This is critical in production to prevent a script from executing further steps when an earlier, foundational step has already failed."
+
+---
+
+### Q13: Why is `set -o pipefail` recommended for production scripts?
+**Interview Answer:**  
+"In a standard bash pipeline (e.g., `cmd1 | cmd2`), bash only returns the exit status of the very last command. If `cmd1` fails but `cmd2` succeeds, the pipeline is considered successful. Adding `set -o pipefail` ensures that the entire pipeline fails if *any* command within it fails, dramatically improving error detection."
+
+---
+
+### Q14: What is the difference between the `ps` and `ps -ef` commands?
+**Interview Answer:**  
+"`ps` on its own only shows the processes associated with the current terminal session or user. `ps -ef`, on the other hand, displays a detailed, full-format list of all running processes across the entire system, making it essential for system-wide monitoring."
+
+---
+
+### Q15: How does the pipe (`|`) operator work in Linux?
+**Interview Answer:**  
+"The pipe operator takes the standard output of the command on its left and sends it directly as the standard input to the command on its right. This allows us to chain simple commands together to perform complex tasks, such as `ps -ef | grep postgres`."
+
+---
+
+### Q16: What is the `awk` command primarily used for?
+**Interview Answer:**  
+"`awk` is a powerful text-processing tool. In DevOps, we frequently use it to extract specific columns from structured text output, filter records, or format data. For example, `awk '{print $2}'` easily extracts the second column (like a Process ID) from a line of text."
+
+---
+
+### Q17: What is the key difference between `curl` and `wget`?
+**Interview Answer:**  
+"While both can transfer data over the network, `curl` is primarily designed for sending HTTP requests (like GET or POST) and interacting with REST APIs, outputting the response to the terminal by default. `wget` is primarily designed for downloading files directly to disk."
+
+---
+
+### Q18: What actually happens under the hood when you press `Ctrl + C` in a terminal?
+**Interview Answer:**  
+"Pressing `Ctrl + C` sends a `SIGINT` (Signal Interrupt) signal to the currently running foreground process. This tells the operating system to interrupt and gracefully stop the process."
+
+---
+
+### Q19: What is a Process ID (PID) and why is it important?
+**Interview Answer:**  
+"A PID is a unique numerical identifier assigned by the Linux kernel to every active process. It is important because if we need to manage a process—such as monitoring its resource usage with `top` or forcefully terminating it with a `kill -9` command—we must reference it by its PID."
+
+---
+
+### Q20: How can you intercept signals like `Ctrl + C` inside a shell script to perform cleanup before exiting?
+**Interview Answer:**  
+"You can use the `trap` command. By defining a trap (e.g., `trap 'rm -rf /tmp/files' SIGINT`), you can instruct the script to catch specific signals and execute a command or function (like cleaning up temporary files) before the script actually terminates."
+
+---
 **[⬅️ Previous: Day 7 - Linux Questions](./Day-07-Linux-Questions.md)**
