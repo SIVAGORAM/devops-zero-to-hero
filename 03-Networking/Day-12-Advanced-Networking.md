@@ -1,4 +1,4 @@
-# Day 12: Advanced Networking (DNS, Load Balancing & Proxies)
+﻿# Day 12: Advanced Networking (DNS, Load Balancing & Proxies)
 
 Today we cover the technologies that make the internet highly available and user-friendly.
 
@@ -15,8 +15,8 @@ Computers only understand IP addresses (`142.250.190.46`), but humans prefer nam
 4. The Resolver asks the Root servers, then the TLD (`.com`) servers, and finally gets the IP from Google's authoritative Name Servers.
 
 ### Common DNS Records (DevOps Must-Know)
-- **A Record:** Maps a domain name directly to an IPv4 address (e.g., `myapp.com` ➔ `1.2.3.4`).
-- **CNAME (Canonical Name):** Maps a domain name to *another domain name* (e.g., `www.myapp.com` ➔ `myapp.com`). Very commonly used to point domains to AWS Load Balancers.
+- **A Record:** Maps a domain name directly to an IPv4 address (e.g., `myapp.com` âž” `1.2.3.4`).
+- **CNAME (Canonical Name):** Maps a domain name to *another domain name* (e.g., `www.myapp.com` âž” `myapp.com`). Very commonly used to point domains to AWS Load Balancers.
 - **TXT Record:** Text notes attached to a domain, usually for verifying ownership or email security.
 
 ---
@@ -67,5 +67,9 @@ When things break, use these commands:
 
 ---
 
-## 🎯 Day 12 Summary
+## ðŸŽ¯ Day 12 Summary
 You now understand how domains resolve to IPs using **DNS**, how traffic is scaled and routed using **Load Balancers and Reverse Proxies**, and how private servers reach the internet using **NAT**. You also have a toolkit of CLI commands to debug any network failure!
+
+---
+**[⬅️ Previous: Day 11 - Networking Foundations](./Day-11-Networking-Foundations.md)** | **[➡️ Next: Day 13 - Networking Security](./Day-13-Networking-Security-and-Cloud.md)**
+

@@ -1,11 +1,11 @@
-# Day 7 (Part 1): 🚀 DevOps Foundations – OS, Linux & Basic Commands
+﻿# Day 7 (Part 1): ðŸš€ DevOps Foundations â€“ OS, Linux & Basic Commands
 
 > These notes are written from the perspective of a **senior DevOps engineer & trainer**, focusing on **real-world understanding**, not just theory.  
 > If you master these basics properly, your DevOps journey will become smooth and powerful.
 
 ---
 
-## 🌍 Languages & Communication Basics
+## ðŸŒ Languages & Communication Basics
 
 ### English
 - Primary language used in **IT, DevOps, documentation, tools, and cloud platforms**.
@@ -22,7 +22,7 @@
 
 ---
 
-## 🖥️ What is an Operating System (OS)?
+## ðŸ–¥ï¸ What is an Operating System (OS)?
 
 An **Operating System** is a bridge between:
 - **User**
@@ -38,7 +38,7 @@ An **Operating System** is a bridge between:
 
 ---
 
-## 🪟 GUI vs CLI
+## ðŸªŸ GUI vs CLI
 
 ### GUI (Graphical User Interface)
 - Uses mouse, icons, windows.
@@ -50,11 +50,11 @@ An **Operating System** is a bridge between:
 - Faster, scriptable, automation-friendly.
 - **100% required for DevOps & servers**.
 
-👉 DevOps engineers **live inside CLI**.
+ðŸ‘‰ DevOps engineers **live inside CLI**.
 
 ---
 
-## 🐧 Linux vs Windows
+## ðŸ§ Linux vs Windows
 
 ### Windows
 - Mostly used on **personal laptops**.
@@ -70,7 +70,7 @@ An **Operating System** is a bridge between:
 
 ---
 
-## 🐧 What is Linux?
+## ðŸ§ What is Linux?
 
 Linux is:
 - An **open-source operating system**.
@@ -81,7 +81,7 @@ Linux is:
 
 ---
 
-## 📦 Linux Distributions (Distros)
+## ðŸ“¦ Linux Distributions (Distros)
 
 Linux comes in different **distributions** based on use-case.
 
@@ -100,7 +100,7 @@ Linux comes in different **distributions** based on use-case.
 
 ---
 
-## 💰 Free vs Paid Linux
+## ðŸ’° Free vs Paid Linux
 
 ### Free Linux
 - Community-managed.
@@ -114,33 +114,33 @@ Linux comes in different **distributions** based on use-case.
 
 ### Example:
 - **Red Hat** provides paid Linux support.
-- If a production server fails → **you contact Red Hat**.
+- If a production server fails â†’ **you contact Red Hat**.
 
 ---
 
-## 🏢 Why Companies Use Linux for Servers?
+## ðŸ¢ Why Companies Use Linux for Servers?
 
-### 1️⃣ Stability
+### 1ï¸âƒ£ Stability
 - Servers run **24/7 without restart**.
 
-### 2️⃣ Performance
+### 2ï¸âƒ£ Performance
 - Uses less memory and CPU.
 
-### 3️⃣ Security
+### 3ï¸âƒ£ Security
 - Strong permission model.
 - Fewer viruses.
 
-### 4️⃣ Automation Friendly
+### 4ï¸âƒ£ Automation Friendly
 - Perfect for scripting (Bash, Shell).
 
-### 5️⃣ Cost Effective
+### 5ï¸âƒ£ Cost Effective
 - No OS license cost.
 
-👉 **Linux = Backbone of Internet**
+ðŸ‘‰ **Linux = Backbone of Internet**
 
 ---
 
-## 🔴 Why Choose Red Hat (RHEL)?
+## ðŸ”´ Why Choose Red Hat (RHEL)?
 
 - Enterprise-grade OS.
 - Certified with:
@@ -151,11 +151,11 @@ Linux comes in different **distributions** based on use-case.
 - Professional support.
 - Used by banks, MNCs, production servers.
 
-👉 **Most DevOps jobs expect Red Hat/Linux skills**
+ðŸ‘‰ **Most DevOps jobs expect Red Hat/Linux skills**
 
 ---
 
-## ⚡ Linux = Power of Servers
+## âš¡ Linux = Power of Servers
 
 - Websites
 - Cloud platforms
@@ -163,11 +163,11 @@ Linux comes in different **distributions** based on use-case.
 - Kubernetes clusters
 - CI/CD pipelines
 
-👉 If you know Linux deeply → **you control servers**
+ðŸ‘‰ If you know Linux deeply â†’ **you control servers**
 
 ---
 
-## 🧰 Git Bash
+## ðŸ§° Git Bash
 
 ### What is Git Bash?
 - A Linux-like terminal for Windows.
@@ -176,29 +176,29 @@ Linux comes in different **distributions** based on use-case.
   - Git
   - Bash scripting
 
-👉 Download and install **Git Bash** on Windows to practice Linux commands.
+ðŸ‘‰ Download and install **Git Bash** on Windows to practice Linux commands.
 
 ---
 
-## 📁 Linux Basic Commands (Must-Know)
+## ðŸ“ Linux Basic Commands (Must-Know)
 
-### 📂 Create Directory
+### ðŸ“‚ Create Directory
 ```bash
 mkdir Linux
 mkdir ubuntu centos abc
 ```
-- `mkdir` → make directory.
+- `mkdir` â†’ make directory.
 - Can create multiple folders at once.
 
-### ❌ Remove Directory
+### âŒ Remove Directory
 ```bash
 rmdir abc
 ```
 - Removes empty directory only.
-- If directory contains files → ❌ will fail.
-- 💡 *In real servers, deleting directories must be done carefully to avoid data loss.*
+- If directory contains files â†’ âŒ will fail.
+- ðŸ’¡ *In real servers, deleting directories must be done carefully to avoid data loss.*
 
-### 📄 Create File
+### ðŸ“„ Create File
 ```bash
 touch abc.txt
 ```
@@ -211,15 +211,15 @@ touch file1.txt file2.txt file3.txt
 ```
 - Very useful for automation & scripting.
 
-### 🗑️ Remove File
+### ðŸ—‘ï¸ Remove File
 ```bash
 rm abc.txt
 ```
 - Deletes file permanently.
 - No recycle bin in Linux CLI.
-- ⚠️ **Warning:** `rm` is dangerous on servers. One wrong command can delete production data. Careful: `rm` deletes permanently.
+- âš ï¸ **Warning:** `rm` is dangerous on servers. One wrong command can delete production data. Careful: `rm` deletes permanently.
 
-### 📃 List Files & Directories
+### ðŸ“ƒ List Files & Directories
 ```bash
 ls
 ```
@@ -236,9 +236,9 @@ Shows:
 - Date & time
 - File/Directory name
 
-💡 *DevOps engineers rely heavily on `ls -l` to check permissions and ownership issues.*
+ðŸ’¡ *DevOps engineers rely heavily on `ls -l` to check permissions and ownership issues.*
 
-### 📂 Navigation Commands
+### ðŸ“‚ Navigation Commands
 
 **Change Directory:**
 ```bash
@@ -259,7 +259,7 @@ pwd
 - Displays current location in the file system.
 - Helps avoid mistakes when running commands.
 
-### 🧹 Clear the Terminal Screen
+### ðŸ§¹ Clear the Terminal Screen
 ```bash
 clear
 ```
@@ -268,11 +268,15 @@ Shortcut: `Ctrl + L`
 
 ---
 
-## 🎯 DevOps Mentor Advice (Very Important)
+## ðŸŽ¯ DevOps Mentor Advice (Very Important)
 
-- Don’t rush Linux.
+- Donâ€™t rush Linux.
 - Practice commands daily.
 - Understand **WHY**, not just **HOW**.
-- Linux basics → Shell scripting → Git → CI/CD → Cloud → Kubernetes.
+- Linux basics â†’ Shell scripting â†’ Git â†’ CI/CD â†’ Cloud â†’ Kubernetes.
 
-👉 **Strong Linux = Strong DevOps Engineer**
+ðŸ‘‰ **Strong Linux = Strong DevOps Engineer**
+
+---
+**[⬅️ Previous: Day 6 - AWS CLI & IaC](../05-AWS/Day-06-AWS-CLI-and-IaC.md)** | **[➡️ Next: Day 7 (Part 2) - Linux Fundamentals](./Day-07-Part-2-Linux-Fundamentals.md)**
+

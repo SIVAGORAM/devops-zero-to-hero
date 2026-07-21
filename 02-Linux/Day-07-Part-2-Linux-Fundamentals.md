@@ -1,61 +1,61 @@
-# Day 7 (Part 2): 🐧 Linux Fundamentals
+﻿# Day 7 (Part 2): ðŸ§ Linux Fundamentals
 
 > Trainer: 20+ Years Experienced DevOps Engineer  
 > Focus: Real-world usage, production mindset, strong fundamentals
 
 ---
 
-## 📌 Directory Management Commands
+## ðŸ“Œ Directory Management Commands
 
-### 🔹 `mkdir -p` (Create Parent Directories)
+### ðŸ”¹ `mkdir -p` (Create Parent Directories)
 ```bash
 mkdir -p abc/xyz/123
 ```
-- `-p` → Parent option.
+- `-p` â†’ Parent option.
 - Creates all missing parent directories automatically.
 - Used in production to create application, logs, and deployment folders.
 
-### 🔹 `rmdir` (Remove Empty Directory)
+### ðŸ”¹ `rmdir` (Remove Empty Directory)
 ```bash
 rmdir india/
 ```
 - Removes directory only if empty.
 - Rarely used in DevOps due to limitation.
 
-### 🔹 `rm -r` (Recursive Delete)
+### ðŸ”¹ `rm -r` (Recursive Delete)
 ```bash
 rm -r india/
 ```
 - Deletes directory and its contents recursively.
 - Use carefully in servers.
 
-### 🔹 `rm -rf` (Force Recursive Delete ⚠️)
+### ðŸ”¹ `rm -rf` (Force Recursive Delete âš ï¸)
 ```bash
 rm -rf india/
 ```
-- `-r` → recursive
-- `-f` → force delete (no confirmation)
+- `-r` â†’ recursive
+- `-f` â†’ force delete (no confirmation)
 - Commonly used in automation & cleanup scripts.
-- ⚠️ **Dangerous in production if misused.**
+- âš ï¸ **Dangerous in production if misused.**
 
 ---
 
-## 📄 File Management Commands
+## ðŸ“„ File Management Commands
 
-### 🔹 `touch` (Create Empty File)
+### ðŸ”¹ `touch` (Create Empty File)
 ```bash
 touch 123.txt
 ```
 - Creates an empty file.
 - Updates timestamp if file already exists.
 
-### 🔹 `rm` (Delete File)
+### ðŸ”¹ `rm` (Delete File)
 ```bash
 rm 123.txt
 ```
 - Permanently deletes file.
 
-### 🔹 `stat` (File Metadata – Very Important)
+### ðŸ”¹ `stat` (File Metadata â€“ Very Important)
 ```bash
 stat 123.txt
 ```
@@ -66,24 +66,24 @@ Displays:
 - Accessed time
 - Modified time
 
-👉 *Used in debugging, auditing, and production issue analysis.*
+ðŸ‘‰ *Used in debugging, auditing, and production issue analysis.*
 
 ---
 
-## 📂 Listing Files and Directories (`ls`)
+## ðŸ“‚ Listing Files and Directories (`ls`)
 
-### 🔹 Basic Listing
+### ðŸ”¹ Basic Listing
 ```bash
 ls
 ```
 
-### 🔹 Long Listing
+### ðŸ”¹ Long Listing
 ```bash
 ls -l
 ```
 - Shows permissions, owner, size, and timestamp.
 
-### 🔹 Hidden Files
+### ðŸ”¹ Hidden Files
 ```bash
 ls -a
 ls -all
@@ -91,24 +91,24 @@ ls -all
 - Displays hidden files like `.git`, `.env`, `.bashrc`.
 - Important for DevOps configurations.
 
-### 🔹 Sorting Files
+### ðŸ”¹ Sorting Files
 ```bash
 ls -lt    # Latest files first
 ls -ltr   # Oldest files first
 ```
 
-### 🔹 File Size (Human Readable)
+### ðŸ”¹ File Size (Human Readable)
 ```bash
 ls -lh
 ```
 - Displays sizes in KB, MB, GB.
 
-### 🔹 One File Per Line
+### ðŸ”¹ One File Per Line
 ```bash
 ls -1
 ```
 
-### 🔹 Shortcut
+### ðŸ”¹ Shortcut
 ```bash
 ll
 ```
@@ -116,31 +116,31 @@ ll
 
 ---
 
-## 📜 Command History (Productivity Booster)
+## ðŸ“œ Command History (Productivity Booster)
 
-### 🔹 View Command History
+### ðŸ”¹ View Command History
 ```bash
 history
 ```
 
-### 🔹 Re-execute Commands
+### ðŸ”¹ Re-execute Commands
 ```bash
 !!      # Run previous command
 !582    # Run command number 582
 !-13    # Run 13th command from bottom
 ```
-👉 *Heavily used by senior DevOps engineers.*
+ðŸ‘‰ *Heavily used by senior DevOps engineers.*
 
 ---
 
-## 📍 Navigation Commands
+## ðŸ“ Navigation Commands
 
-### 🔹 Present Working Directory
+### ðŸ”¹ Present Working Directory
 ```bash
 pwd
 ```
 
-### 🔹 Change Directory
+### ðŸ”¹ Change Directory
 ```bash
 cd ../..
 ```
@@ -148,14 +148,14 @@ cd ../..
 
 ---
 
-## 📖 Viewing & Creating File Content
+## ðŸ“– Viewing & Creating File Content
 
-### 🔹 View File Content
+### ðŸ”¹ View File Content
 ```bash
 cat 123.txt
 ```
 
-### 🔹 Create File with Content
+### ðŸ”¹ Create File with Content
 ```bash
 cat > 456.txt
 ```
@@ -164,30 +164,30 @@ cat > 456.txt
 
 ---
 
-## ✍️ vi Editor (Mandatory for DevOps)
+## âœï¸ vi Editor (Mandatory for DevOps)
 
-### 🔹 Open File
+### ðŸ”¹ Open File
 ```bash
 vi team.txt
 ```
 
-### 🔹 vi Modes
+### ðŸ”¹ vi Modes
 - **Normal mode** (default)
-- **Insert mode** → press `i`
-- **Command mode** → press `ESC`
+- **Insert mode** â†’ press `i`
+- **Command mode** â†’ press `ESC`
 
-### 🔹 Save & Exit
+### ðŸ”¹ Save & Exit
 ```bash
 :wq!
 ```
-👉 Used to edit:
+ðŸ‘‰ Used to edit:
 - Configuration files
 - YAML files
 - Application & server configs
 
 ---
 
-## ⌨️ Keyboard Shortcuts (Speed & Efficiency)
+## âŒ¨ï¸ Keyboard Shortcuts (Speed & Efficiency)
 
 | Shortcut | Description |
 |----------|-------------|
@@ -199,6 +199,10 @@ vi team.txt
 
 ---
 
-## 🎯 DevOps Best Practice
+## ðŸŽ¯ DevOps Best Practice
 Linux mastery is about speed, safety, and confidence in production systems.  
 These commands are used daily in real DevOps roles.
+
+---
+**[⬅️ Previous: Day 7 (Part 1) - Linux Foundations](./Day-07-Part-1-Linux-Foundations.md)** | **[➡️ Next: Day 7 (Part 3) - Linux Commands](./Day-07-Part-3-Linux-Commands.md)**
+

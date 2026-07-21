@@ -1,4 +1,4 @@
-# Day 11: Networking Foundations for DevOps
+﻿# Day 11: Networking Foundations for DevOps
 
 As a DevOps Engineer, networking is arguably the most critical and often misunderstood skill. When a microservice cannot talk to a database, or a web application is unreachable, it is almost always a networking issue. We will learn networking from a practical DevOps perspective.
 
@@ -78,5 +78,9 @@ If an IP address is a building's street address, a **Port** is a specific apartm
 
 ---
 
-## 🎯 Day 11 Summary
+## ðŸŽ¯ Day 11 Summary
 You now understand how machines identify each other (**IPs**), how networks are sized (**CIDR**), how data is reliably transmitted (**TCP**), and how specific applications receive that data (**Ports**). Next, we will cover DNS and Load Balancers!
+
+---
+**[⬅️ Previous: Day 10 - Advanced Linux](../02-Linux/Day-10-Advanced-Linux-for-DevOps.md)** | **[➡️ Next: Day 12 - Advanced Networking](./Day-12-Advanced-Networking.md)**
+
