@@ -36,19 +36,19 @@ These questions test your practical knowledge of launching and securing cloud se
 
 ### Q6: If an interviewer asks you to describe how to launch an EC2 instance, how do you respond?
 **Interview Answer:**  
-"To launch an EC2 instance, I first select the AWS Region and an Availability Zone. Next, I choose the appropriate AMI for my Operating System, followed by an Instance Type that matches my CPU and RAM requirements. Then, I assign or create a Key Pair for secure SSH access. Finally, I configure the Security Group to allow necessary inbound traffic—like SSH on Port 22—and launch the instance. Once it's running, I use the assigned Public IP and my private key to connect remotely."
+"To launch an EC2 instance, I first select the AWS Region and an Availability Zone. Next, I choose the appropriate AMI for my Operating System, followed by an Instance Type that matches my CPU and RAM requirements. Then, I assign or create a Key Pair for secure SSH access. Finally, I configure the Security Group to allow necessary inbound traffic-like SSH on Port 22-and launch the instance. Once it's running, I use the assigned Public IP and my private key to connect remotely."
 
 ---
 
 ### Q7: What happens to a default Public IP when you stop and start an EC2 instance, and how do you prevent it?
 **Interview Answer:**  
-"By default, an EC2 instance is assigned a dynamic Public IP. If you stop and start the instance, that Public IP is released back to the AWS pool and your instance receives a completely new one. To prevent this, you must allocate an Elastic IP (EIP)—which is a static, persistent IPv4 address—and associate it with your instance so the IP remains constant across reboots."
+"By default, an EC2 instance is assigned a dynamic Public IP. If you stop and start the instance, that Public IP is released back to the AWS pool and your instance receives a completely new one. To prevent this, you must allocate an Elastic IP (EIP)-which is a static, persistent IPv4 address-and associate it with your instance so the IP remains constant across reboots."
 
 ---
 
 ### Q8: What is EC2 User Data and what is it used for?
 **Interview Answer:**  
-"EC2 User Data is a feature that allows you to pass a script to an instance at launch. When the instance boots up for the very first time, it automatically executes this script as the root user. As a DevOps engineer, I use User Data to 'bootstrap' servers—for example, automatically installing web servers, downloading application code, and starting services without ever needing to manually SSH into the machine."
+"EC2 User Data is a feature that allows you to pass a script to an instance at launch. When the instance boots up for the very first time, it automatically executes this script as the root user. As a DevOps engineer, I use User Data to 'bootstrap' servers-for example, automatically installing web servers, downloading application code, and starting services without ever needing to manually SSH into the machine."
 
 ---
 
@@ -58,4 +58,4 @@ These questions test your practical knowledge of launching and securing cloud se
 
 
 ---
-**[➡️ Next: Day 6 - AWS CLI Questions](./Day-06-AWS-CLI-Questions.md)**
+**[Next: Day 6 - AWS CLI Questions](./Day-06-AWS-CLI-Questions.md)**

@@ -2,11 +2,11 @@
 
 Welcome to my DevOps learning repository! This project serves as a comprehensive "Zero to Hero" roadmap, documenting my daily progress towards becoming a highly skilled DevOps Engineer.
 
-## 🗂 Repository Structure
+## Repository Structure
 
 This repository is organized logically into core modules, practical labs, and production-grade projects:
 
-### 📖 Learning Modules
+### Learning Modules
 - `00-Introduction`
 - `01-Operating-System`
 - `02-Linux`
@@ -35,17 +35,17 @@ This repository is organized logically into core modules, practical labs, and pr
 - `30-Packer`
 - `31-Agile-and-Jira`
 
-### 🚀 Projects & Application
+### Projects & Application
 - `22-AWS-Projects`
 - `23-End-to-End-Projects`
 - `24-System-Design-for-DevOps`
 - `Labs` / `Mini-Projects` / `Production-Projects`
 
-### 📚 Resources & Preparation
+### Resources & Preparation
 - `25-Interview-Preparation`
 - `26-Career-Roadmap`
 - `CheatSheets`, `Commands`, `Notes`, `Resources`, `Revision`
 - `Interview-Questions`, `Interview-Experiences`
 
-## 📝 Usage
+## Usage
 Daily class notes and scripts will be committed into the respective folders. Explore [ROADMAP.md](./ROADMAP.md) for the high-level plan and [CONTRIBUTING.md](./CONTRIBUTING.md) if you wish to collaborate.

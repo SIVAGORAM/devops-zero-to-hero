@@ -58,4 +58,4 @@ These questions test your understanding of Linux architecture and essential trou
 
 
 ---
-**[➡️ Next: Day 8 - Shell Scripting Questions](./Day-08-Shell-Scripting-Questions.md)**
+**[Next: Day 8 - Shell Scripting Questions](./Day-08-Shell-Scripting-Questions.md)**

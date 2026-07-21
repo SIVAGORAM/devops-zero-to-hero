@@ -1,4 +1,4 @@
-﻿# Day 4 (Part 2): Advanced Operating System Concepts for DevOps
+# Day 4 (Part 2): Advanced Operating System Concepts for DevOps
 
 While basic knowledge of CPU, RAM, and Virtualization is a great start, a senior DevOps engineer must understand the **internal mechanics** of the Operating System. When a container crashes, a database slows down, or a Kubernetes pod is evicted, knowing these advanced OS concepts will help you find the root cause instantly.
 
@@ -75,12 +75,12 @@ Control Groups (Cgroups) restrict what a process can **use**.
 
 ---
 
-## 🎯 Zero to Hero Summary
+## Zero to Hero Summary
 
 You have now moved from basic virtualization (VMs and Hypervisors) into the deep internal mechanics of the OS. You understand that the **Kernel** handles hardware via **Syscalls**, how the **OOM Killer** protects the system, the difference between **Zombies and Orphans**, the hidden danger of running out of **inodes**, and the foundational building blocks of containerization (**Namespaces and Cgroups**). 
 
 You are now officially a Hero at the Operating System level!
 
 ---
-**[➡️ Next: Day 5 - AWS EC2 Foundations](../05-AWS/Day-05-AWS-EC2-Basics.md)**
+**[Next: Day 5 - AWS EC2 Foundations](../05-AWS/Day-05-AWS-EC2-Basics.md)**
 

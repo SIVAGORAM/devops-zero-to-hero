@@ -12,7 +12,7 @@ Here are simple, conversational answers for foundational SDLC and Pipeline conce
 
 ### Q2: Why is SDLC important?
 **Interview Answer:**  
-"Without SDLC, building software is like building a house without a blueprint—it leads to chaos, delays, and bugs. SDLC provides a clear roadmap. It ensures quality and reduces risks so that the final product actually meets the customer's needs."
+"Without SDLC, building software is like building a house without a blueprint-it leads to chaos, delays, and bugs. SDLC provides a clear roadmap. It ensures quality and reduces risks so that the final product actually meets the customer's needs."
 
 ---
 
@@ -54,14 +54,14 @@ Here are simple, conversational answers for foundational SDLC and Pipeline conce
 
 ### Q9: What is the difference between a Monolith and Microservices?
 **Interview Answer:**  
-"A monolithic application is built as a single, unified codebase—if one small component fails, the entire application can crash. Microservices architecture breaks the application down into small, independent services communicating via APIs. As a DevOps engineer, microservices are crucial because they allow us to deploy, scale, and update individual parts of the application independently using container tools like Docker and Kubernetes."
+"A monolithic application is built as a single, unified codebase-if one small component fails, the entire application can crash. Microservices architecture breaks the application down into small, independent services communicating via APIs. As a DevOps engineer, microservices are crucial because they allow us to deploy, scale, and update individual parts of the application independently using container tools like Docker and Kubernetes."
 
 ---
 
 ### Q10: What is the difference between Continuous Delivery and Continuous Deployment?
 **Interview Answer:**  
-"Both represent the 'CD' in CI/CD. Continuous Delivery means the code is automatically built, tested, and prepared for release, but a human must manually click 'approve' to send it to the live production environment. Continuous Deployment means there is no human intervention at all—if the code passes all automated tests, it deploys straight to production. Because of the high risk, most enterprise companies stick to Continuous Delivery."
+"Both represent the 'CD' in CI/CD. Continuous Delivery means the code is automatically built, tested, and prepared for release, but a human must manually click 'approve' to send it to the live production environment. Continuous Deployment means there is no human intervention at all-if the code passes all automated tests, it deploys straight to production. Because of the high risk, most enterprise companies stick to Continuous Delivery."
 
 
 ---
-**[➡️ Next: Day 3 - Roles & Agile Questions](./Day-03-Roles-Questions.md)**
+**[Next: Day 3 - Roles & Agile Questions](./Day-03-Roles-Questions.md)**

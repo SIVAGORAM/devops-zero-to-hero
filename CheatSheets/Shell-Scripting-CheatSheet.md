@@ -73,7 +73,7 @@ $0   # Name of the script
 $1   # First argument
 $2   # Second argument
 $@   # All arguments as a single string
-$#   # Number of arguments passed
+$# # Number of arguments passed
 ```
 
 ## 8. Process & Text Filtering

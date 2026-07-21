@@ -6,7 +6,7 @@ We welcome contributions of all kinds: correcting typos, adding new interview qu
 
 ---
 
-## 🚀 How to Contribute
+## How to Contribute
 
 ### 1. Reporting Bugs & Issues
 If you spot an error, an outdated script, or a broken link, please open an Issue.
@@ -52,11 +52,11 @@ To submit changes, follow the standard open-source fork-and-pull workflow:
 
 ---
 
-## 🧑‍💻 Code of Conduct
+## Code of Conduct
 
 By participating in this project, you agree to abide by our [Code of Conduct](./CODE_OF_CONDUCT.md). We expect all contributors to maintain a professional, welcoming, and inclusive environment.
 
-## 🤖 AI Contribution Policy
+## AI Contribution Policy
 As this roadmap embraces the AI era, using AI tools (like ChatGPT or GitHub Copilot) to help generate scripts or explanations is highly encouraged! However:
 - **Always verify AI output.** Do not push scripts that you have not tested locally.
 - **Understand the code.** You should be able to explain any AI-generated code you submit if asked during a PR review.

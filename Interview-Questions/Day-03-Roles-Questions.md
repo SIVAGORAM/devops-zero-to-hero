@@ -12,13 +12,13 @@ These questions test your understanding of how a real-world enterprise software 
 
 ### Q2: What is the difference between a Product Manager and a Product Owner?
 **Interview Answer:**  
-"The Product Manager is focused on the high-level vision and strategy—they decide *what* we are building and *why*. The Product Owner is focused on execution—they take that vision, break it down into actionable user stories, and manage the team's backlog to dictate exactly *how* and *when* the development team builds it."
+"The Product Manager is focused on the high-level vision and strategy-they decide *what* we are building and *why*. The Product Owner is focused on execution-they take that vision, break it down into actionable user stories, and manage the team's backlog to dictate exactly *how* and *when* the development team builds it."
 
 ---
 
 ### Q3: How do you receive and track your daily tasks as a DevOps Engineer?
 **Interview Answer:**  
-"In a professional Agile environment, work is tracked using project management tools like Jira. The Product Owner creates Epics and breaks them down into User Stories and technical Tasks. During Sprint Planning, DevOps-specific tasks—like provisioning a new AWS environment or writing a CI/CD pipeline—are assigned to me with estimated completion times."
+"In a professional Agile environment, work is tracked using project management tools like Jira. The Product Owner creates Epics and breaks them down into User Stories and technical Tasks. During Sprint Planning, DevOps-specific tasks-like provisioning a new AWS environment or writing a CI/CD pipeline-are assigned to me with estimated completion times."
 
 ---
 
@@ -52,4 +52,4 @@ These questions test your understanding of how a real-world enterprise software 
 
 
 ---
-**[➡️ Next: Day 4 - OS & Virtualization Questions](./Day-04-Virtualization-Questions.md)**
+**[Next: Day 4 - OS & Virtualization Questions](./Day-04-Virtualization-Questions.md)**

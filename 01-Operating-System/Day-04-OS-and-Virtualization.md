@@ -1,4 +1,4 @@
-﻿# Day 4: Servers, Virtualization, and Operating Systems
+# Day 4: Servers, Virtualization, and Operating Systems
 
 Welcome to Day 4! Today we transition from the theory of how software is built into the actual infrastructure it runs on. Everything a DevOps engineer does revolves around servers, virtual machines, and operating systems.
 
@@ -76,7 +76,7 @@ If you horizontally scale to 5 servers, how do users know which one to connect t
 
 ## 5. Operating Systems & Linux
 
-An **Operating System (OS)** acts as the bridge between your applications and the physical hardware. (Applications âž” OS âž” Hardware).
+An **Operating System (OS)** acts as the bridge between your applications and the physical hardware. (Applications " OS " Hardware).
 
 ### Why Linux is King in DevOps
 While laptops use Windows or macOS, almost all cloud servers run **Linux**.
@@ -111,9 +111,9 @@ In enterprise environments, you never use passwords to log into servers because 
 
 ---
 
-## 🎯 Day 4 Summary
+## Day 4 Summary
 You now understand the physical and virtual infrastructure that powers the internet. A developer writes code on their laptop, but a DevOps engineer uses **SSH** to connect to an **Ubuntu Virtual Machine (EC2)** created by a **Hypervisor**, allocating **vCPUs, RAM, and SSD storage** via a **Public IP** to serve that application to the world!
 
 ---
-**[➡️ Next: Day 4 (Advanced) - OS for DevOps](./Day-04-Advanced-OS-for-DevOps.md)**
+**[Next: Day 4 (Advanced) - OS for DevOps](./Day-04-Advanced-OS-for-DevOps.md)**
 

@@ -54,7 +54,7 @@ These questions test your fundamental understanding of hardware, virtualization,
 
 ### Q9: What is the difference between a Type 1 and Type 2 Hypervisor?
 **Interview Answer:**  
-"A Type 1, or Bare-Metal hypervisor, is installed directly onto the physical server hardware without a base operating system—this is what cloud providers like AWS use for maximum performance. A Type 2, or Hosted hypervisor, runs as an application on top of a host operating system (like Windows or macOS), which is what we use on our local laptops like VirtualBox."
+"A Type 1, or Bare-Metal hypervisor, is installed directly onto the physical server hardware without a base operating system-this is what cloud providers like AWS use for maximum performance. A Type 2, or Hosted hypervisor, runs as an application on top of a host operating system (like Windows or macOS), which is what we use on our local laptops like VirtualBox."
 
 ---
 
@@ -113,4 +113,4 @@ These questions test your fundamental understanding of hardware, virtualization,
 
 
 ---
-**[➡️ Next: Day 5 - AWS EC2 Questions](./Day-05-AWS-EC2-Questions.md)**
+**[Next: Day 5 - AWS EC2 Questions](./Day-05-AWS-EC2-Questions.md)**

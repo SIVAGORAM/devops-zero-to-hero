@@ -6,7 +6,7 @@ These questions test your understanding of how Linux interprets and executes scr
 
 ### Q1: Why do we use Shell Scripting in DevOps?
 **Interview Answer:**  
-"In DevOps, we often manage hundreds or thousands of servers. Doing administrative tasks manually—like creating users, installing software, rotating logs, or monitoring CPU usage—is inefficient and prone to human error. Shell scripting allows us to automate these repetitive tasks by writing a sequence of commands in a file that the operating system executes automatically, ensuring speed and consistency."
+"In DevOps, we often manage hundreds or thousands of servers. Doing administrative tasks manually-like creating users, installing software, rotating logs, or monitoring CPU usage-is inefficient and prone to human error. Shell scripting allows us to automate these repetitive tasks by writing a sequence of commands in a file that the operating system executes automatically, ensuring speed and consistency."
 
 ---
 
@@ -48,7 +48,7 @@ These questions test your understanding of how Linux interprets and executes scr
 
 ### Q8: What is Command Substitution in a shell script and how is it written?
 **Interview Answer:**  
-"Command substitution allows you to execute a Linux command and capture its standard output so it can be used as a value—usually to store inside a variable. The modern syntax is to wrap the command inside `$()`. For example, `CURRENT_DATE=$(date)` will execute the `date` command and store the resulting output string directly into the `CURRENT_DATE` variable."
+"Command substitution allows you to execute a Linux command and capture its standard output so it can be used as a value-usually to store inside a variable. The modern syntax is to wrap the command inside `$()`. For example, `CURRENT_DATE=$(date)` will execute the `date` command and store the resulting output string directly into the `CURRENT_DATE` variable."
 
 ---
 
@@ -115,7 +115,7 @@ These questions test your understanding of how Linux interprets and executes scr
 
 ### Q19: What is a Process ID (PID) and why is it important?
 **Interview Answer:**  
-"A PID is a unique numerical identifier assigned by the Linux kernel to every active process. It is important because if we need to manage a process—such as monitoring its resource usage with `top` or forcefully terminating it with a `kill -9` command—we must reference it by its PID."
+"A PID is a unique numerical identifier assigned by the Linux kernel to every active process. It is important because if we need to manage a process-such as monitoring its resource usage with `top` or forcefully terminating it with a `kill -9` command-we must reference it by its PID."
 
 ---
 
@@ -124,4 +124,4 @@ These questions test your understanding of how Linux interprets and executes scr
 "You can use the `trap` command. By defining a trap (e.g., `trap 'rm -rf /tmp/files' SIGINT`), you can instruct the script to catch specific signals and execute a command or function (like cleaning up temporary files) before the script actually terminates."
 
 ---
-**[⬅️ Previous: Day 7 - Linux Questions](./Day-07-Linux-Questions.md)**
+**[Previous: Day 7 - Linux Questions](./Day-07-Linux-Questions.md)**

@@ -51,4 +51,4 @@ These questions test your knowledge of system internals, service management, and
 "`/etc/fstab` (File System Table) is a critical configuration file used to define how disk partitions, block devices, or remote file systems should be mounted into the Linux filesystem. The system reads this file during boot. If you attach a new AWS EBS volume and mount it, you must add an entry into `/etc/fstab` to ensure the disk mounts automatically upon reboot."
 
 ---
-**[⬅️ Previous: Day 8 & 9 - Shell Scripting Questions](./Day-08-Shell-Scripting-Questions.md)**
+**[Previous: Day 8 & 9 - Shell Scripting Questions](./Day-08-Shell-Scripting-Questions.md)**

@@ -1,4 +1,4 @@
-﻿# Day 7 (Part 3): Linux Operating System & Basics of Shell Scripting
+# Day 7 (Part 3): Linux Operating System & Basics of Shell Scripting
 
 In DevOps, 80-90% of servers run Linux. Today we cover what Linux actually is, its architecture, and the fundamental commands you will use every day as a DevOps engineer.
 
@@ -9,7 +9,7 @@ In DevOps, 80-90% of servers run Linux. Today we cover what Linux actually is, i
 An Operating System is the system software that manages a computer's hardware and provides a platform for applications to run. Without it, applications (like Python or Jenkins) cannot communicate with the hardware (CPU, RAM).
 
 **Architecture Flow:**
-`Application Software âž” Operating System âž” Hardware (CPU/RAM)`
+`Application Software " Operating System " Hardware (CPU/RAM)`
 
 ### Why Linux is Used in DevOps (Linux vs Windows)
 Almost every major cloud provider (AWS, Azure, GCP) uses Linux for hosting applications. 
@@ -110,9 +110,9 @@ Linux does not have a "C: Drive". Everything starts at the Root `/`.
 
 ---
 
-## 🎯 Day 7 Summary
+## Day 7 Summary
 The **Linux Kernel** manages hardware, while the **Shell (Bash)** allows us to interact with the Kernel using commands. DevOps engineers rely heavily on the **CLI** to navigate directories, edit files with `vi`, and monitor system health using `top`, `free`, and `df`.
 
 ---
-**[➡️ Next: Day 8 - Shell Scripting](./Day-08-Shell-Scripting-Basics.md)**
+**[Next: Day 8 - Shell Scripting](./Day-08-Shell-Scripting-Basics.md)**
 

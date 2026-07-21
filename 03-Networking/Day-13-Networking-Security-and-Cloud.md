@@ -1,4 +1,4 @@
-﻿# Day 13: Networking Security & Cloud Concepts
+# Day 13: Networking Security & Cloud Concepts
 
 Before we completely transition into Cloud Computing (AWS), we must cover the security mechanisms and advanced routing that secure modern cloud networks.
 
@@ -55,12 +55,12 @@ An API Gateway is a very advanced form of a Reverse Proxy designed specifically 
 
 ---
 
-## 🎯 Final Networking Module Summary
+## Final Networking Module Summary
 
 You have now completely mastered the networking layer! You understand how data moves (**IPs & Subnets**), how names resolve (**DNS**), how traffic is distributed (**Load Balancers**), and how networks are securely locked down and encrypted (**Security Groups & TLS**). 
 
 You are now fully prepared to enter the Cloud Computing module (AWS), where you will use all of these exact concepts to build Virtual Private Clouds!
 
 ---
-**[➡️ Next: Module 04 - Git & GitHub](../04-Git-GitHub/README.md)**
+**[Next: Module 04 - Git & GitHub](../04-Git-GitHub/README.md)**
 

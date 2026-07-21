@@ -1,4 +1,4 @@
-# 🗺️ The DevOps Zero to Hero Roadmap (AI Era Edition)
+# The DevOps Zero to Hero Roadmap (AI Era Edition)
 
 Welcome to the ultimate, industry-standard roadmap designed to take you from an absolute beginner to a highly paid, senior-level DevOps Engineer. 
 
@@ -81,4 +81,4 @@ Putting it all together to pass senior-level interviews and build production sys
     *   Mock interviews, resume building, negotiating high-tier salaries.
 
 ---
-> **"The goal of a DevOps Engineer is to automate themselves out of a job, only to find a higher paying one solving more complex problems."** 🚀
+> **"The goal of a DevOps Engineer is to automate themselves out of a job, only to find a higher paying one solving more complex problems."** 

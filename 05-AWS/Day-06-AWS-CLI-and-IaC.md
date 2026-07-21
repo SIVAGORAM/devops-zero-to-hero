@@ -1,4 +1,4 @@
-﻿# Day 6: Connecting to EC2, AWS CLI, & Infrastructure as Code (IaC)
+# Day 6: Connecting to EC2, AWS CLI, & Infrastructure as Code (IaC)
 
 In Day 5, we launched an EC2 instance. Today, we will learn how to connect to it securely, how to fix common connection errors, and how to manage AWS resources using the AWS CLI and Automation tools.
 
@@ -29,13 +29,13 @@ chmod 600 ~/Downloads/my-key.pem
 
 ### Method 3: MobaXterm or PuTTY (Windows)
 Since native Windows Command Prompt historically didn't handle SSH keys well, DevOps engineers on Windows use tools like **MobaXterm**.
-- Open MobaXterm âž” SSH Session âž” Enter Public IP âž” Username: `ubuntu` âž” Advanced SSH Settings âž” Upload Private Key âž” Connect.
+- Open MobaXterm " SSH Session " Enter Public IP " Username: `ubuntu` " Advanced SSH Settings " Upload Private Key " Connect.
 
 ---
 
 ## 2. Deleting an EC2 Instance
 When you are done practicing, you must delete your EC2 instance so AWS stops charging you.
-- Go to EC2 Dashboard âž” Select Instance âž” Click **Instance State** âž” Select **Terminate Instance**.
+- Go to EC2 Dashboard " Select Instance " Click **Instance State** " Select **Terminate Instance**.
 - *Note:* Terminating is permanent. The instance and its Root Volume are destroyed forever.
 
 ---
@@ -78,7 +78,7 @@ Then, to run a command against that specific account, you simply add the `--prof
 aws s3 ls --profile prod-account
 ```
 
-**âš ï¸ SECURITY WARNING:** Never share your Secret Access Key. Do not commit it to GitHub. If a hacker finds it, they can spin up thousands of servers in your account and cost you millions of dollars.
+** SECURITY WARNING:** Never share your Secret Access Key. Do not commit it to GitHub. If a hacker finds it, they can spin up thousands of servers in your account and cost you millions of dollars.
 
 ### The Golden Rule: IAM Roles vs Hardcoded Keys
 If you want to run AWS CLI commands from your *local laptop*, you use `aws configure` and enter your Access Keys. 
@@ -101,9 +101,9 @@ IaC allows you to write a configuration file (in YAML or JSON) describing the in
 
 ---
 
-## 🎯 Day 6 Summary
+## Day 6 Summary
 To be a DevOps engineer, you must move away from clicking buttons. You connect to servers via **SSH**, you manage your cloud resources using the **AWS CLI**, and you build massive architectures by writing **Infrastructure as Code** with tools like **Terraform** or **CloudFormation**.
 
 ---
-**[➡️ Next: Day 7 (Part 1) - Linux Foundations](../02-Linux/Day-07-Part-1-Linux-Foundations.md)**
+**[Next: Day 7 (Part 1) - Linux Foundations](../02-Linux/Day-07-Part-1-Linux-Foundations.md)**
 

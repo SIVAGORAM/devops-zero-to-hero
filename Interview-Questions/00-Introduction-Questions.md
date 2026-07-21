@@ -22,7 +22,7 @@ We need DevOps because traditional software delivery is slow and manual. DevOps 
 
 ---
 
-## ⚡ Foundational Concepts (Simple Interview Answers)
+## Foundational Concepts (Simple Interview Answers)
 
 If an interviewer asks you about these basic concepts, you want to give a simple, easy-to-understand answer that also shows what your job is as a DevOps engineer. Here are simple ways to explain them:
 
@@ -76,4 +76,4 @@ If an interviewer asks you about these basic concepts, you want to give a simple
 
 
 ---
-**[➡️ Next: Day 2 - SDLC Questions](./Day-02-SDLC-Questions.md)**
+**[Next: Day 2 - SDLC Questions](./Day-02-SDLC-Questions.md)**

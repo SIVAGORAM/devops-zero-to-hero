@@ -19,7 +19,7 @@ The developers create new features and want to release **Version 2.0**.
 ### Real-Life Delivery Process
 DevOps improves every step in this traditional flow:
 ```text
-Writes Code ➔ Testing ➔ Deployment ➔ Production Server ➔ Customer Uses the App
+Writes Code -> Testing -> Deployment -> Production Server -> Customer Uses the App
 ```
 
 ### What Exactly Does DevOps Improve?
@@ -36,7 +36,7 @@ Writes Code ➔ Testing ➔ Deployment ➔ Production Server ➔ Customer Uses t
 ### The Problem Before DevOps
 Before DevOps, software development was heavily siloed:
 ```text
-Developer ➔ Tester ➔ Build & Release Engineer ➔ System Administrator ➔ Production Server
+Developer -> Tester -> Build & Release Engineer -> System Administrator -> Production Server
 ```
 - Every team worked separately and waited for the previous team to finish.
 - Almost everything was manual.
@@ -74,7 +74,7 @@ Before diving deep into DevOps tools, you must understand the environment in whi
 
 ### 1. What is Software Development?
 The process of planning, designing, coding, testing, deploying, and maintaining software that solves real-world problems.
-- **SDLC (Software Development Life Cycle):** Requirements ➔ Planning ➔ Design ➔ Development ➔ Testing ➔ Deployment ➔ Maintenance.
+- **SDLC (Software Development Life Cycle):** Requirements -> Planning -> Design -> Development -> Testing -> Deployment -> Maintenance.
 
 ### 2. What is a Server?
 A computer that provides services or data to other computers over a network. It is always ON and waiting for requests.
@@ -83,7 +83,7 @@ A computer that provides services or data to other computers over a network. It 
 
 ### 3. What is an Application?
 Software designed to perform specific tasks for users (e.g., WhatsApp, Amazon.com, VS Code).
-- **Flow:** User ➔ Application ➔ Database ➔ Response.
+- **Flow:** User -> Application -> Database -> Response.
 
 ### 4. What is Deployment?
 The process of making your application available for users to use by moving it from your local laptop to a server on the internet.
@@ -119,7 +119,7 @@ An open-source Operating System (OS). Most servers in the world run Linux becaus
 
 ---
 
-## ⚡ Quick Revision
+## Quick Revision
 
 | Question | Short Answer |
 | :--- | :--- |
@@ -133,7 +133,7 @@ An open-source Operating System (OS). Most servers in the world run Linux becaus
 
 ---
 
-## 💡 Interview Tip
+## Interview Tip
 > **When learning DevOps, build your knowledge in this exact order:**
 > 1. Software Development Basics
 > 2. Linux & Computer Networking
@@ -149,7 +149,7 @@ An open-source Operating System (OS). Most servers in the world run Linux becaus
 
 ---
 
-## 🎯 Day 1 Summary
+## Day 1 Summary
 - DevOps is **not a tool**; it is a culture and set of practices.
 - The goal is faster, higher-quality software delivery.
 - Automation reduces manual work and human errors.
@@ -157,4 +157,4 @@ An open-source Operating System (OS). Most servers in the world run Linux becaus
 
 
 ---
-**[➡️ Next: Day 2 - SDLC & Basics](./Day-02-SDLC-and-Basics.md)**
+**[Next: Day 2 - SDLC & Basics](./Day-02-SDLC-and-Basics.md)**

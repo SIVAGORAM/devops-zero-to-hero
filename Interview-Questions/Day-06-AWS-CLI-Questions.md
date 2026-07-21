@@ -24,7 +24,7 @@ These questions test your practical knowledge of the terminal, authentication, a
 
 ### Q4: Why must you keep your AWS Secret Access Key secure?
 **Interview Answer:**  
-"Your Secret Access Key provides programmatic access to your entire AWS account based on your IAM permissions. If it is leaked—for instance, accidentally pushed to a public GitHub repository—malicious actors can use it to launch thousands of crypto-mining EC2 instances, racking up massive bills in a matter of hours. If a key is ever exposed, it must be instantly deactivated and deleted in IAM."
+"Your Secret Access Key provides programmatic access to your entire AWS account based on your IAM permissions. If it is leaked-for instance, accidentally pushed to a public GitHub repository-malicious actors can use it to launch thousands of crypto-mining EC2 instances, racking up massive bills in a matter of hours. If a key is ever exposed, it must be instantly deactivated and deleted in IAM."
 
 ---
 
@@ -64,4 +64,4 @@ These questions test your practical knowledge of the terminal, authentication, a
 
 
 ---
-**[➡️ Next: Day 7 - Linux Questions](./Day-07-Linux-Questions.md)**
+**[Next: Day 7 - Linux Questions](./Day-07-Linux-Questions.md)**

@@ -45,4 +45,4 @@ These questions test your understanding of how traffic flows from the user's bro
 "AWS Security Groups act as stateful firewalls at the instance level. If a stateful firewall allows an incoming request, it automatically allows the outbound response, regardless of outbound rules. Network ACLs (NACLs) act as stateless firewalls at the subnet level. If a stateless firewall allows an incoming request, you must explicitly write an outbound rule allowing the return traffic, otherwise, the response is blocked."
 
 ---
-**[⬅️ Previous: Day 10 - Advanced Linux Questions](./Day-10-Advanced-Linux-Questions.md)**
+**[Previous: Day 10 - Advanced Linux Questions](./Day-10-Advanced-Linux-Questions.md)**

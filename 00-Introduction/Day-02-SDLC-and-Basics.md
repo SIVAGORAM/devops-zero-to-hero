@@ -1,6 +1,6 @@
 # Day 2: Software Development Life Cycle (SDLC) & Core Concepts
 
-Welcome to Day 2! Today we focus on the Software Development Life Cycle (SDLC)—the blueprint of how software is built—and introduce the core tools and concepts that make up the DevOps pipeline.
+Welcome to Day 2! Today we focus on the Software Development Life Cycle (SDLC)-the blueprint of how software is built-and introduce the core tools and concepts that make up the DevOps pipeline.
 
 ---
 
@@ -48,11 +48,11 @@ Fixing production bugs, improving performance, and planning new features (which 
 
 ## 3. DevOps in the SDLC
 Where does a DevOps engineer fit in? Many beginners think DevOps only handles deployment, but DevOps engineers are heavily involved in:
-**Build ➔ Testing ➔ Deployment ➔ Production ➔ Monitoring**
+**Build -> Testing -> Deployment -> Production -> Monitoring**
 
 ### How DevOps Improves SDLC
-*   **Traditional Process:** Manual Builds ➔ Manual Testing ➔ Manual Deployment *(Slow, error-prone, inconsistent).*
-*   **DevOps Process:** Git Push ➔ Automatic Build ➔ Automatic Testing ➔ Automatic Deployment ➔ Monitoring.
+*   **Traditional Process:** Manual Builds -> Manual Testing -> Manual Deployment *(Slow, error-prone, inconsistent).*
+*   **DevOps Process:** Git Push -> Automatic Build -> Automatic Testing -> Automatic Deployment -> Monitoring.
 *   **Benefits:** Faster releases, fewer human errors, better software quality, and easier rollbacks.
 
 ---
@@ -103,27 +103,27 @@ Before DevOps, software was built using the **Waterfall** model:
 
 ---
 
-## 🔗 How It All Connects (The DevOps Workflow)
+## How It All Connects (The DevOps Workflow)
 ```text
 Developer Writes Source Code
-      │
-      ▼
+      
+      
 Git (Tracks Changes Locally)
-      │
-      ▼
+      
+      
 GitHub (Stores Code Online)
-      │
-      ▼
+      
+      
 Continuous Integration / CI (Automatic Build + Automated Tests)
-      │
-      ▼
+      
+      
 Quality Assurance / QA (Verifies the Application)
-      │
-      ▼
-Deployment ➔ Production ➔ Customers
+      
+      
+Deployment -> Production -> Customers
 ```
 This workflow is the absolute backbone of modern DevOps! As you continue your learning, tools like Jenkins, Docker, Kubernetes, and AWS will fit naturally into different stages of this pipeline.
 
 
 ---
-**[➡️ Next: Day 3 - Roles & Agile](./Day-03-Company-Roles-and-Agile.md)**
+**[Next: Day 3 - Roles & Agile](./Day-03-Company-Roles-and-Agile.md)**

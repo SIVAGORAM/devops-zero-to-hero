@@ -1,4 +1,4 @@
-﻿# Day 8: Shell Scripting Zero to Hero (Part 1)
+# Day 8: Shell Scripting Zero to Hero (Part 1)
 
 In Day 7, we learned basic Linux commands. Today, we learn how to chain those commands together to create **Shell Scripts**, the foundation of DevOps automation.
 
@@ -179,9 +179,9 @@ touch index.html style.css
 
 ---
 
-## 🎯 Day 8 Summary
+## Day 8 Summary
 Shell scripting is how DevOps engineers manage fleets of thousands of virtual machines. You create a `.sh` file, declare the interpreter using a **Shebang** (`#!/bin/bash`), grant the file execute permissions using **`chmod`**, and execute it directly using `./script.sh`.
 
 ---
-**[➡️ Next: Day 9 - Shell Scripting Part 2](./Day-09-Shell-Scripting-Part-2.md)**
+**[Next: Day 9 - Shell Scripting Part 2](./Day-09-Shell-Scripting-Part-2.md)**
 

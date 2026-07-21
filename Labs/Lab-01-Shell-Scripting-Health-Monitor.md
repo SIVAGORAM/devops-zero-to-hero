@@ -22,14 +22,11 @@ Paste the following code into the script:
 ```bash
 #!/bin/bash
 
-#########################################
-# Author      : Siva
+######################################### # Author      : Siva
 # Date        : 21-01-2026
 # Description : System Health Monitor & Auto-Backup
 # Version     : v1.0
-#########################################
-
-# Enable safe scripting
+######################################### # Enable safe scripting
 set -e
 set -o pipefail
 
@@ -46,16 +43,16 @@ echo "--- Starting System Monitor [$(date)] ---" | tee -a "$LOG_FILE"
 DISK_USAGE=$(df -h / | grep -v Filesystem | awk '{print $5}' | sed 's/%//g')
 
 if [ "$DISK_USAGE" -gt "$DISK_THRESHOLD" ]; then
-    echo "🚨 WARNING: Disk usage is critically high at ${DISK_USAGE}%!" | tee -a "$LOG_FILE"
+    echo " WARNING: Disk usage is critically high at ${DISK_USAGE}%!" | tee -a "$LOG_FILE"
     echo "Aborting backup to save space." | tee -a "$LOG_FILE"
     exit 1
 else
-    echo "✅ Disk usage is healthy at ${DISK_USAGE}%." | tee -a "$LOG_FILE"
+    echo " Disk usage is healthy at ${DISK_USAGE}%." | tee -a "$LOG_FILE"
 fi
 
 # 2. Memory Check
 # Just outputting current RAM state
-echo "✅ Current Memory State:" | tee -a "$LOG_FILE"
+echo " Current Memory State:" | tee -a "$LOG_FILE"
 free -h | tee -a "$LOG_FILE"
 
 # 3. Auto Backup Execution
@@ -66,10 +63,10 @@ mkdir -p "$BACKUP_DIR"
 
 BACKUP_FILE="backup_$(date +%Y%m%d_%H%M%S).tar.gz"
 
-echo "⏳ Starting backup of $APP_DIR..." | tee -a "$LOG_FILE"
+echo " Starting backup of $APP_DIR..." | tee -a "$LOG_FILE"
 tar -czf "$BACKUP_DIR/$BACKUP_FILE" -C /tmp my-app
 
-echo "✅ Backup successfully created at $BACKUP_DIR/$BACKUP_FILE" | tee -a "$LOG_FILE"
+echo " Backup successfully created at $BACKUP_DIR/$BACKUP_FILE" | tee -a "$LOG_FILE"
 echo "--- Monitor Run Complete ---" | tee -a "$LOG_FILE"
 ```
 
