@@ -5,9 +5,9 @@
 
 ---
 
-## ðŸ“Œ Directory Management Commands
+## 📌 Directory Management Commands
 
-### ðŸ”¹ `mkdir -p` (Create Parent Directories)
+### 🔹 `mkdir -p` (Create Parent Directories)
 ```bash
 mkdir -p abc/xyz/123
 ```
@@ -15,21 +15,21 @@ mkdir -p abc/xyz/123
 - Creates all missing parent directories automatically.
 - Used in production to create application, logs, and deployment folders.
 
-### ðŸ”¹ `rmdir` (Remove Empty Directory)
+### 🔹 `rmdir` (Remove Empty Directory)
 ```bash
 rmdir india/
 ```
 - Removes directory only if empty.
 - Rarely used in DevOps due to limitation.
 
-### ðŸ”¹ `rm -r` (Recursive Delete)
+### 🔹 `rm -r` (Recursive Delete)
 ```bash
 rm -r india/
 ```
 - Deletes directory and its contents recursively.
 - Use carefully in servers.
 
-### ðŸ”¹ `rm -rf` (Force Recursive Delete âš ï¸)
+### 🔹 `rm -rf` (Force Recursive Delete âš ï¸)
 ```bash
 rm -rf india/
 ```
@@ -40,22 +40,22 @@ rm -rf india/
 
 ---
 
-## ðŸ“„ File Management Commands
+## 📄 File Management Commands
 
-### ðŸ”¹ `touch` (Create Empty File)
+### 🔹 `touch` (Create Empty File)
 ```bash
 touch 123.txt
 ```
 - Creates an empty file.
 - Updates timestamp if file already exists.
 
-### ðŸ”¹ `rm` (Delete File)
+### 🔹 `rm` (Delete File)
 ```bash
 rm 123.txt
 ```
 - Permanently deletes file.
 
-### ðŸ”¹ `stat` (File Metadata â€“ Very Important)
+### 🔹 `stat` (File Metadata – Very Important)
 ```bash
 stat 123.txt
 ```
@@ -66,24 +66,24 @@ Displays:
 - Accessed time
 - Modified time
 
-ðŸ‘‰ *Used in debugging, auditing, and production issue analysis.*
+👉 *Used in debugging, auditing, and production issue analysis.*
 
 ---
 
-## ðŸ“‚ Listing Files and Directories (`ls`)
+## 📂 Listing Files and Directories (`ls`)
 
-### ðŸ”¹ Basic Listing
+### 🔹 Basic Listing
 ```bash
 ls
 ```
 
-### ðŸ”¹ Long Listing
+### 🔹 Long Listing
 ```bash
 ls -l
 ```
 - Shows permissions, owner, size, and timestamp.
 
-### ðŸ”¹ Hidden Files
+### 🔹 Hidden Files
 ```bash
 ls -a
 ls -all
@@ -91,24 +91,24 @@ ls -all
 - Displays hidden files like `.git`, `.env`, `.bashrc`.
 - Important for DevOps configurations.
 
-### ðŸ”¹ Sorting Files
+### 🔹 Sorting Files
 ```bash
 ls -lt    # Latest files first
 ls -ltr   # Oldest files first
 ```
 
-### ðŸ”¹ File Size (Human Readable)
+### 🔹 File Size (Human Readable)
 ```bash
 ls -lh
 ```
 - Displays sizes in KB, MB, GB.
 
-### ðŸ”¹ One File Per Line
+### 🔹 One File Per Line
 ```bash
 ls -1
 ```
 
-### ðŸ”¹ Shortcut
+### 🔹 Shortcut
 ```bash
 ll
 ```
@@ -116,31 +116,31 @@ ll
 
 ---
 
-## ðŸ“œ Command History (Productivity Booster)
+## 📜 Command History (Productivity Booster)
 
-### ðŸ”¹ View Command History
+### 🔹 View Command History
 ```bash
 history
 ```
 
-### ðŸ”¹ Re-execute Commands
+### 🔹 Re-execute Commands
 ```bash
 !!      # Run previous command
 !582    # Run command number 582
 !-13    # Run 13th command from bottom
 ```
-ðŸ‘‰ *Heavily used by senior DevOps engineers.*
+👉 *Heavily used by senior DevOps engineers.*
 
 ---
 
 ## ðŸ“ Navigation Commands
 
-### ðŸ”¹ Present Working Directory
+### 🔹 Present Working Directory
 ```bash
 pwd
 ```
 
-### ðŸ”¹ Change Directory
+### 🔹 Change Directory
 ```bash
 cd ../..
 ```
@@ -148,14 +148,14 @@ cd ../..
 
 ---
 
-## ðŸ“– Viewing & Creating File Content
+## 📖 Viewing & Creating File Content
 
-### ðŸ”¹ View File Content
+### 🔹 View File Content
 ```bash
 cat 123.txt
 ```
 
-### ðŸ”¹ Create File with Content
+### 🔹 Create File with Content
 ```bash
 cat > 456.txt
 ```
@@ -166,21 +166,21 @@ cat > 456.txt
 
 ## âœï¸ vi Editor (Mandatory for DevOps)
 
-### ðŸ”¹ Open File
+### 🔹 Open File
 ```bash
 vi team.txt
 ```
 
-### ðŸ”¹ vi Modes
+### 🔹 vi Modes
 - **Normal mode** (default)
 - **Insert mode** â†’ press `i`
 - **Command mode** â†’ press `ESC`
 
-### ðŸ”¹ Save & Exit
+### 🔹 Save & Exit
 ```bash
 :wq!
 ```
-ðŸ‘‰ Used to edit:
+👉 Used to edit:
 - Configuration files
 - YAML files
 - Application & server configs
@@ -199,10 +199,10 @@ vi team.txt
 
 ---
 
-## ðŸŽ¯ DevOps Best Practice
+## 🎯 DevOps Best Practice
 Linux mastery is about speed, safety, and confidence in production systems.  
 These commands are used daily in real DevOps roles.
 
 ---
-**[⬅️ Previous: Day 7 (Part 1) - Linux Foundations](./Day-07-Part-1-Linux-Foundations.md)** | **[➡️ Next: Day 7 (Part 3) - Linux Commands](./Day-07-Part-3-Linux-Commands.md)**
+**[➡️ Next: Day 7 (Part 3) - Linux Commands](./Day-07-Part-3-Linux-Commands.md)**
 

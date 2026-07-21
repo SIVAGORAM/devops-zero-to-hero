@@ -111,9 +111,9 @@ In enterprise environments, you never use passwords to log into servers because 
 
 ---
 
-## ðŸŽ¯ Day 4 Summary
+## 🎯 Day 4 Summary
 You now understand the physical and virtual infrastructure that powers the internet. A developer writes code on their laptop, but a DevOps engineer uses **SSH** to connect to an **Ubuntu Virtual Machine (EC2)** created by a **Hypervisor**, allocating **vCPUs, RAM, and SSD storage** via a **Public IP** to serve that application to the world!
 
 ---
-**[⬅️ Previous: Day 3 - Roles & Agile](../00-Introduction/Day-03-Company-Roles-and-Agile.md)** | **[➡️ Next: Day 4 (Advanced) - OS for DevOps](./Day-04-Advanced-OS-for-DevOps.md)**
+**[➡️ Next: Day 4 (Advanced) - OS for DevOps](./Day-04-Advanced-OS-for-DevOps.md)**
 

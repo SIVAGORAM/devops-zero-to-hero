@@ -95,10 +95,10 @@ Once you launch your Ubuntu EC2 instance in AWS, you need to log into it from yo
 
 ---
 
-## ðŸŽ¯ Day 5 Summary
+## 🎯 Day 5 Summary
 You have now bridged the gap between basic virtualization and actual Cloud Computing. 
 Workflow: **AWS Console âž” Choose Region & AZ âž” Choose AMI (Ubuntu) âž” Choose Instance Type (t2.micro) âž” Create Key Pair âž” Configure Security Group (Open Port 22) âž” Launch EC2 âž” Connect via SSH (MobaXterm).**
 
 ---
-**[⬅️ Previous: Day 4 (Advanced) - OS for DevOps](../01-Operating-System/Day-04-Advanced-OS-for-DevOps.md)** | **[➡️ Next: Day 6 - AWS CLI & IaC](./Day-06-AWS-CLI-and-IaC.md)**
+**[➡️ Next: Day 6 - AWS CLI & IaC](./Day-06-AWS-CLI-and-IaC.md)**
 

@@ -113,4 +113,4 @@ These questions test your fundamental understanding of hardware, virtualization,
 
 
 ---
-**[⬅️ Previous: Day 3 - Roles & Agile Questions](./Day-03-Roles-Questions.md)** | **[➡️ Next: Day 5 - AWS EC2 Questions](./Day-05-AWS-EC2-Questions.md)**
+**[➡️ Next: Day 5 - AWS EC2 Questions](./Day-05-AWS-EC2-Questions.md)**

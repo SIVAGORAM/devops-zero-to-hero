@@ -1,4 +1,4 @@
-﻿# Day 9: Shell Scripting for DevOps â€“ Part 2
+﻿# Day 9: Shell Scripting for DevOps – Part 2
 
 Today we learned how DevOps engineers use Shell Scripting to automate Linux administration tasks, debug scripts, monitor system health, work with processes, search logs, handle errors, and write control flow statements such as `if` and `for` loops.
 
@@ -14,7 +14,7 @@ The following Linux commands were revised:
 - `nproc`
 - `top`
 
-### 1.1 `df` â€“ Disk Filesystem
+### 1.1 `df` – Disk Filesystem
 Displays information about disk partitions.
 ```bash
 df
@@ -323,7 +323,7 @@ Become the root user:
 ```bash
 sudo su -
 ```
-Root has full administrative privileges. Be cautiousâ€”incorrect commands can affect the entire system.
+Root has full administrative privileges. Be cautious—incorrect commands can affect the entire system.
 
 ---
 
@@ -460,5 +460,5 @@ Now, if the user presses `Ctrl + C`, the script prints the message instead of im
     Shell scripts automate repetitive tasks such as server health checks, deployments, log analysis, backups, process monitoring, and system administration, making infrastructure management faster, more reliable, and less error-prone.
 
 ---
-**[⬅️ Previous: Day 8 - Shell Scripting](./Day-08-Shell-Scripting-Basics.md)** | **[➡️ Next: Day 10 - Advanced Linux](./Day-10-Advanced-Linux-for-DevOps.md)**
+**[➡️ Next: Day 10 - Advanced Linux](./Day-10-Advanced-Linux-for-DevOps.md)**
 

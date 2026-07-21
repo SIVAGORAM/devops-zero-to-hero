@@ -110,9 +110,9 @@ Linux does not have a "C: Drive". Everything starts at the Root `/`.
 
 ---
 
-## ðŸŽ¯ Day 7 Summary
+## 🎯 Day 7 Summary
 The **Linux Kernel** manages hardware, while the **Shell (Bash)** allows us to interact with the Kernel using commands. DevOps engineers rely heavily on the **CLI** to navigate directories, edit files with `vi`, and monitor system health using `top`, `free`, and `df`.
 
 ---
-**[⬅️ Previous: Day 7 (Part 2) - Linux Fundamentals](./Day-07-Part-2-Linux-Fundamentals.md)** | **[➡️ Next: Day 8 - Shell Scripting](./Day-08-Shell-Scripting-Basics.md)**
+**[➡️ Next: Day 8 - Shell Scripting](./Day-08-Shell-Scripting-Basics.md)**
 

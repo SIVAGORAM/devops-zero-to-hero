@@ -67,9 +67,9 @@ When things break, use these commands:
 
 ---
 
-## ðŸŽ¯ Day 12 Summary
+## 🎯 Day 12 Summary
 You now understand how domains resolve to IPs using **DNS**, how traffic is scaled and routed using **Load Balancers and Reverse Proxies**, and how private servers reach the internet using **NAT**. You also have a toolkit of CLI commands to debug any network failure!
 
 ---
-**[⬅️ Previous: Day 11 - Networking Foundations](./Day-11-Networking-Foundations.md)** | **[➡️ Next: Day 13 - Networking Security](./Day-13-Networking-Security-and-Cloud.md)**
+**[➡️ Next: Day 13 - Networking Security](./Day-13-Networking-Security-and-Cloud.md)**
 

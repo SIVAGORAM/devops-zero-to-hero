@@ -64,4 +64,4 @@ These questions test your practical knowledge of the terminal, authentication, a
 
 
 ---
-**[⬅️ Previous: Day 5 - AWS EC2 Questions](./Day-05-AWS-EC2-Questions.md)** | **[➡️ Next: Day 7 - Linux Questions](./Day-07-Linux-Questions.md)**
+**[➡️ Next: Day 7 - Linux Questions](./Day-07-Linux-Questions.md)**

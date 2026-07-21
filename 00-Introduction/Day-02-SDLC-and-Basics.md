@@ -126,4 +126,4 @@ This workflow is the absolute backbone of modern DevOps! As you continue your le
 
 
 ---
-**[⬅️ Previous: Day 1 - DevOps Basics](./Day-01-DevOps-Basics.md)** | **[➡️ Next: Day 3 - Roles & Agile](./Day-03-Company-Roles-and-Agile.md)**
+**[➡️ Next: Day 3 - Roles & Agile](./Day-03-Company-Roles-and-Agile.md)**

@@ -139,11 +139,11 @@ Variables that define the environment your application runs in (e.g., API keys, 
 
 ---
 
-## ðŸŽ¯ Final Linux Module Summary
+## 🎯 Final Linux Module Summary
 You have now completed the entire Linux curriculum. From the core basics (`cd`, `ls`, `chmod`), to Shell Scripting automation (`awk`, `grep`, loops), right through to advanced system administration (`systemctl`, `netstat`, `tar`, SSH keys). 
 
 You possess all the fundamental OS knowledge required to begin orchestrating infrastructure in the Cloud!
 
 ---
-**[⬅️ Previous: Day 9 - Shell Scripting Part 2](./Day-09-Shell-Scripting-Part-2.md)** | **[➡️ Next: Day 11 - Networking Foundations](../03-Networking/Day-11-Networking-Foundations.md)**
+**[➡️ Next: Day 11 - Networking Foundations](../03-Networking/Day-11-Networking-Foundations.md)**
 

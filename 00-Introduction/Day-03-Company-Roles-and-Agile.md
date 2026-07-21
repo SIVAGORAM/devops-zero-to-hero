@@ -2,7 +2,7 @@
 
 Before diving into complex DevOps tools like Kubernetes and AWS, you must first understand how a software product is built in the real world and who builds it. 
 
-A software company is like a hospital. A hospital doesnâ€™t only have doctorsâ€”it relies on receptionists, nurses, pharmacists, and lab technicians working together to treat a patient. Similarly, building software requires multiple distinct roles working together as a team.
+A software company is like a hospital. A hospital doesnâ€™t only have doctors—it relies on receptionists, nurses, pharmacists, and lab technicians working together to treat a patient. Similarly, building software requires multiple distinct roles working together as a team.
 
 ---
 
@@ -57,7 +57,7 @@ Here is the exact lifecycle of how a feature moves from an idea to reality, and 
 ## 2. How Work is Managed: Jira & Agile
 
 ### What is Jira?
-Jira is the industry standard project management and issue-tracking tool. In a real job, you won't just "guess" what to doâ€”you will receive specific tasks assigned to you on a Jira board.
+Jira is the industry standard project management and issue-tracking tool. In a real job, you won't just "guess" what to do—you will receive specific tasks assigned to you on a Jira board.
 
 **The Jira Hierarchy:**
 1. **Epic:** A massive feature (e.g., *User Authentication*).
@@ -82,12 +82,12 @@ While software developers usually use **Scrum** (working in strict 2-week sprint
 
 ---
 
-## ðŸŽ¯ Day 3 Summary
+## 🎯 Day 3 Summary
 - Software products are built by cross-functional teams, not by a single engineer. Every role relies on the others.
 - A DevOps Engineer works closely with Developers, QA, Architects, and Security teams to automate builds, deployments, and infrastructure.
 - **Jira** is the standard tool used to organize and track your daily work via Epics, Stories, and Tasks.
 - Modern software companies use **Agile (Scrum)** to deliver software continuously in 2-week **Sprints**.
 
 ---
-**[⬅️ Previous: Day 2 - SDLC & Basics](./Day-02-SDLC-and-Basics.md)** | **[➡️ Next: Day 4 - OS & Virtualization](../01-Operating-System/Day-04-OS-and-Virtualization.md)**
+**[➡️ Next: Day 4 - OS & Virtualization](../01-Operating-System/Day-04-OS-and-Virtualization.md)**
 

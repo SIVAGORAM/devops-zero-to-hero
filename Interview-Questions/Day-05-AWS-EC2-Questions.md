@@ -58,4 +58,4 @@ These questions test your practical knowledge of launching and securing cloud se
 
 
 ---
-**[⬅️ Previous: Day 4 - OS & Virtualization Questions](./Day-04-Virtualization-Questions.md)** | **[➡️ Next: Day 6 - AWS CLI Questions](./Day-06-AWS-CLI-Questions.md)**
+**[➡️ Next: Day 6 - AWS CLI Questions](./Day-06-AWS-CLI-Questions.md)**

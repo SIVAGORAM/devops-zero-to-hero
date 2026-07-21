@@ -78,9 +78,9 @@ If an IP address is a building's street address, a **Port** is a specific apartm
 
 ---
 
-## ðŸŽ¯ Day 11 Summary
+## 🎯 Day 11 Summary
 You now understand how machines identify each other (**IPs**), how networks are sized (**CIDR**), how data is reliably transmitted (**TCP**), and how specific applications receive that data (**Ports**). Next, we will cover DNS and Load Balancers!
 
 ---
-**[⬅️ Previous: Day 10 - Advanced Linux](../02-Linux/Day-10-Advanced-Linux-for-DevOps.md)** | **[➡️ Next: Day 12 - Advanced Networking](./Day-12-Advanced-Networking.md)**
+**[➡️ Next: Day 12 - Advanced Networking](./Day-12-Advanced-Networking.md)**
 

@@ -52,4 +52,4 @@ These questions test your understanding of how a real-world enterprise software 
 
 
 ---
-**[⬅️ Previous: Day 2 - SDLC Questions](./Day-02-SDLC-Questions.md)** | **[➡️ Next: Day 4 - OS & Virtualization Questions](./Day-04-Virtualization-Questions.md)**
+**[➡️ Next: Day 4 - OS & Virtualization Questions](./Day-04-Virtualization-Questions.md)**

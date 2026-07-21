@@ -1,4 +1,4 @@
-﻿# Day 7 (Part 1): ðŸš€ DevOps Foundations â€“ OS, Linux & Basic Commands
+﻿# Day 7 (Part 1): 🚀 DevOps Foundations – OS, Linux & Basic Commands
 
 > These notes are written from the perspective of a **senior DevOps engineer & trainer**, focusing on **real-world understanding**, not just theory.  
 > If you master these basics properly, your DevOps journey will become smooth and powerful.
@@ -22,7 +22,7 @@
 
 ---
 
-## ðŸ–¥ï¸ What is an Operating System (OS)?
+## 🖥️ What is an Operating System (OS)?
 
 An **Operating System** is a bridge between:
 - **User**
@@ -38,7 +38,7 @@ An **Operating System** is a bridge between:
 
 ---
 
-## ðŸªŸ GUI vs CLI
+## 🪟 GUI vs CLI
 
 ### GUI (Graphical User Interface)
 - Uses mouse, icons, windows.
@@ -50,7 +50,7 @@ An **Operating System** is a bridge between:
 - Faster, scriptable, automation-friendly.
 - **100% required for DevOps & servers**.
 
-ðŸ‘‰ DevOps engineers **live inside CLI**.
+👉 DevOps engineers **live inside CLI**.
 
 ---
 
@@ -81,7 +81,7 @@ Linux is:
 
 ---
 
-## ðŸ“¦ Linux Distributions (Distros)
+## 📦 Linux Distributions (Distros)
 
 Linux comes in different **distributions** based on use-case.
 
@@ -100,7 +100,7 @@ Linux comes in different **distributions** based on use-case.
 
 ---
 
-## ðŸ’° Free vs Paid Linux
+## 💰 Free vs Paid Linux
 
 ### Free Linux
 - Community-managed.
@@ -136,11 +136,11 @@ Linux comes in different **distributions** based on use-case.
 ### 5ï¸âƒ£ Cost Effective
 - No OS license cost.
 
-ðŸ‘‰ **Linux = Backbone of Internet**
+👉 **Linux = Backbone of Internet**
 
 ---
 
-## ðŸ”´ Why Choose Red Hat (RHEL)?
+## 🔴 Why Choose Red Hat (RHEL)?
 
 - Enterprise-grade OS.
 - Certified with:
@@ -151,11 +151,11 @@ Linux comes in different **distributions** based on use-case.
 - Professional support.
 - Used by banks, MNCs, production servers.
 
-ðŸ‘‰ **Most DevOps jobs expect Red Hat/Linux skills**
+👉 **Most DevOps jobs expect Red Hat/Linux skills**
 
 ---
 
-## âš¡ Linux = Power of Servers
+## ⚡ Linux = Power of Servers
 
 - Websites
 - Cloud platforms
@@ -163,11 +163,11 @@ Linux comes in different **distributions** based on use-case.
 - Kubernetes clusters
 - CI/CD pipelines
 
-ðŸ‘‰ If you know Linux deeply â†’ **you control servers**
+👉 If you know Linux deeply â†’ **you control servers**
 
 ---
 
-## ðŸ§° Git Bash
+## 🧰 Git Bash
 
 ### What is Git Bash?
 - A Linux-like terminal for Windows.
@@ -176,13 +176,13 @@ Linux comes in different **distributions** based on use-case.
   - Git
   - Bash scripting
 
-ðŸ‘‰ Download and install **Git Bash** on Windows to practice Linux commands.
+👉 Download and install **Git Bash** on Windows to practice Linux commands.
 
 ---
 
 ## ðŸ“ Linux Basic Commands (Must-Know)
 
-### ðŸ“‚ Create Directory
+### 📂 Create Directory
 ```bash
 mkdir Linux
 mkdir ubuntu centos abc
@@ -198,7 +198,7 @@ rmdir abc
 - If directory contains files â†’ âŒ will fail.
 - ðŸ’¡ *In real servers, deleting directories must be done carefully to avoid data loss.*
 
-### ðŸ“„ Create File
+### 📄 Create File
 ```bash
 touch abc.txt
 ```
@@ -238,7 +238,7 @@ Shows:
 
 ðŸ’¡ *DevOps engineers rely heavily on `ls -l` to check permissions and ownership issues.*
 
-### ðŸ“‚ Navigation Commands
+### 📂 Navigation Commands
 
 **Change Directory:**
 ```bash
@@ -268,15 +268,15 @@ Shortcut: `Ctrl + L`
 
 ---
 
-## ðŸŽ¯ DevOps Mentor Advice (Very Important)
+## 🎯 DevOps Mentor Advice (Very Important)
 
 - Donâ€™t rush Linux.
 - Practice commands daily.
 - Understand **WHY**, not just **HOW**.
 - Linux basics â†’ Shell scripting â†’ Git â†’ CI/CD â†’ Cloud â†’ Kubernetes.
 
-ðŸ‘‰ **Strong Linux = Strong DevOps Engineer**
+👉 **Strong Linux = Strong DevOps Engineer**
 
 ---
-**[⬅️ Previous: Day 6 - AWS CLI & IaC](../05-AWS/Day-06-AWS-CLI-and-IaC.md)** | **[➡️ Next: Day 7 (Part 2) - Linux Fundamentals](./Day-07-Part-2-Linux-Fundamentals.md)**
+**[➡️ Next: Day 7 (Part 2) - Linux Fundamentals](./Day-07-Part-2-Linux-Fundamentals.md)**
 

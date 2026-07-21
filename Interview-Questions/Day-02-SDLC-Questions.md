@@ -64,4 +64,4 @@ Here are simple, conversational answers for foundational SDLC and Pipeline conce
 
 
 ---
-**[⬅️ Previous: Day 1 - DevOps Basics Questions](./00-Introduction-Questions.md)** | **[➡️ Next: Day 3 - Roles & Agile Questions](./Day-03-Roles-Questions.md)**
+**[➡️ Next: Day 3 - Roles & Agile Questions](./Day-03-Roles-Questions.md)**
