@@ -79,4 +79,4 @@ Here is the definitive list of what you must master:
 - **Billing and Costing (AWS Cost Explorer):** As a DevOps engineer, you are often responsible for optimizing cloud architecture to save money. You must understand how to track spending, set budgets, and use cost anomaly detection.
 
 ---
-**[Previous: Deploy App to AWS](./Day-20-Deploy-First-App-to-AWS.md)**
+**[Previous: Deploy App to AWS](./Day-20-Deploy-First-App-to-AWS.md)** | **[Next: Day 22 - Ansible Config Management](../06-Ansible/Day-22-Configuration-Management-and-Ansible.md)**
