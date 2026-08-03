@@ -123,4 +123,4 @@ ansible-playbook -i inventory main.yml --ask-vault-pass
 Congratulations! You now understand the full lifecycle of Ansible—from Ad-Hoc commands and basic playbooks, to Roles, Conditionals, and Vault encryption. You are officially ready to automate large-scale infrastructure!
 
 ---
-**[Previous: Day 23 - Ansible Zero to Hero](./Day-23-Ansible-Zero-to-Hero.md)**
+**[Previous: Day 23 - Ansible Zero to Hero](./Day-23-Ansible-Zero-to-Hero.md)** | **[Next: Day 25 - Intro to Terraform](../07-Terraform/Day-25-Introduction-to-Terraform.md)**
