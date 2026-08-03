@@ -1,6 +1,6 @@
-# Day 6: Connecting to EC2, AWS CLI, & Infrastructure as Code (IaC)
+# Day 19: Connecting to EC2, AWS CLI, & Infrastructure as Code (IaC)
 
-In Day 5, we launched an EC2 instance. Today, we will learn how to connect to it securely, how to fix common connection errors, and how to manage AWS resources using the AWS CLI and Automation tools.
+In Day 18, we launched an EC2 instance. Today, we will learn how to connect to it securely, how to fix common connection errors, and how to manage AWS resources using the AWS CLI and Automation tools.
 
 ---
 
@@ -101,9 +101,9 @@ IaC allows you to write a configuration file (in YAML or JSON) describing the in
 
 ---
 
-## Day 6 Summary
+## Day 19 Summary
 To be a DevOps engineer, you must move away from clicking buttons. You connect to servers via **SSH**, you manage your cloud resources using the **AWS CLI**, and you build massive architectures by writing **Infrastructure as Code** with tools like **Terraform** or **CloudFormation**.
 
 ---
-**[Next: Deploy and Expose Your First App to AWS](./Deploy-and-Expose-Your-First-App-to-AWS.md)**
+**[Next: Deploy and Expose Your First App to AWS](./Day-20-Deploy-First-App-to-AWS.md)**
 

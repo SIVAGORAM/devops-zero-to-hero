@@ -1,4 +1,4 @@
-# Day 6: AWS CLI & Infrastructure as Code - Interview Questions
+# Day 19: AWS CLI & Infrastructure as Code - Interview Questions
 
 These questions test your practical knowledge of the terminal, authentication, and the core philosophies of DevOps automation.
 

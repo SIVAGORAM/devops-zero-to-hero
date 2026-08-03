@@ -82,4 +82,4 @@ When you want to get the latest code from GitHub:
 You have now finished the entire Git & GitHub syllabus. You are ready to manage source code like a senior DevOps engineer!
 
 ---
-**[Previous: Day 16 - Advanced Branching](./Day-16-Advanced-Git-Branching-and-Merging.md)** | **[Next: Module 05 - AWS Cloud](../05-AWS/Day-05-AWS-EC2-Basics.md)**
+**[Previous: Day 16 - Advanced Branching](./Day-16-Advanced-Git-Branching-and-Merging.md)** | **[Next: Day 18 - AWS EC2 Basics](../05-AWS/Day-18-AWS-EC2-Basics.md)**

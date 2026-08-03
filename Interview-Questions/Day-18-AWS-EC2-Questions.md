@@ -1,4 +1,4 @@
-# Day 5: AWS EC2 Foundations - Interview Questions
+# Day 18: AWS EC2 Foundations - Interview Questions
 
 These questions test your practical knowledge of launching and securing cloud servers in AWS.
 

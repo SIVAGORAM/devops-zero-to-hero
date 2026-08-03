@@ -1,4 +1,4 @@
-# Deploy and Expose Your First App to AWS
+# Day 20: Deploy and Expose Your First App to AWS
 
 In this hands-on project, we will take a sample Node.js application, test it locally, and then deploy it manually to an AWS EC2 instance. We will also configure AWS Security Groups to expose the application to the public internet.
 
@@ -140,4 +140,4 @@ http://<your-ec2-public-ip>:3000
 **Congratulations!** You have successfully deployed a Node.js application to AWS and exposed it to the world.
 
 ---
-**[Previous: Day 6 - AWS CLI & IaC](./Day-06-AWS-CLI-and-IaC.md)** | **[Next: Day 7 (Part 1) - Linux Foundations](../02-Linux/Day-07-Part-1-Linux-Foundations.md)**
+**[Previous: Day 19 - AWS CLI & IaC](../05-AWS/Day-19-AWS-CLI-and-IaC.md)** | **[Next: Day 21 - Top AWS Services](../05-AWS/Day-21-Top-AWS-Services.md)**
