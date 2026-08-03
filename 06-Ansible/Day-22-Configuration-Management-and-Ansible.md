@@ -61,4 +61,4 @@ While Ansible is the industry favorite, it is not perfect. As a senior engineer,
 Instead of writing an Ansible playbook from scratch to install Nginx or setup a MySQL database, you can go to Ansible Galaxy, find a pre-written, highly-tested "Role" created by the community, and download it into your project. It saves you massive amounts of time!
 
 ---
-**[Previous: Day 21 - Top AWS Services](../05-AWS/Day-21-Top-AWS-Services.md)**
+**[Previous: Day 21 - Top AWS Services](../05-AWS/Day-21-Top-AWS-Services.md)** | **[Next: Day 23 - Ansible Zero to Hero](./Day-23-Ansible-Zero-to-Hero.md)**
