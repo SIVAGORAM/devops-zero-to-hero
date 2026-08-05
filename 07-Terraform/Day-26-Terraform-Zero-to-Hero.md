@@ -109,4 +109,4 @@ cat terraform.tfstate
 When you run `terraform destroy` or modify your script, Terraform looks at this `tfstate` file to compare what exists in the real world versus what is written in your code. 
 
 ---
-**[Previous: Day 25 - Intro to Terraform](./Day-25-Introduction-to-Terraform.md)**
+**[Previous: Day 25 - Intro to Terraform](./Day-25-Introduction-to-Terraform.md)** | **[Next: Day 27 - Terraform Providers & Variables](./Day-27-Terraform-Providers-and-Variables.md)**
