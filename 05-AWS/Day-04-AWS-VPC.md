@@ -110,7 +110,6 @@ flowchart TD
         Internet --> IGW[Internet Gateway<br/>'The Main Gate']
         
         subgraph Your_VPC [Virtual Private Cloud]
-            direction TB
             IGW --> ELB[Elastic Load Balancer]
             ELB --> RT[Route Table<br/>'The Guide']
             
@@ -123,9 +122,11 @@ flowchart TD
                 DB[Secure Database EC2]
             end
             
+            App ==>|Queries| DB
+            
             NAT[NAT Gateway<br/>'IP Masker']
             DB -->|Requests Updates| NAT
-            NAT -->|Masked Request| IGW
+            NAT -.->|Masked Request| IGW
         end
     end
 
