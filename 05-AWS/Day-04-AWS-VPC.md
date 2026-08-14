@@ -106,20 +106,20 @@ Here is the exact flow of how a user reaches your application:
 flowchart TD
     User((Person / User)) -->|Types URL| Internet((Internet))
     
-    subgraph AWS Cloud
+    subgraph AWS_Cloud [AWS Cloud]
         Internet --> IGW[Internet Gateway<br/>'The Main Gate']
         
-        subgraph Your VPC [Virtual Private Cloud]
+        subgraph Your_VPC [Virtual Private Cloud]
             direction TB
             IGW --> ELB[Elastic Load Balancer]
             ELB --> RT[Route Table<br/>'The Guide']
             
-            subgraph Public Subnet
+            subgraph Public_Subnet [Public Subnet]
                 RT --> App[EC2 Instance<br/>Target Group]
                 App -.-> SG[Security Group<br/>'The Security Guard']
             end
             
-            subgraph Private Subnet
+            subgraph Private_Subnet [Private Subnet]
                 DB[Secure Database EC2]
             end
             
@@ -130,7 +130,7 @@ flowchart TD
     end
 
     classDef vpc fill:#f9f9f9,stroke:#ff9900,stroke-width:2px;
-    class Your VPC vpc;
+    class Your_VPC vpc;
 ```
 
 ### The Flow Step-by-Step:
