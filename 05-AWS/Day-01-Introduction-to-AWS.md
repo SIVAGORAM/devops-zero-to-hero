@@ -32,20 +32,26 @@ What happens to the remaining 90 CPUs? They sit there doing absolutely nothing. 
 
 A software layer called a **Hypervisor** manages the physical hardware and creates these Virtual Machines (VMs).
 
-```text
-             Physical Server
-        ┌──────────────────────┐
-        │ CPU: 100 Cores       │
-        │ RAM: 512 GB          │
-        │ Storage: 10 TB       │
-        └──────────┬───────────┘
-                   │
-              Hypervisor
-                   │
-      ┌────────────┼────────────┐
-      ↓            ↓            ↓
-    VM 1         VM 2         VM 3
-   20 CPU       40 CPU       10 CPU
+```mermaid
+flowchart TD
+    subgraph Physical_Server [Physical Server]
+        direction TB
+        HW[Hardware<br/>100 Cores, 512GB RAM, 10TB]
+        HYP{Hypervisor<br/>Virtualization Layer}
+        
+        HW --> HYP
+        
+        subgraph Virtual_Machines [Virtual Machines]
+            direction LR
+            VM1[VM 1<br/>20 CPU]
+            VM2[VM 2<br/>40 CPU]
+            VM3[VM 3<br/>10 CPU]
+        end
+        
+        HYP --> VM1
+        HYP --> VM2
+        HYP --> VM3
+    end
 ```
 
 ### Types of Hypervisors

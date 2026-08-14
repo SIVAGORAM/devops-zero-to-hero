@@ -120,6 +120,19 @@ Open your web browser and try to visit: `http://<your-public-ip>:8080`.
 - **Inbound Rules:** Requests coming *inside* the AWS EC2 instance.
 - **Outbound Rules:** Requests going *outside* to the internet.
 
+```mermaid
+flowchart LR
+    User((User on Internet)) -->|Tries Port 8080| SG{Security Group}
+    
+    SG -->|No Rule Found| Drop[Connection Dropped ❌]
+    SG -->|Inbound Rule Allowed| EC2[EC2 Instance]
+    
+    EC2 --> Jenkins[Jenkins Server running on 8080]
+    
+    classDef fail fill:#ffcccc,stroke:#ff0000;
+    class Drop fail;
+```
+
 You must explicitly edit the Inbound Rules to allow traffic.
 
 **How to fix it:**

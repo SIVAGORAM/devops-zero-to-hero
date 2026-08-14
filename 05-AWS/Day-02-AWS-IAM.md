@@ -16,6 +16,19 @@ When you walk into the bank, the security guard checks two things:
 
 **AWS works exactly the same way.** AWS has hundreds of "rooms" (services like EC2, S3 storage, Databases). IAM is the security guard that controls exactly *who* can log in, and exactly *what* they are allowed to do.
 
+```mermaid
+flowchart LR
+    User((You)) -->|1. Show ID| Guard{Security Guard<br/>Authentication}
+    Guard -->|Invalid ID| Deny1[Access Denied! ❌]
+    Guard -->|Valid ID| Policy{Bank Manager<br/>Authorization}
+    
+    Policy -->|Not Allowed| Deny2[Access Denied! ❌]
+    Policy -->|Allowed| Vault[(Bank Vault<br/>AWS Service ✅)]
+    
+    classDef deny fill:#ffcccc,stroke:#ff0000;
+    class Deny1,Deny2 deny;
+```
+
 ---
 
 ## 2. The Danger of the Root Account
@@ -101,6 +114,15 @@ If a junior developer joins, creating policies manually takes too much time. Let
 
 **Why is this powerful?**
 Tomorrow, if 10 new developers join the company, you just create their usernames and drop them into the `Development-Group`. They will instantly inherit the S3 Full Access policy. If the developers ever need database access, you just add the Database policy to the *Group*, and all 10 developers are instantly updated.
+
+```mermaid
+flowchart TD
+    Policy[AmazonS3FullAccess Policy] -->|Attached To| Group{Development-Group}
+    
+    Group -.->|Inherits| U1((test-user-01))
+    Group -.->|Inherits| U2((test-user-02))
+    Group -.->|Inherits| U3((test-user-03))
+```
 
 ---
 
