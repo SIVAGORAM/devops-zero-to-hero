@@ -76,23 +76,82 @@ Inside the VPC, we typically create **Public Subnets** and **Private Subnets**. 
 
 ## 4. The Core Components of a VPC
 
-Let's map our real-world analogy to the actual AWS components that make up a VPC:
+Let's map our real-world analogy to the actual AWS components that make up a VPC. The following features help you configure a VPC to provide the connectivity that your applications need:
 
-1. **Virtual Private Cloud (VPC):** A virtual network that closely resembles a traditional network that you'd operate in your own data center. After you create a VPC, you can add subnets.
-2. **Subnets:** A range of IP addresses in your VPC. A subnet must reside in a single Availability Zone. After you add subnets, you can deploy AWS resources.
-3. **IP Addressing:** You can assign IP addresses, both IPv4 and IPv6, to your VPCs and subnets. 
-4. **Internet Gateway (The Gate):** This is the doorway to the internet (the gate acts as a pass). If you do not attach an Internet Gateway to your VPC, nobody from the outside world can ever enter it.
-5. **Route Tables (Routing / The Guide):** Use route tables to determine where network traffic from your subnet or gateway is directed. *(How should your application go? The path tells it to go to this path using the route table).*
-6. **Security Groups (The Security Guard):** Acts as a virtual firewall for instances. The security group says which port you need to access, or from which IP you are coming. The security group will say: *"Only if you are coming from this IP address, IP range, or port from the internet, then only you can access the application."*
-7. **NACL (Network Access Control List):** A stateless firewall that controls inbound and outbound traffic at the subnet level. It provides an additional layer of network security for your entire Subnet, rather than a single instance.
-8. **Elastic Load Balancer (ELB):** When traffic enters through the Route Table, it usually hits a Load Balancer first. The ELB acts like a traffic cop, distributing incoming user requests evenly across multiple EC2 instances.
-9. **NAT Gateway (The IP Masker):** Imagine you have a highly secure Database in a Private Subnet (no internet access), but it needs to temporarily connect to the internet to download a software update from Google. It is a terrible security practice to expose your private database IP to the internet. A **NAT Gateway** allows your private server to download updates while completely masking its IP address.
-10. **Gateways and Endpoints:** Connects your VPC to another network (e.g., use a VPC endpoint to connect to AWS services privately without the internet).
-11. **Peering Connections:** Route traffic directly between the resources in two different VPCs.
-12. **Traffic Mirroring:** Copy network traffic and send it to security and monitoring appliances for deep packet inspection.
-13. **Transit Gateways:** A central hub to route traffic between your VPCs, VPN connections, and AWS Direct Connect connections.
-14. **VPN Connections:** Connect your VPCs securely to your on-premises corporate networks using AWS Virtual Private Network.
-15. **VPC Flow Logs:** The security cameras. A flow log captures information about the IP traffic going to and from network interfaces in your VPC so you can monitor for suspicious activity.
+**Virtual Private Cloud (VPC)**
+```text
+A virtual network that closely resembles a traditional network that you'd operate in your own data center. After you create a VPC, you can add subnets.
+```
+
+**Subnets**
+```text
+A range of IP addresses in your VPC. A subnet must reside in a single Availability Zone. After you add subnets, you can deploy AWS resources.
+```
+
+**IP Addressing**
+```text
+You can assign IP addresses, both IPv4 and IPv6, to your VPCs and subnets. 
+```
+
+**Internet Gateway (The Gate)**
+```text
+This is the doorway to the internet (the gate acts as a pass). If you do not attach an Internet Gateway to your VPC, nobody from the outside world can ever enter it.
+```
+
+**Route Tables (Routing / The Guide)**
+```text
+Use route tables to determine where network traffic from your subnet or gateway is directed. (How should your application go? The path tells it to go to this path using the route table).
+```
+
+**Security Groups (The Security Guard)**
+```text
+Acts as a virtual firewall for instances. The security group says which port you need to access, or from which IP you are coming. The security group will say: "Only if you are coming from this IP address, IP range, or port from the internet, then only you can access the application."
+```
+
+**NACL (Network Access Control List)**
+```text
+A stateless firewall that controls inbound and outbound traffic at the subnet level. It provides an additional layer of network security for your entire Subnet, rather than a single instance.
+```
+
+**Elastic Load Balancer (ELB)**
+```text
+When traffic enters through the Route Table, it usually hits a Load Balancer first. The ELB acts like a traffic cop, distributing incoming user requests evenly across multiple EC2 instances.
+```
+
+**NAT Gateway (The IP Masker)**
+```text
+Imagine you have a highly secure Database in a Private Subnet (no internet access), but it needs to temporarily connect to the internet to download a software update from Google. It is a terrible security practice to expose your private database IP to the internet. A NAT Gateway allows your private server to download updates while completely masking its IP address.
+```
+
+**Gateways and Endpoints**
+```text
+Connects your VPC to another network (e.g., use a VPC endpoint to connect to AWS services privately without the internet).
+```
+
+**Peering Connections**
+```text
+Route traffic directly between the resources in two different VPCs.
+```
+
+**Traffic Mirroring**
+```text
+Copy network traffic and send it to security and monitoring appliances for deep packet inspection.
+```
+
+**Transit Gateways**
+```text
+A central hub to route traffic between your VPCs, VPN connections, and AWS Direct Connect connections.
+```
+
+**VPN Connections**
+```text
+Connect your VPCs securely to your on-premises corporate networks using AWS Virtual Private Network.
+```
+
+**VPC Flow Logs**
+```text
+The security cameras. A flow log captures information about the IP traffic going to and from network interfaces in your VPC so you can monitor for suspicious activity.
+```
 
 ---
 
