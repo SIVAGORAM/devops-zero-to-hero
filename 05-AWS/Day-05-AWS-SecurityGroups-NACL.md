@@ -20,8 +20,8 @@ Inside a Security Group, there are two types of rules you must configure:
 
 ```mermaid
 flowchart LR
-    User((User)) -->|Inbound Traffic<br/>(Requesting App)| App[EC2 Instance<br/>Your App]
-    App -->|Outbound Traffic<br/>(Fetching Data)| Internet((google.com))
+    User((User)) -->|Inbound Traffic - Requesting App| App[EC2 Instance - Your App]
+    App -->|Outbound Traffic - Fetching Data| Internet((google.com))
     
     style App fill:#f9f9f9,stroke:#333,stroke-width:2px
 ```
