@@ -120,12 +120,12 @@ AWS will run a workflow and output a log showing it created the VPC, subnets, in
 ### Step 4: The Security Group Block (Inbound Rules)
 1. Go to your browser and try to access the app: `http://<your-public-ip>:8000/`
 2. **Result:** The page will NOT load! Why?
-3. **Check the NACL first:** Open another AWS tab, go to **VPC $\rightarrow$ Network ACLs**, and click your `demo` VPC's NACL. Look at the inbound rules. You will see it allows ALL traffic by default! So the NACL is not the problem.
+3. **Check the NACL first:** Open another AWS tab, go to **VPC -> Network ACLs**, and click your `demo` VPC's NACL. Look at the inbound rules. You will see it allows ALL traffic by default! So the NACL is not the problem.
 4. **The real blocker:** The EC2 instance is attached to a Security Group that only allows Port 22 (SSH) by default. The Security Group is blocking Port 8000.
 5. **The Fix:**
-   - Go to the EC2 console $\rightarrow$ **Security Groups**.
+   - Go to the EC2 console -> **Security Groups**.
    - Select your SG and click **Edit inbound rules**.
-   - Click **Add rule** $\rightarrow$ Type: `Custom TCP` $\rightarrow$ Port range: `8000` $\rightarrow$ Source: `Anywhere-IPv4 (0.0.0.0/0)`.
+   - Click **Add rule** -> Type: `Custom TCP` -> Port range: `8000` -> Source: `Anywhere-IPv4 (0.0.0.0/0)`.
    - Click **Save rules**.
 4. Refresh your browser. You will now see the simple Python HTTP server directory!
 

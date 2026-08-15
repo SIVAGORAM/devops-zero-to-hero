@@ -82,10 +82,10 @@ Click on your Instance ID to open its details. Copy the **Public IPv4 address**.
 
 #### Option B: Logging in from Windows (Using MobaXterm or PuTTY)
 1. Download and install the free **MobaXterm Home Edition**.
-2. Open it, click **Session** $\rightarrow$ **SSH**.
+2. Open it, click **Session** -> **SSH**.
 3. **Remote host:** Paste your AWS Public IP address.
 4. **Specify username:** Check the box and type `ubuntu`.
-5. Click **Advanced SSH settings** $\rightarrow$ Check **Use private key** $\rightarrow$ Browse and select your `awslogin.pem` file.
+5. Click **Advanced SSH settings** -> Check **Use private key** -> Browse and select your `awslogin.pem` file.
 6. Click **OK** and Accept the prompt. You are now inside the server!
 
 ---
@@ -138,7 +138,7 @@ You must explicitly edit the Inbound Rules to allow traffic.
 **How to fix it:**
 1. Go back to your AWS EC2 Console.
 2. Click on your instance, go to the **Security** tab, and click the Security Group link.
-3. Click **Edit inbound rules** $\rightarrow$ **Add rule**.
+3. Click **Edit inbound rules** -> **Add rule**.
 4. **Type:** Custom TCP
 5. **Port range:** `8080`
 6. **Source:** Anywhere-IPv4 (`0.0.0.0/0`)

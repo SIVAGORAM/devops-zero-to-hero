@@ -58,7 +58,7 @@ Let's put this into practice. We are going to create a user, prove they have no 
 ### Step 1: Create an IAM User
 1. Log in to the AWS Console using your **Root Account**.
 2. In the search bar at the top, type **IAM** and click on it.
-3. On the left-hand menu, click **Users** $\rightarrow$ **Create user**.
+3. On the left-hand menu, click **Users** -> **Create user**.
 4. **User name:** `test-user-01`
 5. Check the box for **Provide user access to the AWS Management Console**.
 6. Select **I want to create an IAM user**.
@@ -82,8 +82,8 @@ By default, newly created IAM users have **Zero Permissions**. Let's prove it.
 Let's give our user the power to use S3.
 
 1. Log back in as your **Root Account** (or an Admin account).
-2. Go to **IAM** $\rightarrow$ **Users** $\rightarrow$ click on `test-user-01`.
-3. Click the **Add permissions** dropdown $\rightarrow$ **Add permissions**.
+2. Go to **IAM** -> **Users** -> click on `test-user-01`.
+3. Click the **Add permissions** dropdown -> **Add permissions**.
 4. Select **Attach policies directly**.
 5. In the search box, type `AmazonS3FullAccess`. Check the box next to it.
    *(Note: This is an AWS-Managed policy. You can also write your own custom policies in JSON format. For example, here is a custom JSON policy that gives access to a specific S3 bucket—we will go deep into this in future classes!)*
@@ -99,7 +99,7 @@ Let's give our user the power to use S3.
        ]
    }
    ```
-6. Click **Next** $\rightarrow$ **Add permissions**.
+6. Click **Next** -> **Add permissions**.
 7. Now, if you log back in as `test-user-01`, you will be able to successfully create, update, and delete S3 buckets!
 
 ### Step 4: Creating and Managing IAM Groups

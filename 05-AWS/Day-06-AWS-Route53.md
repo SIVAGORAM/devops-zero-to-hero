@@ -24,7 +24,7 @@ When a user accesses `irctc.com`, DNS is the service working behind the scenes t
 ## 2. The Architecture Flow
 
 Before DNS, your traffic flow looked like this:
-`User $\rightarrow$ Internet Gateway $\rightarrow$ Load Balancer $\rightarrow$ NAT $\rightarrow$ Subnets`
+`User -> Internet Gateway -> Load Balancer -> NAT -> Subnets`
 
 With Route 53, the user types a clean domain name, and the flow becomes:
 
@@ -57,7 +57,7 @@ A Hosted Zone is simply a container that holds all the routing rules for your sp
 Inside the Hosted Zone, you create the actual **Records**. This is where the mapping happens! You create a record that says: *"When someone requests `api.yourstartup.com`, route them to the IP address of my Load Balancer."*
 
 **The Flow:**
-`Domain Registration $\rightarrow$ Hosted Zones $\rightarrow$ DNS Records`
+`Domain Registration -> Hosted Zones -> DNS Records`
 
 ---
 
