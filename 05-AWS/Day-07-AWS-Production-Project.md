@@ -115,8 +115,18 @@ Open your local terminal (or MobaXterm) and use **SCP (Secure Copy Protocol)** t
 ```bash
 scp -i "/path/to/awslogin.pem" "/path/to/awslogin.pem" ubuntu@<BASTION-PUBLIC-IP>:/home/ubuntu/
 ```
+
+**Breaking down the command:**
+1. **`scp`**: Secure Copy Protocol. Used to securely transfer files between computers using SSH.
+2. **`-i "/path/to/awslogin.pem"`**: Specifies the SSH private key used to authenticate with the remote server.
+3. **`"/path/to/awslogin.pem"`**: The source file you want to copy from your local machine.
+4. **`ubuntu@<BASTION-IP>:/home/ubuntu/`**: The destination. `ubuntu` is the username, followed by the Bastion's public IP, and the destination directory `/home/ubuntu/`.
+
 *Wait, why did we do this?*
 `Local Laptop -> [SCP transfers key] -> Bastion -> [SSH using key] -> Private EC2`
+
+> [!WARNING]
+> **Security Note:** For real production environments, copying a private `.pem` key directly onto a Bastion host is generally NOT the preferred approach. A safer approach is using **SSH Agent Forwarding** or using **AWS Systems Manager Session Manager** (SSM) to connect without keys entirely.
 
 **Test it:**
 1. SSH into your Bastion Host.
@@ -159,7 +169,7 @@ The application is running, but the outside world still can't reach it. We need 
 3. **Name:** `aws-prod-example`
 4. **Protocol:** `HTTP`, **Port:** `8000`
 5. **VPC:** `aws-prod-example` -> Click Next.
-6. Select your running Private EC2 instances, click **Include as pending below**, and click **Create target group**.
+6. Select both of your running Private EC2 instances, click **Include as pending below**, and click **Create target group**. *(Note: Since we manually launched the Python server, only one instance actually has the application running right now. The other does not. This is perfectly fine for this manual proof-of-concept).*
 
 **Part B: Create the Load Balancer**
 1. Go to **EC2** -> **Load Balancers** -> **Create load balancer**.
