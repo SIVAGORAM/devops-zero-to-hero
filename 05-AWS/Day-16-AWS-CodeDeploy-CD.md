@@ -108,17 +108,24 @@ CodeDeploy needs permission to talk to EC2, and EC2 needs permission to pull art
 
 ---
 
-## 6. Real-World Debugging: Fixing Deployment Failures
+## 6. Create the Deployment (Manual Test)
+Before we automate this, let's manually trigger a deployment to ensure it works.
 
-### Attempt 1: Manual Deployment (Failure)
-1. In your Deployment Group, click **Create deployment**.
-2. **Revision type:** Select `My application is stored in GitHub`.
-3. Enter your GitHub Token to authenticate.
-4. **Repository name:** `SIVAGORAM/devops-zero-to-hero`
-5. **Commit ID:** Provide the latest commit ID.
-6. Click **Create deployment**.
+1. Go to your CodeDeploy Application -> Deployment Groups.
+2. Click **Create deployment**.
+3. **Deployment group:** Select your deployment group.
+4. **Revision type:** Select `My application is stored in GitHub` (or Amazon S3 depending on your setup).
+5. **GitHub token name:** Get authenticated by GitHub for the first time if prompted.
+6. **Repository name:** `SIVAGORAM/devops-zero-to-hero`
+7. **Commit ID:** Provide the latest commit ID from your GitHub repo.
+8. Scroll down and click **Create deployment**.
 
-**Error 1: Missing appspec.yml at the root level**
+---
+
+## 7. Real-World Debugging: Fixing Deployment Failures
+When you click 'Create deployment', you might run into real-world issues. Let's debug them!
+
+### Error 1: Missing appspec.yml at the root level
 If your deployment fails, click **View details**. CodeDeploy expects the `appspec.yml` file to be at the exact **root level** of your repository. 
 **Fix:** Move `appspec.yml` and the `scripts/` folder out of any subdirectories directly to the root of your repository in GitHub and commit the changes.
 
