@@ -86,7 +86,7 @@ Now we create the CDN to securely serve our private bucket.
 7. **Viewer protocol policy:** Select **Redirect HTTP to HTTPS** *(Best practice for security).*
 8. **Web Application Firewall (WAF):** For this demo, you can turn this **Off** to save costs.
 9. **Price class:** Select **Use all edge locations (best performance)**. *(Note: Be careful with pricing classes in real production environments!)*
-10. **Default root object:** Type `/index.html`.
+10. **Default root object:** Type `index.html` (Do **NOT** put a `/` in front of it, otherwise you will get an AccessDenied error!).
 11. Click **Create Distribution**.
 
 *(Note: It will take a few minutes for the status to change from "Deploying" to "Enabled" as AWS copies your website to every edge location in the world).*
