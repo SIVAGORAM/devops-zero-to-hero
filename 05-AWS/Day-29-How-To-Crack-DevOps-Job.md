@@ -61,3 +61,35 @@ Junior engineers just want to make the app run. Senior engineers want to make it
 The AWS ecosystem is massive; no one knows everything. If an interviewer asks you a highly specific question about a service you haven't used (e.g., AWS App Mesh), **do not lie or guess.**
 * **The Winning Answer:** *"I haven't had the opportunity to use AWS App Mesh in a production environment yet. However, based on my understanding of service meshes, I would start by reading the AWS documentation to understand its control plane, and I'd likely deploy a small proof-of-concept in a Sandbox VPC to test how it handles Envoy proxy routing before making any architectural decisions."* 
 * (This shows honesty, a willingness to learn, and a logical troubleshooting methodology).
+
+### 6. "Learn in Public" (Optimize LinkedIn)
+Cold applying to hundreds of jobs has a terrible success rate. The highest-paying jobs often come through recruiters reaching out to *you*.
+* **The Strategy:** Document your "Zero to Hero" journey on LinkedIn and Medium. Every time you finish a project (like writing a Terraform script to deploy an EKS cluster), write a short post about what you built, the errors you faced, and how you fixed them. Include architectural diagrams.
+* **The Payoff:** Recruiters search for keywords. When they see a candidate actively building and sharing knowledge, they will bypass the traditional HR filters and send you direct messages.
+
+### 7. Prepare for the System Design Whiteboard
+If you are interviewing for a Mid/Senior Architect role, memorizing AWS services isn't enough. You will face a System Design round.
+* **The Challenge:** The interviewer will say, *"Design a globally scalable e-commerce backend on AWS."*
+* **The Strategy:** Do not start drawing EC2 instances immediately. Spend the first 10 minutes asking clarifying questions: *"What is the expected read/write ratio? Are we optimizing for low latency or low cost? How many daily active users do we expect?"* Then, methodically draw out the DNS (Route 53), CDN (CloudFront), Load Balancing (ALB), Compute (EKS/Lambda), and Database (Aurora/DynamoDB) layers.
+
+### 8. Emphasize Soft Skills & a "Blameless" Culture
+DevOps is literally the intersection of Development (who want to ship features fast) and Operations (who want to keep the servers stable). 
+* **The Strategy:** Interviewers will test your conflict resolution skills. If asked, *"How do you handle a developer who pushes broken code that takes down production?"* never say you would punish them.
+* **The Winning Answer:** *"I would implement a **Blameless Post-Mortem**. The goal isn't to find out 'who' broke it, but 'why' the system allowed it to break. I would work with the developer to write a new automated Jenkins test to ensure that specific failure can never be deployed to production again."*
+
+### 9. The Art of Salary Negotiation
+Getting the job offer is only half the battle. If you want a *high-paying* job, you must know how to negotiate.
+* **The Strategy:** Never give the first number. If HR asks for your salary expectations early in the process, pivot by saying, *"I'm currently focused on finding a role where I can bring the most value. I'm sure if we are a good fit, we can agree on a competitive number."*
+* **The Execution:** When the offer comes, negotiate your **Total Compensation (TC)**, not just your base salary. If they cannot increase the base salary due to HR bands, ask for a higher Sign-on Bonus, more Restricted Stock Units (RSUs/Equity), extra PTO days, or a guaranteed Work-From-Home stipend. 
+* **The Secret:** The most powerful negotiation tactic in the world is having a competing job offer.
+
+### 10. Beat the ATS (Applicant Tracking System) Bots
+Before a human hiring manager ever sees your resume, it is scanned by an AI robot called an ATS. Over 70% of resumes are rejected instantly by the ATS.
+* **The Strategy:** Do not use fancy, multi-column PDF templates with graphics or profile photos. Use a standard, boring, single-column Microsoft Word document. 
+* **The Execution:** The ATS looks for exact keyword matches. If the job description asks for "Amazon Web Services", do not just write "AWS" on your resume. Write "Amazon Web Services (AWS)". 
+
+### 11. Create a 30-60-90 Day Plan (How to Keep the Job)
+Cracking the interview is step one. Passing the 3-month probation period is step two. Bring a 30-60-90 day plan to your final interview to blow the hiring manager away.
+* **First 30 Days (Learn):** Focus entirely on absorbing the company's architecture. Map out the CI/CD pipelines, read the Terraform code, and meet with the lead developers to understand their pain points. Do not try to change anything yet.
+* **Next 60 Days (Execute):** Pick one small, annoying problem (e.g., a flaky Jenkins build) and permanently fix it. Deliver a quick "win" to build trust with the team.
+* **First 90 Days (Optimize):** Begin proposing larger architectural changes (e.g., migrating from EC2 to ECS to save costs) based on the deep knowledge you've acquired.
