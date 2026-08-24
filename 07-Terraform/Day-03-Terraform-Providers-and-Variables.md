@@ -1,4 +1,4 @@
-# Day 27: Terraform Providers, Variables, and Functions (Simplified)
+# Day 03: Terraform Providers, Variables, and Functions (Simplified)
 
 Yesterday we built an EC2 instance. Today we learn how to make our Terraform code smarter, cleaner, and reusable. We will break these advanced concepts down so they are incredibly easy to understand.
 

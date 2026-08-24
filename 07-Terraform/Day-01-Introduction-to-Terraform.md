@@ -1,4 +1,4 @@
-# Day 25: Infrastructure as Code & Introduction to Terraform
+# Day 01: Infrastructure as Code & Introduction to Terraform
 
 Welcome to Module 07! Today we are diving into **Infrastructure as Code (IaC)** and the industry-standard tool for provisioning infrastructure: **Terraform** (developed by HashiCorp).
 

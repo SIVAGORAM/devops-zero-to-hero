@@ -1,4 +1,4 @@
-# Day 26: Terraform Zero to Hero (Practical Implementation)
+# Day 02: Terraform Zero to Hero (Hands-On: Provisioning Your First EC2 Instance)
 
 Today we transition from theory to practice. We will install Terraform, configure our AWS credentials, and write our first script to deploy an EC2 instance completely through code.
 
