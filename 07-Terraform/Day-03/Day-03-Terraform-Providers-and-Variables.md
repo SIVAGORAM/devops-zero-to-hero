@@ -96,16 +96,28 @@ output "server_public_ip" {
 
 ---
 
-## 4. The `.tfvars` File (The Secret Keeper)
+## 4. The `.tfvars` File (The Environment Manager & Secret Keeper)
 
-Sometimes variables hold highly sensitive passwords (like Database passwords). You **never** want to upload passwords to GitHub.
+While `variables.tf` is where you *define* what variables exist, the `.tfvars` file is where you actually *assign* values to them. This file is incredibly important for two major reasons: **Security** and **Environment Management**.
 
-To fix this, we put our passwords in a special file called `terraform.tfvars`. 
-We then tell Git to ignore this file so it stays safely on our local laptop.
+### 1. The Security Importance (The Secret Keeper)
+Sometimes variables hold highly sensitive information like Database passwords, API keys, or Access Tokens. You **never** want to upload these hardcoded passwords into your `.tf` files on GitHub where anyone can see them.
+Instead, you put these sensitive values into a file called `terraform.tfvars`. You then add `*.tfvars` to your `.gitignore` file, ensuring your secrets stay safely on your local laptop.
 
-**How to run it:**
+### 2. The Environment Importance (Reusability)
+Imagine you have one Terraform module, but you need to deploy it to three different environments: **Dev**, **Staging**, and **Prod**. You don't rewrite the module three times! You just create three different `.tfvars` files:
+- `dev.tfvars` (uses small `t2.micro` servers)
+- `prod.tfvars` (uses massive `t2.large` servers)
+
+**How to use them:**
+By default, if you name a file exactly `terraform.tfvars`, Terraform loads it automatically when you run a plan or apply. However, if you are using specific environment files, you must tell Terraform which one to use via the command line:
+
 ```bash
-terraform apply -var-file="terraform.tfvars"
+# Automatically loads terraform.tfvars
+terraform apply 
+
+# Manually tell it to use the Production values
+terraform apply -var-file="prod.tfvars"
 ```
 
 ---
