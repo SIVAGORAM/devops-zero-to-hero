@@ -9,7 +9,7 @@ Today we transition from theory to practice. We will install Terraform, configur
 Imagine you are a DevOps engineer and you are asked to create an S3 bucket. Doing this manually via the AWS Console takes about 2 minutes. 
 But what if the request changes, and you now need to create **100 S3 buckets** for different client environments? Doing this manually is prone to human error and takes hours.
 
-With **Infrastructure as Code (IaC)**, you write a script once, and can programmatically create 100 S3 buckets in seconds via API calls. 
+With **Infrastructure as Code (IaC)**, you write a script once, and can programmatically create 100 S3 buckets in seconds via API calls. Note that IaC isn't restricted to one format; infrastructure templates can be written in JSON, YAML, or any compatible scripting language depending on the tool you choose.
 
 While AWS provides **CloudFormation (CFT)**, Azure provides **Azure Resource Manager (ARM)**, and OpenStack uses **Heat Templates**, learning all these proprietary tools is nearly impossible. 
 Instead, we use **Terraform**, developed by HashiCorp. It uses **HCL (HashiCorp Configuration Language)** to let you define infrastructure for *any* cloud provider.
@@ -109,4 +109,4 @@ cat terraform.tfstate
 When you run `terraform destroy` or modify your script, Terraform looks at this `tfstate` file to compare what exists in the real world versus what is written in your code. 
 
 ---
-**[Previous: Day 25 - Intro to Terraform](./Day-25-Introduction-to-Terraform.md)** | **[Next: Day 27 - Terraform Providers & Variables](./Day-27-Terraform-Providers-and-Variables.md)**
+**[Previous: Day 01 - Intro to Terraform](./Day-01-Introduction-to-Terraform.md)** | **[Next: Day 03 - Terraform Providers & Variables](./Day-03-Terraform-Providers-and-Variables.md)**

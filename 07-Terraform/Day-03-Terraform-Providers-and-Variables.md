@@ -148,4 +148,4 @@ Terraform provides built-in mini-tools (functions) to help you manipulate data e
 *You don't need to memorize these! You can always look them up in the official documentation when you need them.*
 
 ---
-**[Previous: Day 26 - Terraform Zero to Hero](./Day-26-Terraform-Zero-to-Hero.md)**
+**[Previous: Day 02 - Terraform Zero to Hero](./Day-02-Terraform-Zero-to-Hero.md)**

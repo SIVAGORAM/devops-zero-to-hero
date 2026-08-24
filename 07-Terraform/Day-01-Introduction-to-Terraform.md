@@ -54,4 +54,4 @@ Terraform acts as a universal translator. It takes the **"API as Code"** approac
 As a DevOps engineer, you do not need to memorize AWS CloudFormation, Azure ARM, or OpenStack Heat Templates. **You just learn Terraform.**
 
 ---
-**[Previous: Day 24 - Advanced Ansible](../06-Ansible/Day-24-Advanced-Ansible-Mastery.md)** | **[Next: Day 26 - Terraform Zero to Hero](./Day-26-Terraform-Zero-to-Hero.md)**
+**[Previous: Day 24 - Advanced Ansible](../06-Ansible/Day-24-Advanced-Ansible-Mastery.md)** | **[Next: Day 02 - Terraform Zero to Hero](./Day-02-Terraform-Zero-to-Hero.md)**
