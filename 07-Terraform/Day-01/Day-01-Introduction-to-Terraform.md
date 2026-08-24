@@ -124,4 +124,4 @@ To get started with Terraform, it's important to understand some key terminology
 - Follow the steps provided in the Downloads [Page](https://developer.hashicorp.com/terraform/downloads) for macOS.
 
 ---
-**[Previous: Day 24 - Advanced Ansible](../06-Ansible/Day-24-Advanced-Ansible-Mastery.md)** | **[Next: Day 02 - Terraform Zero to Hero](./Day-02-Terraform-Zero-to-Hero.md)**
+**[Previous: Day 24 - Advanced Ansible](../../06-Ansible/Day-24-Advanced-Ansible-Mastery.md)** | **[Next: Day 02 - Terraform Zero to Hero](../Day-02/Day-02-Terraform-Zero-to-Hero.md)**
