@@ -1,0 +1,37 @@
+# REACTIVE DRIFT DETECTION: Cron Job
+# This is a sample GitHub Actions pipeline that runs every night at midnight.
+# It runs 'terraform plan', which automatically refreshes the state and compares it to AWS.
+# If drift is detected, the plan will show changes, and the pipeline will fail, alerting the team!
+
+name: Terraform Drift Detection (Nightly)
+
+on:
+  schedule:
+    - cron: '0 0 * * *' # Runs at midnight UTC every day
+
+jobs:
+  drift-detection:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v2
+        
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v2
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: us-east-1
+
+      - name: Terraform Init
+        run: terraform init
+
+      - name: Terraform Plan (Check for Drift)
+        # The -detailed-exitcode flag is the secret weapon!
+        # If the plan sees that reality matches the code, it returns 0 (Success).
+        # If the plan sees drift (manual changes), it returns 2 (Failure). 
+        # This failure will trigger an alert in GitHub!
+        run: terraform plan -detailed-exitcode
