@@ -14,7 +14,7 @@ Let's start with the most common interview question: *What exactly is a containe
 
 A container is a bundle of your **Application**, the **Application libraries**, and the **minimum system dependencies** required to run it.
 
-![Containers vs Virtual Machines](C:/Users/SIVA GORAM/.gemini/antigravity-ide/brain/b197b719-9809-4e14-982f-7d615eedfe0d/.user_uploaded/media_1786681928775.png)
+![Containers vs Virtual Machines](./images/container_vs_vm.png)
 
 ### Key Differences
 1. **Resource Utilization:** Containers share the host operating system kernel, making them incredibly lighter and faster than VMs. VMs require a massive, full-fledged Guest OS and a hypervisor, making them heavily resource-intensive.
@@ -31,7 +31,7 @@ Containers are tiny because they use **containerization technology** to share th
 Let's look at a real example. Below is a screenshot of the official Ubuntu base image for Docker. Notice the size? **It's just ~28 MB!**
 On the contrary, a standard Ubuntu VM image is close to **2.3 GB**. The container is nearly 100 times smaller!
 
-![Ubuntu Image Size](C:/Users/SIVA GORAM/.gemini/antigravity-ide/brain/b197b719-9809-4e14-982f-7d615eedfe0d/.user_uploaded/media_1786681938966.png)
+![Ubuntu Image Size](./images/ubuntu_image_size.png)
 
 ### What does the Container Base Image actually contain?
 - `/bin`: Binary executables (like `ls`, `cp`).
@@ -56,7 +56,7 @@ If the container is so small, how does it function? It heavily borrows resources
 
 **Containerization** is the *concept*. **Docker** is the *tool* that implements that concept.
 
-![Docker Architecture](C:/Users/SIVA GORAM/.gemini/antigravity-ide/brain/b197b719-9809-4e14-982f-7d615eedfe0d/.user_uploaded/media_1786682522708.png)
+![Docker Architecture](./images/docker_architecture.png)
 
 Looking at the diagram above, the **Docker Daemon** is the absolute brain of the operation. If the Docker Daemon is killed, Docker is brain dead!
 
@@ -74,7 +74,7 @@ Looking at the diagram above, the **Docker Daemon** is the absolute brain of the
 
 There are three primary commands that define the entire Docker Lifecycle:
 
-![Docker Lifecycle](C:/Users/SIVA GORAM/.gemini/antigravity-ide/brain/b197b719-9809-4e14-982f-7d615eedfe0d/.user_uploaded/media_1786682550685.png)
+![Docker Lifecycle](./images/docker_lifecycle.png)
 
 1. `docker build` $\rightarrow$ Builds an Image from a Dockerfile.
 2. `docker run` $\rightarrow$ Spins up an active Container from that Image.
