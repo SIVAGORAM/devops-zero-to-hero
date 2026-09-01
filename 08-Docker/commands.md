@@ -136,3 +136,29 @@ These commands save lives when you are troubleshooting port conflicts or cleanin
 **Purpose:** If Docker says `Bind for 0.0.0.0:80 failed: port is already allocated`, use these commands to find the rogue process and kill it!
 **Step 1 (Find the PID):** `lsof -i :80`
 **Step 2 (Kill the PID):** `kill -9 <Process_ID>`
+
+---
+
+## 🏗️ 6. Docker Compose (Day 10)
+
+Commands for orchestrating multi-container applications using a `docker-compose.yml` file.
+
+### `docker-compose up`
+**Purpose:** Reads the YAML file and spins up your entire architecture (Networks, Volumes, and Services).
+**Crucial Flags:**
+- `-d` (Detached): Runs the entire stack in the background.
+**Example:** `docker-compose up -d`
+
+### `docker-compose down`
+**Purpose:** Gracefully stops and deletes all containers and networks defined in the YAML file. (It safely ignores Volumes by default to protect your data!).
+**Example:** `docker-compose down`
+
+### `docker-compose ps`
+**Purpose:** Lists only the running containers that are managed by the current compose file.
+**Example:** `docker-compose ps`
+
+### `docker-compose logs`
+**Purpose:** Streams the terminal logs for ALL services in the compose file simultaneously.
+**Crucial Flags:**
+- `-f` (Follow): Keeps the terminal open and actively streams new logs as they happen.
+**Example:** `docker-compose logs -f`
