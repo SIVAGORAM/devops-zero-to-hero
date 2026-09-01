@@ -22,7 +22,7 @@ Because it is just a running process, **you cannot create an empty container**. 
 Docker operates on a Client-Server architecture. It consists of 3 main pieces:
 
 1. **Docker Daemon (Docker Engine):** This is the heavy lifter. It is a background service (server) running on your host machine that does all the actual work of building, running, and destroying containers.
-2. **Docker CLI (Client):** This is the terminal interface you type commands into. The CLI does not run containers; it simply sends your commands to the Docker Daemon to execute. 
+2. **Docker CLI (Client):** This is the terminal interface you type commands into. Using this, you get **observability** and the ability to communicate directly with your Docker Daemon. The CLI does not run containers; it simply sends your commands to the Docker Daemon to execute. 
 3. **Docker Registry:** A centralized repository where all pre-built Images are stored. The public, default registry is **Docker Hub**. When you ask Docker to run an image, it downloads it from the registry.
 
 ### The 3 Pillars of Docker Learning
