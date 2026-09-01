@@ -162,3 +162,21 @@ Commands for orchestrating multi-container applications using a `docker-compose.
 **Crucial Flags:**
 - `-f` (Follow): Keeps the terminal open and actively streams new logs as they happen.
 **Example:** `docker-compose logs -f`
+
+---
+
+## 🛡️ 7. Security & Resource Limits (Day 12)
+
+Commands used to lock down containers and protect the host server from crashes.
+
+### `docker run` (Security Flags)
+**Purpose:** Spins up a container with strict security and resource constraints.
+**Crucial Flags:**
+- `--memory="<size>"`: Hard limits the amount of RAM the container can use (e.g., `512m`, `1g`).
+- `--cpus="<number>"`: Limits the number of CPU cores the container can consume (e.g., `1.5`).
+- `--read-only`: Forces the container's file system to be entirely read-only, preventing hackers from installing malware.
+**Example:** `docker run -d --name secure_web --memory="512m" --cpus="1.0" --read-only -p 80:80 nginx`
+
+### `docker scout cves`
+**Purpose:** Scans a Docker image layer by layer for known vulnerabilities and security threats before deployment.
+**Example:** `docker scout cves ubuntu:latest`
