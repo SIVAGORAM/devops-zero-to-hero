@@ -180,3 +180,36 @@ Commands used to lock down containers and protect the host server from crashes.
 ### `docker scout cves`
 **Purpose:** Scans a Docker image layer by layer for known vulnerabilities and security threats before deployment.
 **Example:** `docker scout cves ubuntu:latest`
+
+---
+
+## 🐝 8. Docker Swarm Orchestration (Day 13)
+
+Commands used to manage a cluster of Docker servers.
+
+### `docker swarm init`
+**Purpose:** Turns the current host machine into a Swarm Manager node.
+**Example:** `docker swarm init --advertise-addr <PRIVATE_IP>`
+
+### `docker swarm join`
+**Purpose:** Adds a worker node to an existing Swarm cluster (requires the token from `init`).
+**Example:** `docker swarm join --token <TOKEN> <MANAGER_IP>:2377`
+
+### `docker service create` & `scale`
+**Purpose:** Deploys and scales a container across multiple servers in the cluster.
+**Example:** `docker service create --name my_web --replicas 3 -p 80:80 nginx`
+**Example:** `docker service scale my_web=10`
+
+---
+
+## 🧽 9. Enterprise Maintenance (Day 14)
+
+Commands to keep the host machine perfectly healthy.
+
+### `docker system prune`
+**Purpose:** The ultimate cleanup command. Deletes all stopped containers, unused networks, dangling images, and unused build cache.
+**Crucial Flags:**
+- `-a`: Deletes ALL unused images (not just dangling ones).
+- `--volumes`: Deletes all unused named volumes.
+- `-f`: Forces deletion without prompting for confirmation.
+**Example:** `docker system prune -a --volumes -f`
