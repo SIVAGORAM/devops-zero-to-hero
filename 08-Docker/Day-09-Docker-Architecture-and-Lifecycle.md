@@ -4,6 +4,8 @@ Welcome to Day 09! Today we are taking a step back to look at the massive pictur
 
 This document serves as your ultimate cheat sheet for Docker architecture interviews!
 
+> **Video Tutorial Available:** You can watch the video version of this content on the [YouTube Playlist](https://www.youtube.com/watch?v=7JZP345yVjw&list=PLdpzxOOAlwvLjb0vTD9BXLOwwLD_GWCmC).
+
 ---
 
 ## 📦 1. Containers vs Virtual Machines (VMs)
