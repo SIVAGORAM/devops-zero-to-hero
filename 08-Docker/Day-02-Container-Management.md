@@ -26,7 +26,7 @@ Docker operates on a Client-Server architecture. It consists of 3 main pieces:
 3. **Docker Registry:** A centralized repository where all pre-built Images are stored. The public, default registry is **Docker Hub**. When you ask Docker to run an image, it downloads it from the registry.
 
 ### The 3 Pillars of Docker Learning
-To master Docker (and eventually Kubernetes), you must master its three pillars:
+**Docker is the fundamental basics of Kubernetes.** To master Docker (and eventually Kubernetes), you must master its three pillars:
 1. **Container Management** (What we are doing today - running and stopping containers).
 2. **Image Management** (Building custom images using Dockerfiles).
 3. **Container Orchestration** (Managing thousands of containers using Kubernetes).
@@ -38,9 +38,9 @@ To master Docker (and eventually Kubernetes), you must master its three pillars:
 Let's get our hands dirty and build our Docker playground!
 
 ### Step 1: Connect to your Server
-Create an Ubuntu EC2 instance in AWS, grab the public IP, and SSH into it:
+Create an Ubuntu EC2 instance in AWS, grab the public IP, and SSH into it from your local machine (using a terminal or MobaXterm):
 ```bash
-ssh -i "awslogin.pem" ubuntu@<YOUR_EC2_IP>
+ssh -i "C:\Users\SIVA GORAM\Downloads\awslogin.pem" ubuntu@<YOUR_EC2_IP>
 ```
 
 ### Step 2: Switch to the Root User
