@@ -213,3 +213,36 @@ Commands to keep the host machine perfectly healthy.
 - `--volumes`: Deletes all unused named volumes.
 - `-f`: Forces deletion without prompting for confirmation.
 **Example:** `docker system prune -a --volumes -f`
+
+---
+
+## 🚀 10. Advanced Masterclass (Day 15)
+
+Commands used by the top 1% of Docker engineers.
+
+### `docker buildx build`
+**Purpose:** Compiles a Docker image for multiple processor architectures simultaneously (e.g., ARM and AMD64).
+**Example:** `docker buildx build --platform linux/amd64,linux/arm64 -t myapp:latest --push .`
+
+### `docker context create` & `use`
+**Purpose:** Links your local laptop's Docker CLI to a remote production server, allowing you to manage remote containers without SSH.
+**Example:** `docker context create production --docker "host=ssh://ubuntu@<IP>"`
+**Example:** `docker context use production`
+
+---
+
+## 🔐 11. DevSecOps & Edge Cases (Day 16)
+
+Commands and configurations for highly specialized, secure environments.
+
+### `DOCKER_CONTENT_TRUST`
+**Purpose:** An environment variable that forces Docker to cryptographically verify the digital signature of an image before pulling or running it, preventing malware injection.
+**Example:** `export DOCKER_CONTENT_TRUST=1`
+
+### `docker run --init`
+**Purpose:** Injects a tiny process manager (`tini`) into the container to run as PID 1, preventing Zombie processes from crashing Node.js or Java applications.
+**Example:** `docker run -d --name web --init my_node_app`
+
+### The Docker Socket (`docker.sock`)
+**Purpose:** A volume mount used to pass control of the host's Docker engine *into* a container (Docker-in-Docker). Used heavily by CI/CD agents like Jenkins.
+**Example:** `docker run -d -v /var/run/docker.sock:/var/run/docker.sock jenkins`
