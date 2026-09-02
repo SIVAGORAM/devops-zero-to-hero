@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: myreplica
+  labels:
+    app: myapp
+    key: value
+spec:
+  replicas: 5
+  selector:
+    matchLabels:
+      env: dev
+  template:
+    metadata:
+      labels:
+        env: dev
+    spec:
+      containers:
+        - name: c1
+          image: ubuntu
+          command: ["/bin/bash","-c","while true; do echo hello-devops; sleep 4; done"]

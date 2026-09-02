@@ -34,6 +34,7 @@ metadata:
   name: myreplica
   labels:
     app: myapp
+    key: value
 spec:
   # 1. The ReplicaSet Rules
   replicas: 5
@@ -76,6 +77,10 @@ Let's test the magic of Kubernetes Self-Healing!
 
 **1. Start Minikube and apply the file:**
 ```bash
+sudo su
+minikube start --driver=docker --force
+minikube status
+
 vi rs.yml  # (Paste the YAML code from above)
 kubectl apply -f rs.yml
 ```
@@ -151,4 +156,6 @@ kubectl get pods
 ---
 
 ### ⏭️ What's Next?
-ReplicaSets are amazing, but they have a flaw: they do not handle **Rolling Updates** very well. If you want to update your Ubuntu container to Nginx, a ReplicaSet struggles. Tomorrow, we will learn about **Deployments**, the ultimate object that wraps a ReplicaSet and solves this final problem!
+ReplicaSets are amazing, but they have a flaw: they do not handle **Rolling Updates** and **Rollbacks** very well. If you want to safely update your Ubuntu container to Nginx without downtime, or rollback a bad update, a ReplicaSet struggles. Tomorrow, we will learn about **Deployments**, the ultimate object that wraps a ReplicaSet and solves this final problem!
+
+*(Sneak Peek for tomorrow: A Deployment uses the exact same YAML structure as a ReplicaSet! You literally just open your code file and change `kind: ReplicaSet` to `kind: Deployment`. We will dive deeply into this tomorrow!)*
