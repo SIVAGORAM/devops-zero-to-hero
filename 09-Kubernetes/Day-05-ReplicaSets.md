@@ -64,6 +64,10 @@ spec:
 > **THE GOLDEN RULE OF REPLICASETS:** 
 > The labels defined inside the `template.metadata.labels` **MUST EXACTLY MATCH** the labels defined in the `spec.selector.matchLabels`. If they do not match, the ReplicaSet will not be able to find the pods it just created!
 
+### 📍 A Note on Node Selectors
+While `matchLabels` filters which Pods the ReplicaSet monitors, how do you force a Pod to run on a specific Worker Node (e.g., a server with an expensive GPU)? 
+You use a **Node Selector**. You label the worker node (`kubectl label nodes worker-1 hardware=gpu`), and then add `nodeSelector: hardware: gpu` into your Pod Template spec. This tells the Master Node it is only allowed to place this pod on GPU servers!
+
 ---
 
 ## 💻 Lab 1: Proving Self-Healing Works
@@ -93,6 +97,14 @@ kubectl delete pod myreplica-<random-id>
 kubectl get pods
 ```
 *You will see that the old pod is terminating, but a brand new pod is already spinning up to take its place! The ReplicaSet noticed the count dropped to 4, and instantly commanded the Master Node to print a new one using the Template!*
+
+**5. View the ReplicaSet Status:**
+To verify the ReplicaSet is actually managing this, you can check its status and inspect its logs:
+```bash
+kubectl get rs
+kubectl describe rs myreplica
+```
+*The `describe` command will explicitly show the "Events" log at the bottom, proving that the ReplicaSet detected the missing pod and created a new one!*
 
 ---
 
