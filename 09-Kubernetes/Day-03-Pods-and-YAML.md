@@ -71,9 +71,11 @@ spec:
 - `apiVersion: v1`: We are using the stable v1 API.
 - `kind: Pod`: We are telling the Master Node to create a Pod object.
 - `metadata.name`: We are explicitly naming this pod `web-server-pod`.
+- `metadata.labels`: Labels are like sticky notes attached to the pod. Later, Kubernetes will use these labels to connect this Pod to other services.
 - `spec.containers`: Notice the `-` symbol? This indicates a list! We are creating a list of containers inside this Pod.
 - `- name: nginx-container`: The name of the specific container *inside* the pod.
 - `image: nginx:latest`: The exact Docker image the Worker Node must download from Docker Hub.
+- `containerPort: 80`: This tells Kubernetes that the container inside is listening on port 80.
 
 ### 🏃‍♂️ Running the Commands:
 
