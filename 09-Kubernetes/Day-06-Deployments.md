@@ -179,6 +179,14 @@ kubectl rollout undo deployment/mydeploy --to-revision=1
 Kubernetes brings down the 6 pods in the V2 ReplicaSet, and spins up 6 pods in the V1 ReplicaSet! 
 If you run `kubectl rollout history` again, you will see a `REVISION 3`. Revision 3 is just a copy of Revision 1, proving you rolled back successfully.
 
+Let's verify this by checking the history and the logs, just like we did before:
+```bash
+kubectl rollout history deployment/mydeploy
+kubectl get pods
+kubectl logs -f <new-v1-pod-name>
+# You will see 'hello-devops' is back!
+```
+
 ---
 
 ### ⏭️ What's Next?
