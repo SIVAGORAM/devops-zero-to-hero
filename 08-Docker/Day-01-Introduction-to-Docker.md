@@ -86,11 +86,11 @@ By bundling everything together, a container guarantees that if the application 
 How do we actually run containers on servers? There are two main models:
 
 ### Model 1: Bare Metal (On-Premise)
-*Physical IBM/HP Server $\rightarrow$ Host OS $\rightarrow$ Docker $\rightarrow$ Containers (C1, C2, C3)*
+*Physical IBM/HP Server -> Host OS -> Docker -> Containers (C1, C2, C3)*
 - **Pros:** Extremely fast. There is no Hypervisor wasting resources. All containers talk directly to the Host OS.
 
 ### Model 2: Cloud Virtualization (AWS/Azure)
-*Cloud Hardware $\rightarrow$ Hypervisor $\rightarrow$ EC2 Instance (VM) $\rightarrow$ Docker $\rightarrow$ Containers*
+*Cloud Hardware -> Hypervisor -> EC2 Instance (VM) -> Docker -> Containers*
 - **Why do this?** In AWS, you don't own the physical bare-metal servers. You rent a VM (EC2), install Docker on it, and then run containers inside that VM. It adds a slight layer of overhead, but gives you the flexibility of the cloud.
 
 ---
@@ -113,7 +113,7 @@ Because containers share the Host machine's Kernel and don't have to boot up a h
 2. **Build:** You run a command to compile that Dockerfile into an **Image**.
 3. **Run:** You execute the Image, and it becomes a running, breathing **Container**.
 
-`Dockerfile` $\xrightarrow{\text{build}}$ `Docker Image` $\xrightarrow{\text{run}}$ `Container`
+`Dockerfile` -[build]-> `Docker Image` -[run]-> `Container`
 
 ---
 
