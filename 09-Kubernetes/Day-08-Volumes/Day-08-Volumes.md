@@ -21,8 +21,8 @@ There are 3 main types of volumes you need to know. Let's break them down from z
 ## 📁 1. emptyDir Volume
 
 **What is it?** This volume is created *inside the Pod itself*. It starts completely empty (`emptyDir: {}`).
-**When do you use it?** You use this when you have **two or more containers inside a single Pod** that need to share files with each other temporarily.
-**The Catch:** Because the volume is attached to the Pod, **if the Pod gets deleted, the data is still deleted!**
+**When do you use it?** You use this when you want to share something between two or more containers inside a single pod.
+**The Golden Rule:** If a *container* crashes, the data in `emptyDir` survives! But if the *Pod* is deleted or recreated, all the data is deleted permanently.
 
 ### 💻 Lab 1: emptyDir in Action
 Let's create a Pod with two containers (`c1` and `c2`) sharing an `emptyDir` volume.
@@ -61,16 +61,20 @@ spec:
 kubectl apply -f emptydir.yml
 kubectl get pods
 
-# 1. Log into Container 1 and create a file
+# 1. Check if the folders are empty first (exec helps us go inside the container)
+kubectl exec emptydirvolume -c c1 -- ls /tmp/xchange
+kubectl exec emptydirvolume -c c2 -- ls /tmp/data
+
+# 2. Create the file in container 1
 kubectl exec emptydirvolume -c c1 -- touch /tmp/xchange/file1
 
-# 2. Check Container 1 to see the file
+# 3. Check both containers again. You will see the file in both!
 kubectl exec emptydirvolume -c c1 -- ls /tmp/xchange
-
-# 3. Check Container 2 to see the file!
 kubectl exec emptydirvolume -c c2 -- ls /tmp/data
+
+# 4. Prove that deleting the pod deletes the data
+kubectl delete -f emptydir.yml
 ```
-*You will see the file exists in both containers! If you delete the pod (`kubectl delete -f emptydir.yml`), the file is gone forever.*
 
 ---
 
@@ -123,10 +127,10 @@ To ensure data is never lost, no matter which Node a Pod runs on, we use network
 To connect K8s to AWS EBS, we use a two-step process: **PV** and **PVC**.
 
 ### Step A: The Persistent Volume (PV)
-**What is it?** The PV is the actual physical hard drive in the cloud. It brings the EBS volume under the control of Kubernetes.
+**What is it?** The PV is the actual physical hard drive in the cloud. It brings the EBS volume under the control of Kubernetes. **(PV == EBS)**
 
 1. Go to AWS Console $\rightarrow$ EC2 $\rightarrow$ Volumes $\rightarrow$ Create Volume.
-2. Copy the Volume ID (e.g., `vol-069912088ba16d52`).
+2. Fill in all details, click create, and copy the Volume ID (e.g., `vol-069912088ba16d52`).
 
 Create `pv.yml`:
 ```yaml
@@ -147,12 +151,13 @@ spec:
 Apply it:
 ```bash
 sudo su
+ls
 kubectl apply -f pv.yml
 kubectl get pv
 ```
 
 ### Step B: The Persistent Volume Claim (PVC)
-**What is it?** A PVC is a "request" or "claim" made by an application for storage. It is like a ticket. Your application (Deployment) doesn't talk to the PV directly; it talks to the PVC, and the PVC binds to the PV.
+**What is it?** A PVC (Persistent Volume Claim) is a "request" made by an application for storage. *(Note: In class notes, it was briefly written as "persistence volume client"—you can think of the PVC as the "client" asking the K8s cluster for a piece of the PV hard drive!)*
 
 Create `pvc.yml`:
 ```yaml
