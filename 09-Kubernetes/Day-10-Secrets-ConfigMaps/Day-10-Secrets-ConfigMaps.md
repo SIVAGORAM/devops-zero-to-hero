@@ -31,6 +31,9 @@ ls
 # now we created the username and password file
 
 # Create the Secret object
+> [!WARNING]  
+> *Pedagogical Correction:* In your raw notes, this command was written as `kubectl create secret mysecret`. This command will fail! You MUST specify the TYPE of secret (in this case, `generic`). I have fixed the command below!
+
 kubectl create secret generic mysecret --from-file=username.txt --from-file=password.txt 
 
 kubectl get secrets
@@ -122,7 +125,7 @@ Create a file named `sample.conf` on your machine (using the exact syntax from c
 name: siva
 org: abc
 db_name: xyz
-db_port: 1299
+db_port:1299
 }}
 ```
 
@@ -137,6 +140,9 @@ kubectl describe cm myconfig
 ```
 
 Create `pod_config.yml` to mount this config file:
+> [!NOTE]  
+> *Pedagogical Note:* Your class notes said *"how u can pass this using 2 ways"*, but the teacher only gave you the code for ONE way (Volume Mount)! The second way is using `env`, which works exactly the same as the Secret environment variable example above. We will focus on the Volume mount method since that's what was provided in your notes.
+
 ```yaml
 apiVersion: v1
 kind: Pod
@@ -162,7 +168,7 @@ spec:
 
 **Test it:**
 > [!NOTE]  
-> *Pedagogical Correction:* Your notes had typos in the exec command (`myvolcongid`, `/mpt/config`). Here are the perfectly corrected commands based on the YAML above:
+> *Pedagogical Correction:* Your notes had typos in the exec command (`myvolcongid`, `--cat`, `/mpt/config`). Furthermore, your notes checked the path `/tmp/config`, but the YAML mounted the volume to `/etc/config`! I have corrected all of this in the commands below so they actually work:
 
 ```bash
 kubectl apply -f pod_config.yml
@@ -221,3 +227,23 @@ kubectl apply -f limit_restrict.yml
 Congratulations! You have now learned all the major properties of a Pod. Here is what a fully professional, production-ready Deployment object looks like, combining **Replicas, Ports, Resources, Probes, and Volumes**!
 
 *(Check out `deploy_complete.yml` in this folder to see the final master code!)*
+
+---
+
+## ?? 4. Zero-to-Hero Bonus: Interview Gotchas
+Since you asked if there is anything else you need to know, here are three massive real-world concepts your teacher skipped, but you **must** know for production and interviews:
+
+> [!CAUTION]
+> **Gotcha 1: Secrets are NOT truly encrypted by default!**
+> Your notes say Secrets use Base64 to encrypt data. **Base64 is NOT encryption; it is just encoding!** Anyone can decode a Base64 string in 2 seconds on Google. In a real production cluster, you must enable **Encryption at Rest (KMS)** in your Kubernetes configuration so the secrets are actually encrypted inside the database (etcd).
+
+> [!TIP]
+> **Gotcha 2: The Auto-Update Trick**
+> If you mount a ConfigMap or Secret as a **Volume**, and then you edit the ConfigMap later, Kubernetes will automatically update the file inside the running Pod without restarting it! 
+> HOWEVER, if you inject the ConfigMap/Secret as an **Environment Variable**, it will NEVER auto-update. You must manually restart the Pod to get the new variables.
+
+> [!IMPORTANT]
+> **Gotcha 3: Throttling vs Killing (CPU vs Memory)**
+> In the Resources section, you learned about Limits. 
+> - CPU is a **compressible** resource. If your Pod hits the CPU limit, Kubernetes will just throttle it (slow it down). It won't kill it.
+> - Memory is an **incompressible** resource. If your Pod hits the Memory limit, Kubernetes has no choice but to terminate it immediately. This is the famous **OOMKilled** (Out Of Memory Killed) error!
