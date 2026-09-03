@@ -69,13 +69,13 @@ kind: Service
 metadata:
   name: nginx-service
 spec:
-  type: ClusterIP
   selector:
     app: frontend
   ports:
     - protocol: TCP
       port: 80
       targetPort: 80
+  type: ClusterIP
 ```
 
 > [!IMPORTANT]  
