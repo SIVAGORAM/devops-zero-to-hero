@@ -1,0 +1,25 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    test: liveness
+  name: mylivenessprobeurl
+spec:
+  containers:
+    - name: c00
+      image: httpd
+      ports:
+        - containerPort: 80
+
+      # Liveness probe checks whether the container is healthy
+      livenessProbe:
+        # Wait 5 seconds before running the first probe
+        initialDelaySeconds: 5
+
+        # Run the probe every 5 seconds
+        periodSeconds: 5
+
+        # HTTP endpoint to check inside the container
+        httpGet:
+          path: /
+          port: 80
