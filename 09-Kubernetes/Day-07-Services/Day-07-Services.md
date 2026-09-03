@@ -6,7 +6,7 @@ Welcome to Day 07! We have mastered Deployments, ReplicaSets, and Pods. But ther
 Every Pod in Kubernetes is automatically assigned a unique IP address. However, Pods are **ephemeral** (temporary). They can be created and deleted at any time. 
 
 If a Pod crashes and the ReplicaSet recreates it, the new Pod gets a completely different IP address! 
-- *Problem 1:* How can you remember hundreds of constantly changing IP addresses?
+- *Problem 1:* How can you remember hundreds of constantly changing IP addresses? (In realtime we have 1000's of IPs!)
 - *Problem 2:* How can a Frontend application reliably connect to a Backend database if the database's IP address changes every day?
 
 ## 🛡️ The Solution: The Service Object
@@ -67,7 +67,7 @@ Create `clusterip.yml`:
 apiVersion: v1
 kind: Service
 metadata:
-  name: nginx-clusterip
+  name: nginx-service
 spec:
   type: ClusterIP
   selector:
