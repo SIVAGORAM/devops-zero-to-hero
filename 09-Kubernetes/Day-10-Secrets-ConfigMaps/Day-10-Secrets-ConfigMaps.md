@@ -32,7 +32,7 @@ ls
 
 # Create the Secret object
 > [!WARNING]  
-> *Pedagogical Correction:* In your raw notes, this command was written as `kubectl create secret mysecret`. This command will fail! You MUST specify the TYPE of secret (in this case, `generic`). I have fixed the command below!
+> Make sure to specify the TYPE of secret (in this case, `generic`). If you just run `kubectl create secret mysecret`, the command will fail!
 
 kubectl create secret generic mysecret --from-file=username.txt --from-file=password.txt 
 
@@ -66,7 +66,7 @@ spec:
 
 **Test it:**
 > [!NOTE]  
-> *Pedagogical Correction:* In your raw notes, you wrote `kubectl exec myvolsecret --ls /tmp/mysecrets`. Make sure to include a space `-- ls` so it doesn't think it's a flag!
+> Make sure to include a space `-- ls` so kubectl knows it is a command and not a flag!
 
 ```bash
 kubectl apply -f pod_secret_vol.yml
@@ -98,10 +98,11 @@ spec:
 
 **Test it:**
 > [!NOTE]  
-> *Pedagogical Correction:* In your raw notes, the test command was written as `kubectl exec myenvironment -- env`. However, the name of the pod in the YAML is actually `myenvsecret`. Use the corrected command below!
+> Ensure you use the exact pod name defined in the YAML (`myenvsecret`) when running the exec command.
 
 > [!NOTE]  
-> *Pedagogical Correction:* In your raw notes, you had a command `kubectl delete pods -all`. The correct flag in Kubernetes is `--all`! I have included it below so you can clear your old pods before running this new one.
+
+> Use the `--all` flag to clear out old pods before testing.
 
 ```bash
 kubectl delete pods --all
@@ -131,7 +132,7 @@ db_port:1299
 
 Now, create the ConfigMap object in Kubernetes:
 > [!NOTE]  
-> *Pedagogical Correction:* In your raw notes, the command was missing the name of the configmap. It should be `kubectl create configmap myconfig --from-file=sample.conf`.
+> Make sure to provide a name for your ConfigMap (like `myconfig`) in the create command.
 
 ```bash
 kubectl create configmap myconfig --from-file=sample.conf
@@ -141,7 +142,7 @@ kubectl describe cm myconfig
 
 Create `pod_config.yml` to mount this config file:
 > [!NOTE]  
-> *Pedagogical Note:* Your class notes said *"how u can pass this using 2 ways"*, but the teacher only gave you the code for ONE way (Volume Mount)! The second way is using `env`, which works exactly the same as the Secret environment variable example above. We will focus on the Volume mount method since that's what was provided in your notes.
+> There are 2 ways to pass ConfigMaps: Volume Mounts and Environment Variables (`env`). We will focus on the Volume mount method here.
 
 ```yaml
 apiVersion: v1
@@ -168,7 +169,7 @@ spec:
 
 **Test it:**
 > [!NOTE]  
-> *Pedagogical Correction:* Your notes had typos in the exec command (`myvolcongid`, `--cat`, `/mpt/config`). Furthermore, your notes checked the path `/tmp/config`, but the YAML mounted the volume to `/etc/config`! I have corrected all of this in the commands below so they actually work:
+> Double check your pod names and mount paths when running exec commands to avoid errors.
 
 ```bash
 kubectl apply -f pod_config.yml
@@ -191,7 +192,7 @@ Like Health Checks, Limits and Requests are just *additional properties* of your
 - `Mi` = Mebibytes (Memory). 
 
 > [!WARNING]
-> **Math Correction from Class:** Your teacher provided a storage math table, but there was a massive typo on the first line! Your notes said `1b = 1024 mi`. That is incorrect! Here is the actual table you should memorize:
+> **Storage Math Cheat Sheet:** Ensure you do not mix up your storage units! Here is the standard table you should memorize:
 > - `1 kb = 1024 bytes`
 > - `1 mb = 1024 kb`
 > - `1 gb = 1024 mb`
@@ -235,7 +236,7 @@ Since you asked if there is anything else you need to know, here are three massi
 
 > [!CAUTION]
 > **Gotcha 1: Secrets are NOT truly encrypted by default!**
-> Your notes say Secrets use Base64 to encrypt data. **Base64 is NOT encryption; it is just encoding!** Anyone can decode a Base64 string in 2 seconds on Google. In a real production cluster, you must enable **Encryption at Rest (KMS)** in your Kubernetes configuration so the secrets are actually encrypted inside the database (etcd).
+> It is often mistakenly taught that Secrets use Base64 to encrypt data. **Base64 is NOT encryption; it is just encoding!** Anyone can decode a Base64 string in 2 seconds on Google. In a real production cluster, you must enable **Encryption at Rest (KMS)** in your Kubernetes configuration so the secrets are actually encrypted inside the database (etcd).
 
 > [!TIP]
 > **Gotcha 2: The Auto-Update Trick**

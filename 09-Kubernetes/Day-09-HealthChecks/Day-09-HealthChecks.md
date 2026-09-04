@@ -77,7 +77,7 @@ kubectl describe pod mylivenessprobe
 
 **Force a Failure:**
 Let's intentionally delete the file that the health check is looking for! 
-*(Note: In your raw notes, this was typed as `--rm /tmp/healthy`. Make sure to include a space `-- rm` so kubectl knows it's the remove command and not a flag!)*
+*(Note: Be careful to include a space `-- rm` so kubectl knows it's the remove command and not a flag!)*
 ```bash
 kubectl exec mylivenessprobe -- rm /tmp/healthy 
 ```
@@ -125,12 +125,12 @@ The Readiness Probe checks whether the application running inside the container 
 If a Pod is "Ready", Kubernetes will route traffic to it. If it is NOT ready, Kubernetes will stop sending external requests/traffic to that container. 
 
 > [!WARNING]
-> **Crucial Correction from Class Notes:** Your raw notes mentioned that if the readiness probe fails, *"it will recreate the pods"*. **This is false!** 
+> **Common Misconception:** It is often mistakenly believed that if a readiness probe fails, Kubernetes will recreate the pod. **This is false!** 
 > - If **Liveness** fails $\rightarrow$ Kubernetes **Restarts/Recreates** the container.
 > - If **Readiness** fails $\rightarrow$ Kubernetes **DOES NOT** restart the container! It simply removes the Pod from the Service so it stops receiving internet traffic until it recovers.
 
 > [!IMPORTANT]
-> **The Flow:** Your notes say *"first ur readiness probe approves... then only ur liveness probe do the health checks"*. To be perfectly accurate: they actually run at the exact same time (based on their `initialDelaySeconds`). However, conceptually it is true that a Pod must pass Readiness before it serves traffic, while Liveness constantly checks if it's alive in the background!
+> **The Flow:** To be perfectly accurate: both probes actually run at the exact same time (based on their `initialDelaySeconds`). However, conceptually it is true that a Pod must pass Readiness before it serves traffic, while Liveness constantly checks if it's alive in the background!
 
 ### 💻 Lab 2: Readiness Probe
 Create `readiness.yml`:
@@ -162,8 +162,7 @@ spec:
 kubectl apply -f readiness.yml
 kubectl get pods
 
-# Note: Your class notes mistakenly said 'kubectl describe pod testservice'. 
-# The actual name of our pod is 'myreadinessprobe'!
+# Note: Ensure you use the exact pod name created above
 kubectl describe pod myreadinessprobe 
 ```
 *(If it is successful, K8s routes traffic. If it fails, K8s temporarily stops sending traffic to it).*
