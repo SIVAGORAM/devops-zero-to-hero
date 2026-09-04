@@ -102,7 +102,7 @@ curl <your-cluster-ip>
 
 *Under the hood: A NodePort Service automatically creates a ClusterIP for internal routing, and uses a component called `kube-proxy` to handle the networking!*
 
-*(Note: In class, we simply ran `vi clusterip.yml`, deleted the `type: ClusterIP` line, and replaced it with `type: NodePort`. You can modify your existing file, or use the dedicated file below!)*
+*(Note: You can simply modify your existing `clusterip.yml` file by changing the type to `NodePort`, or use the dedicated file below!)*
 
 Create `service-nodeport.yml`:
 ```yaml
@@ -154,7 +154,7 @@ Apply it:
 kubectl apply -f service-loadbalancer.yml
 kubectl get svc
 ```
-*Note: If you run this on a local Minikube cluster, the EXTERNAL-IP will stay in `<pending>` forever, because Minikube cannot magically spawn a physical AWS Load Balancer! You must practice LoadBalancers by creating your own EKS cluster on AWS (using the Medium blog provided in class).*
+*Note: If you run this on a local Minikube cluster, the EXTERNAL-IP will stay in `<pending>` forever, because Minikube cannot magically spawn a physical AWS Load Balancer! You must practice LoadBalancers by creating your own EKS cluster on AWS.*
 
 ---
 

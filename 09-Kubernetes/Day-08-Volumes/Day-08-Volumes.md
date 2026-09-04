@@ -157,7 +157,7 @@ kubectl get pv
 ```
 
 ### Step B: The Persistent Volume Claim (PVC)
-**What is it?** A PVC (Persistent Volume Claim) is a "request" made by an application for storage. *(Note: In class notes, it was briefly written as "persistence volume client"—you can think of the PVC as the "client" asking the K8s cluster for a piece of the PV hard drive!)*
+**What is it?** A PVC (Persistent Volume Claim) is a "request" made by an application for storage. *(Note: While it stands for Claim, you can conceptually think of the PVC as a "client" asking the K8s cluster for a piece of the PV hard drive!)*
 
 Create `pvc.yml`:
 ```yaml
