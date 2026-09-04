@@ -1,0 +1,34 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: myapp-ingress
+  namespace: ecommerce
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  rules:
+    # IMPORTANT: Replace the host string below with the actual AWS LoadBalancer DNS name given by the Ingress Controller!
+    - host: a43f54e2c23a4c9eb15e9d9dc934248-716449955.ap-south-1.elb.amazonaws.com 
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: myapp-service
+                port:
+                  number: 80
+          - path: /men
+            pathType: Prefix
+            backend:
+              service:
+                name: myapp-service
+                port:
+                  number: 80
+          - path: /women
+            pathType: Prefix
+            backend:
+              service:
+                name: myapp-service
+                port:
+                  number: 80
