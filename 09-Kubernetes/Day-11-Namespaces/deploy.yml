@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mydeploy
+  namespace: dev
+spec:
+  replicas: 6
+  selector:
+    matchLabels:
+      env: dev
+  template:
+    metadata:
+      labels:
+        env: dev
+    spec:
+      containers:
+        - name: c1
+          image: ubuntu
+          command: ["/bin/bash", "-c", "while true; do echo hello-devops; sleep 4; done"]
+          resources:
+            requests:
+              cpu: "100m"
