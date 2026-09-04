@@ -1,0 +1,22 @@
+# Canary Deployment (Testing New Version)
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: myapp-canary
+spec:
+  replicas: 1  # Set fewer replicas for the canary version (e.g. 20% traffic)
+  selector:
+    matchLabels:
+      app: myapp-canary # Both deployments share the same core label
+      version: canary
+  template:
+    metadata:
+      labels:
+        app: myapp-canary
+        version: canary
+    spec:
+      containers:
+        - name: myapp
+          image: sachinquamtumcloud/webpage:v2  # New version of the app
+          ports:
+            - containerPort: 80

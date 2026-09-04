@@ -1,0 +1,20 @@
+# Blue Deployment
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: myapp-blue
+spec:
+  replicas: 5
+  selector:
+    matchLabels:
+      version: myapp-blue
+  template:
+    metadata:
+      labels:
+        version: myapp-blue
+    spec:
+      containers:
+        - name: myapp
+          image: sachinquamtumcloud/webpage:v1
+          ports:
+            - containerPort: 80

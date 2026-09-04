@@ -1,0 +1,15 @@
+# Service for Blue-Green Deployment
+apiVersion: v1
+kind: Service
+metadata:
+  name: myapp
+spec:
+  selector:
+    # Change this to myapp-green to instantly switch traffic!
+    version: myapp-blue
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
+      nodePort: 30001
+  type: NodePort

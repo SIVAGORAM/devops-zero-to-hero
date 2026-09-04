@@ -1,0 +1,20 @@
+# Green Deployment
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: myapp-green
+spec:
+  replicas: 5
+  selector:
+    matchLabels:
+      version: myapp-green
+  template:
+    metadata:
+      labels:
+        version: myapp-green
+    spec:
+      containers:
+        - name: myapp
+          image: sachinquamtumcloud/webpage:v2
+          ports:
+            - containerPort: 80
