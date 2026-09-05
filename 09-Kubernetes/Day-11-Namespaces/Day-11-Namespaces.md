@@ -1,10 +1,10 @@
-# Day 11: Namespaces & Resource Quotas
+﻿# Day 11: Namespaces & Resource Quotas
 
 Welcome to Day 11! Today we are learning how to logically divide a single Kubernetes cluster into multiple virtual clusters, and how to govern those virtual clusters using Resource Quotas.
 
 ---
 
-## 🏢 1. Introduction to Namespaces
+##  1. Introduction to Namespaces
 
 In the real world, you do not want to spin up a brand new physical Kubernetes cluster for every single team. Instead, you create a single, massive cluster and logically divide it into "sub-clusters" called **Namespaces**.
 
@@ -15,7 +15,7 @@ In the real world, you do not want to spin up a brand new physical Kubernetes cl
 
 When you create an object inside a Namespace, you can only access it from inside that Namespace. It is isolated from the rest of the cluster!
 
-### 🔍 Default Namespaces
+###  Default Namespaces
 If you do not specify a Namespace when creating an object, Kubernetes places it in the `default` namespace.
 
 You can view the built-in namespaces by running:
@@ -30,7 +30,7 @@ You will see 4 default namespaces:
 
 ---
 
-## 💻 2. Creating and Using Namespaces
+##  2. Creating and Using Namespaces
 
 ### Method A: Ad-Hoc Commands
 You can create a namespace instantly using a single command:
@@ -58,7 +58,7 @@ kubectl get ns
 
 ---
 
-## 🔄 3. Working inside Namespaces
+##  3. Working inside Namespaces
 
 ### Deploying a Pod into a Namespace
 To place a Pod into a specific namespace, you can declare it in the `metadata` of the YAML, or pass the `-n` flag via the CLI.
@@ -102,14 +102,14 @@ kubectl config view | grep namespace
 
 ---
 
-## ⚖️ 4. Resource Quotas
+##  4. Resource Quotas
 
 In Day 10, we learned about Limits and Requests, which restrict the resources of a **single Pod**. 
 But what if a rogue developer deploys 1,000 Pods into the `dev` namespace? It would still crash the cluster! 
 
 To prevent this, we use a **ResourceQuota**. A ResourceQuota restricts the total, combined CPU and Memory that *all* pods inside a specific namespace are allowed to consume.
 
-### 💻 Lab: Triggering a Resource Quota
+###  Lab: Triggering a Resource Quota
 Let's apply a strict quota to our `dev` namespace. We will only allow a total of `100m` CPU to be requested across the entire namespace.
 
 Create `rq.yml`:
@@ -200,3 +200,4 @@ Since you are mastering Kubernetes, here are three massive real-world concepts a
 > [!WARNING]
 > **Gotcha 3: The Danger of Deleting a Namespace**
 > Be extremely careful with the command kubectl delete namespace <name>. If you delete a namespace, Kubernetes will ruthlessly and immediately terminate **every single object** (Pods, Deployments, Services, ConfigMaps, PVCs) inside of it without asking for confirmation. It is the ultimate m -rf command of Kubernetes!
+

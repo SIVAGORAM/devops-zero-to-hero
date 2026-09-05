@@ -1,10 +1,10 @@
-# Day 04: Advanced Pods, Labels, and Selectors (Zero to Hero)
+﻿# Day 04: Advanced Pods, Labels, and Selectors (Zero to Hero)
 
 Welcome to Day 04! Yesterday we learned how to create a basic Pod. Today, we are going to learn how to pass data into a Pod, and more importantly, how to organize and search through hundreds of Pods using the most critical organizational tool in Kubernetes: **Labels and Selectors**.
 
 ---
 
-## 🌍 1. Passing Environment Variables to a Pod
+##  1. Passing Environment Variables to a Pod
 
 Sometimes, your application needs secret keys, database passwords, or configuration paths to run correctly. We pass these using **Environment Variables (`env`)**.
 
@@ -38,7 +38,7 @@ kubectl exec env-pod -- env
 
 ---
 
-## 🏷️ 2. The Power of Labels and Selectors
+##  2. The Power of Labels and Selectors
 
 **The Dynamic IP Problem:** Remember how every Pod gets a unique internal IP address? If you delete a Pod and K8s recreates it (Self-Healing), **the new Pod gets a completely different IP address!** Because IPs constantly change, we cannot rely on them to find or connect Pods together. We need a different, permanent way to identify Pods.
 
@@ -49,7 +49,7 @@ In Kubernetes, when you run a massive enterprise cluster, you will have hundreds
 - **Labels:** These are the key-value pairs (sticky notes) you attach to a Pod when you create it (e.g., `env: dev`, `tier: frontend`).
 - **Selectors:** This is the filter you type in your terminal to search for specific Labels.
 
-### 📝 Lab 1: Creating Multiple Pods in One File
+###  Lab 1: Creating Multiple Pods in One File
 Instead of creating 3 different YAML files, you can put multiple Pod definitions into a single file by separating them with three dashes `---`.
 
 Create `labels.yml`:
@@ -100,7 +100,7 @@ kubectl apply -f labels.yml
 
 ---
 
-## 🔍 3. Filtering Pods using Selectors
+##  3. Filtering Pods using Selectors
 
 Now that we have hundreds of pods, let's learn how to filter them using the `-l` (label) flag in our `kubectl` commands.
 
@@ -150,7 +150,7 @@ kubectl get pods -l '!env'
 
 ---
 
-## 🧠 4. Advanced Selectors: The Logic Gates (AND / OR)
+##  4. Advanced Selectors: The Logic Gates (AND / OR)
 
 In interviews, you might be asked to combine multiple conditions. To master this, you must understand basic Boolean Logic Gates (AND / OR) in a simple way.
 
@@ -187,7 +187,7 @@ kubectl get pods -l "env in (prod, testing), name in (siva, ram)"
 
 ---
 
-## 🏷️ 5. Modifying Labels on the Fly (Imperative)
+##  5. Modifying Labels on the Fly (Imperative)
 
 What if you want to add a label to a Pod *after* it has already been created, without editing the YAML file? You can do this imperatively from the terminal!
 
@@ -207,8 +207,9 @@ Verify your changes:
 kubectl get pods --show-labels
 ```
 
-### 🧹 Cleanup
+###  Cleanup
 Delete all pods in the cluster to keep your environment clean:
 ```bash
 kubectl delete pods --all
 ```
+

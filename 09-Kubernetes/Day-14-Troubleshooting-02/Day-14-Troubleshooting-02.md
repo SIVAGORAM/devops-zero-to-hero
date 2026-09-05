@@ -1,10 +1,10 @@
-# Day 14: Troubleshooting Part 02 (CrashLoops & OOMKilled)
+﻿# Day 14: Troubleshooting Part 02 (CrashLoops & OOMKilled)
 
 Welcome to Day 14! In Part 01, we learned how to troubleshoot Pods that get stuck in the `Pending` or `ContainerCreating` phases. Today, we are focusing on the most infamous error in Kubernetes: what happens when a Pod successfully reaches the `Running` phase, but then instantly crashes!
 
 ---
 
-## 💥 1. CrashLoopBackOff
+##  1. CrashLoopBackOff
 
 If you ever run `kubectl get pods` and see the status `CrashLoopBackOff`, it means your application inside the container started, encountered a fatal error, and died. 
 
@@ -20,7 +20,7 @@ Because Kubernetes is a self-healing system, it immediately tries to restart the
 
 ---
 
-## 🛑 2. OOMKilled (Out of Memory)
+##  2. OOMKilled (Out of Memory)
 
 **OOM** stands for **Out Of Memory**. This is a highly common interview question!
 
@@ -35,7 +35,7 @@ When this happens, the Pod status will briefly show `OOMKilled`. Kubernetes will
 
 ---
 
-## 💻 3. Lab: Forcing an OOMKilled Error
+##  3. Lab: Forcing an OOMKilled Error
 
 Let's intentionally trigger an `OOMKilled` error by using a Linux stress-testing image!
 
@@ -72,7 +72,7 @@ kubectl apply -f crashloop-1.yml
 
 Once you see the pod enter the `CrashLoopBackOff` state, you can use the following commands to investigate exactly why it died.
 
-### 📊 Debugging Commands
+###  Debugging Commands
 
 **1. Check live resource usage:**
 *(Note: This requires the Kubernetes Metrics Server to be installed in your cluster).*
@@ -118,3 +118,4 @@ Since you are mastering Kubernetes Troubleshooting end-to-end, here are four mas
 > Sometimes your code is completely bug-free and memory is perfectly fine, but you still get a CrashLoopBackOff. Why? 
 > If your application takes 30 seconds to boot up, but your **Liveness Probe** starts checking after 5 seconds, the probe will fail. Kubernetes will assume the container is broken and kill it before it finishes booting!
 > *Fix:* Increase the initialDelaySeconds in your Liveness Probe!
+

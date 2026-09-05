@@ -1,8 +1,8 @@
-# Day 02: Kubernetes Architecture & Installation (Zero to Hero)
+﻿# Day 02: Kubernetes Architecture & Installation (Zero to Hero)
 
 Before we start typing commands, we must understand exactly *how* Kubernetes works under the hood. In enterprise interviews, architects will test your knowledge of the Control Plane and Worker Nodes.
 
-## 🌐 1. What is a Kubernetes Cluster?
+##  1. What is a Kubernetes Cluster?
 A **Cluster** is simply a group of servers (virtual machines or physical machines) that are connected together to run containerized applications. 
 
 In Kubernetes, a cluster is split into two distinct roles: **Master Nodes** and **Worker (Slave) Nodes**.
@@ -33,7 +33,7 @@ graph TD
     API <--> K2
 ```
 
-### 🧠 The Master Node (Control Plane)
+###  The Master Node (Control Plane)
 The Master Node is the manager. It never runs your application directly. Its only job is to manage the cluster, make decisions, create Pods, and monitor the health of the Worker nodes. 
 - *Whatever the Master Node says, the Worker Nodes must follow!*
 
@@ -41,12 +41,12 @@ The Master Node is the manager. It never runs your application directly. Its onl
 > **Interview Question: What happens if the Master Node crashes?**
 > In a real-time production environment, we NEVER have just one Master Node. We use **High Availability (HA)**. We configure a **Primary Master Node** and multiple **Secondary Master Nodes**. The secondary nodes are constantly syncing data with the primary. If the Primary Master crashes, a Secondary Master instantly takes over automatically!
 
-### 💪 The Worker (Slave) Node
+###  The Worker (Slave) Node
 The Worker Node is where your actual application lives. It receives instructions from the Master Node (e.g., "Start 3 Nginx containers") and executes them using the local Docker Daemon.
 
 ---
 
-## 🫛 2. What is a Pod?
+##  2. What is a Pod?
 You might hear people say, *"A pod is just a container."* This is partially true, but we need to be exact for interviews!
 
 In Docker, you run a Container. 
@@ -58,7 +58,7 @@ Instead, Kubernetes wraps your container inside a logical boundary called a **Po
 
 ---
 
-## 🏗️ 3. How to Setup a Kubernetes Cluster
+##  3. How to Setup a Kubernetes Cluster
 There are two primary ways to create a Kubernetes cluster:
 
 ### A. Self-Managed Clusters (Free, but manual)
@@ -74,7 +74,7 @@ You do not create the Master Node. The Cloud Provider manages the entire Control
 
 ---
 
-## 💻 Lab 1: Installing Minikube (Self-Managed)
+##  Lab 1: Installing Minikube (Self-Managed)
 To practice Kubernetes locally, we will use Minikube. 
 *(Reference Blog: [Installing Minikube on Ubuntu](https://medium.com/@areesmoon/installing-minikube-on-ubuntu-20-04-lts-focal-fossa-b10fad9d0511))*
 
@@ -122,7 +122,7 @@ Congratulations! You now have a working Kubernetes cluster on a single EC2 insta
 
 ---
 
-## ☁️ Lab 2: Introduction to AWS EKS (Managed)
+##  Lab 2: Introduction to AWS EKS (Managed)
 If you are deploying to production on AWS, you will use EKS. 
 *(Reference Blog: [Setup Kubernetes Cluster on Amazon EKS](https://medium.com/@mudasirhaji/setup-kubernetes-cluster-on-amazon-eks-56cbbadace04))*
 
@@ -173,3 +173,4 @@ eksctl create cluster \
 ```
 
 With EKS, AWS handles the backups, the database (`etcd`), and the Master Node scaling automatically!
+

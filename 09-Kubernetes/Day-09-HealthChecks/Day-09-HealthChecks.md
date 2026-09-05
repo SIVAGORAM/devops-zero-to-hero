@@ -1,4 +1,4 @@
-# Day 09: Health Checks (Probes)
+﻿# Day 09: Health Checks (Probes)
 
 Welcome to Day 09! Today we are looking at how Kubernetes ensures your application is actually running correctly.
 
@@ -9,7 +9,7 @@ For this, you need to learn **Health Checks** (also called **Probes**).
 > [!NOTE]  
 > Health Checks are **not** a separate Kubernetes object (like a Deployment or Service). They are an *additional property* you add directly inside your Pod's YAML under a new section called `probes`.
 
-## ⚙️ How Health Checks Work
+##  How Health Checks Work
 When you define a health check, you tell Kubernetes three things:
 1. What command, script, or port number to run to check the health.
 2. How frequently to check (e.g., every 5 seconds).
@@ -26,10 +26,10 @@ There are two main types of health checks:
 
 ---
 
-## 💓 1. Liveness Probe (Internal Check)
+##  1. Liveness Probe (Internal Check)
 The Liveness Probe is used to make sure the application is working fine. Its major concept is simply asking: *"Is it working or not?"* If the application is not started or has frozen, the Liveness Probe will kill the container and recreate it.
 
-### 💻 Lab 1A: Script-Based Liveness Probe
+###  Lab 1A: Script-Based Liveness Probe
 Let's create a Pod that runs a script. We will tell the Liveness Probe to check if a specific file (`/tmp/healthy`) exists.
 
 Create `liveness.yml`:
@@ -87,7 +87,7 @@ kubectl describe pod mylivenessprobe
 ```
 *You will see that the liveness probe failed, and K8s immediately started recreating the container!*
 
-### 💻 Lab 1B: Port-Based Liveness Probe
+###  Lab 1B: Port-Based Liveness Probe
 Instead of running a bash script, we can simply check if an application (like an Apache web server) is responding on a specific port.
 
 Create `liveness_port.yml`:
@@ -118,7 +118,7 @@ spec:
 
 ---
 
-## 🚦 2. Readiness Probe (External Check)
+##  2. Readiness Probe (External Check)
 The Readiness Probe checks whether the application running inside the container is **capable of serving external traffic or requests**. 
 
 **How it works with Services:**
@@ -132,7 +132,7 @@ If a Pod is "Ready", Kubernetes will route traffic to it. If it is NOT ready, Ku
 > [!IMPORTANT]
 > **The Flow:** To be perfectly accurate: both probes actually run at the exact same time (based on their `initialDelaySeconds`). However, conceptually it is true that a Pod must pass Readiness before it serves traffic, while Liveness constantly checks if it's alive in the background!
 
-### 💻 Lab 2: Readiness Probe
+###  Lab 2: Readiness Probe
 Create `readiness.yml`:
 ```yaml
 apiVersion: v1
@@ -169,7 +169,7 @@ kubectl describe pod myreadinessprobe
 
 ---
 
-## 🏗️ 3. The Ultimate Deployment
+##  3. The Ultimate Deployment
 In the real world, you don't add probes to naked Pods. You add them directly into your **Deployment** object! 
 
 Here is what a complete, production-ready Deployment looks like with both Liveness and Readiness probes configured:
@@ -210,3 +210,4 @@ spec:
               port: 80
 ```
 *Study this code deeply end-to-end to master how Deployments and Probes work together!*
+

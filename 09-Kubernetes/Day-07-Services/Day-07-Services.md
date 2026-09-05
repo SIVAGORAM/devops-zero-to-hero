@@ -1,15 +1,15 @@
-# Day 07: Services (Networking in Kubernetes)
+﻿# Day 07: Services (Networking in Kubernetes)
 
 Welcome to Day 07! We have mastered Deployments, ReplicaSets, and Pods. But there is a massive problem we haven't solved yet: **How do we actually access our application?**
 
-## 🚨 The Networking Problem
+##  The Networking Problem
 Every Pod in Kubernetes is automatically assigned a unique IP address. However, Pods are **ephemeral** (temporary). They can be created and deleted at any time. 
 
 If a Pod crashes and the ReplicaSet recreates it, the new Pod gets a completely different IP address! 
 - *Problem 1:* How can you remember hundreds of constantly changing IP addresses? (In realtime we have 1000's of IPs!)
 - *Problem 2:* How can a Frontend application reliably connect to a Backend database if the database's IP address changes every day?
 
-## 🛡️ The Solution: The Service Object
+##  The Solution: The Service Object
 To solve this, Kubernetes introduces the **Service Object**. 
 
 A Service sits on top of your Deployment. It provides a single, static **Virtual IP (VIP)** (often referred to as an Elastic IP in cloud environments) that never changes, even if the Pods underneath it die and are recreated. You no longer need to remember Pod IPs; you only talk to the Service!
@@ -23,7 +23,7 @@ There are 5 types of Services in K8s, but today we will master the 3 most import
 
 ---
 
-## 🏗️ Step 1: Deploying the Application
+##  Step 1: Deploying the Application
 Before we can create a Service, we need an application for the Service to point to! Let's create a standard Nginx deployment.
 
 Create `pods.yml`:
@@ -58,7 +58,7 @@ kubectl get pods
 
 ---
 
-## 🔒 Type 1: ClusterIP
+##  Type 1: ClusterIP
 **What is it?** This is the default Service type. It creates a Virtual IP that is **strictly internal**. 
 **Why use it?** You use this when you want Pods to talk to other Pods *inside* the cluster securely (e.g., your Frontend Pod talking to your Backend Pod). Nobody from the outside internet can access a ClusterIP.
 
@@ -96,7 +96,7 @@ curl <your-cluster-ip>
 
 ---
 
-## 🚪 Type 2: NodePort
+##  Type 2: NodePort
 **What is it?** What if you want to access your application from your web browser, outside of the cluster? A NodePort opens a specific port (between **30000 - 32767**) on every single Slave/Worker Node in your cluster!
 **Why use it?** It is mostly used for internal organization testing or debugging. It is not recommended for production because giving users IP addresses with weird port numbers (like `http://192.168.1.5:31245`) is unprofessional.
 
@@ -129,7 +129,7 @@ kubectl get svc
 
 ---
 
-## 🌐 Type 3: LoadBalancer
+##  Type 3: LoadBalancer
 **What is it?** This is the industry standard for production. When you create this Service in a cloud environment (like AWS EKS), it automatically talks to the cloud provider and provisions a real, physical Load Balancer (like an AWS Network Load Balancer).
 **Why use it?** You use this when you want to expose your application to the public internet using a clean, professional URL.
 
@@ -158,7 +158,7 @@ kubectl get svc
 
 ---
 
-### 🏋️ Practice Exercise
+###  Practice Exercise
 To master this, try recreating the flow from scratch yourself:
 ```bash
 vi deploy2.yml      # Create a new deployment
@@ -169,7 +169,8 @@ kubectl get svc     # Verify the service attached properly
 
 ---
 
-### 💡 Summary Cheat Sheet
+###  Summary Cheat Sheet
 - **ClusterIP:** Inside the cluster only (Frontend $\rightarrow$ Backend).
 - **NodePort:** Access the application **inside your organization** (Internal QA Testing on weird ports).
 - **LoadBalancer:** Expose your application **outside your organization** to the public internet using a clean URL.
+

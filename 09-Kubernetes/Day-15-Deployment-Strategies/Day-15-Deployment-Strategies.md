@@ -1,14 +1,14 @@
-# Day 15: Deployment Strategies
+﻿# Day 15: Deployment Strategies
 
 Welcome to Day 15! Today we are tackling **Deployment Strategies**. 
 
 As a DevOps Engineer, deploying an application isn't just about getting it running; it is about *how* you transition users from the old version of the app to the new version. Do you shut everything down at once? Do you shift traffic gradually? These techniques are called Deployment Strategies.
 
-![Deployment Strategies Comparison](file:///D:/Devops/Devops/09-Kubernetes/Day-15-Deployment-Strategies/deployment-strategies.png)
+![Deployment Strategies Comparison](./deployment-strategies.png)
 
 ---
 
-## 🏗️ 1. Modern vs Traditional Deployments
+##  1. Modern vs Traditional Deployments
 
 Before Docker and Kubernetes, traditional deployments were incredibly painful. Developers would compile a `.jar` or `.war` file, and DevOps engineers would manually stop the live server, copy the file over, and restart the server. This always caused massive downtime for users.
 
@@ -19,7 +19,7 @@ Before Docker and Kubernetes, traditional deployments were incredibly painful. D
 
 ---
 
-## 🚀 2. The 4 Main Strategies
+##  2. The 4 Main Strategies
 
 ### Strategy A: Recreate
 - **How it works:** Deletes all the old Pods (v1) entirely before spinning up the new Pods (v2). 
@@ -44,7 +44,7 @@ Before Docker and Kubernetes, traditional deployments were incredibly painful. D
 
 ---
 
-## 💻 3. Real-World Labs
+##  3. Real-World Labs
 
 ### Lab 1: Recreate Strategy
 Create `deploy_recreate.yml`. Notice the `strategy: type: Recreate` block.
@@ -86,7 +86,7 @@ Because a shared Service will load-balance evenly across all 5 pods, 1 out of 5 
 
 ---
 
-## 📚 4. Further Reading
+##  4. Further Reading
 
 To master deployment strategies, check out these excellent external resources provided in class:
 - [StackOverflow: Canary Release Strategy vs Blue-Green](https://stackoverflow.com/questions/23746038/canary-release-strategy-vs-blue-green)
@@ -112,4 +112,5 @@ Since you are mastering Kubernetes Deployments end-to-end, here are three massiv
 > [!IMPORTANT]
 > **Gotcha 3: Nobody does this manually in Production!**
 > In our Blue-Green lab, you manually changed a label in service.yml and ran kubectl apply to switch traffic. In modern DevOps, this is completely automated! 
-> Enterprises use advanced GitOps tools like **Argo Rollouts** or **Flagger**. These tools automatically shift the traffic, monitor Prometheus for 500 HTTP errors, and automatically rollback to the old version if the new version fails�with zero human intervention!
+> Enterprises use advanced GitOps tools like **Argo Rollouts** or **Flagger**. These tools automatically shift the traffic, monitor Prometheus for 500 HTTP errors, and automatically rollback to the old version if the new version failswith zero human intervention!
+

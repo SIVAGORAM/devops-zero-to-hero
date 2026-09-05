@@ -1,4 +1,4 @@
-# Day 10: Secrets, ConfigMaps, and Resource Limits
+﻿# Day 10: Secrets, ConfigMaps, and Resource Limits
 
 Welcome to Day 10! Today we are learning how to pass data to our Pods securely, and how to prevent our Pods from consuming too much CPU or Memory on our Worker Nodes.
 
@@ -9,7 +9,7 @@ As noted in class, this is a 2-step process:
 
 ---
 
-## 🔐 1. Secrets
+##  1. Secrets
 Secrets are used to store **sensitive data** that your application needs, such as:
 - Usernames and Passwords
 - API Keys
@@ -19,7 +19,7 @@ Secrets are used to store **sensitive data** that your application needs, such a
 **How it works:** Kubernetes encrypts Secret data using **Base64 algorithm**. 
 *(Note: Both Secrets and ConfigMaps have a strict maximum size limit of **1MB** per file).*
 
-### 💻 Lab 1A: Creating a Secret
+###  Lab 1A: Creating a Secret
 Let's create two text files on our machine containing dummy credentials, and then convert them into a Kubernetes Secret object using an ad-hoc command.
 
 ```bash
@@ -40,7 +40,7 @@ kubectl get secrets
 kubectl describe secret mysecret
 ```
 
-### 💻 Lab 1B: Using the Secret in a Pod (Volume Mount)
+###  Lab 1B: Using the Secret in a Pod (Volume Mount)
 Once the Secret exists in Kubernetes, we can pass it to our Pod. The first way is to mount it as a Volume.
 
 Create `pod_secret_vol.yml`:
@@ -74,7 +74,7 @@ kubectl get pods
 kubectl exec myvolsecret -- ls /tmp/mysecrets
 ```
 
-### 💻 Lab 1C: Using the Secret (Environment Variable)
+###  Lab 1C: Using the Secret (Environment Variable)
 The second way to pass a secret is to inject it directly as an Environment Variable.
 
 Create `pod_env.yml`:
@@ -112,14 +112,14 @@ kubectl exec myenvsecret -- env
 
 ---
 
-## 📄 2. ConfigMaps
+##  2. ConfigMaps
 ConfigMaps are used to store **non-sensitive data** like:
 - Database Host IP Addresses
 - Ports
 - General `.conf` or `.properties` files
 - Certificates (As mentioned in notes, though sometimes stored in Secrets too!)
 
-### 💻 Lab 2: Creating and Using a ConfigMap
+###  Lab 2: Creating and Using a ConfigMap
 Create a file named `sample.conf` on your machine (using the exact syntax from class):
 ```text
 {{
@@ -180,7 +180,7 @@ kubectl exec myvolconfig -- cat /etc/config/sample.conf
 
 ---
 
-## ⚖️ 3. Resource Limits & Requests
+##  3. Resource Limits & Requests
 Pods can be greedy. If a Pod consumes too much CPU or Memory, it can crash the entire Worker Node. We can restrict this by defining **Requests** and **Limits**.
 
 - **Requests:** The *minimum* amount of resources the Pod needs to start. (Kubernetes uses this to decide which Node to schedule the Pod on).
@@ -198,7 +198,7 @@ Like Health Checks, Limits and Requests are just *additional properties* of your
 > - `1 gb = 1024 mb`
 > - `1 tb = 1024 gb`
 
-### 💻 Lab 3: Restricting Resources
+###  Lab 3: Restricting Resources
 Create `limit_restrict.yml`:
 ```yaml
 apiVersion: v1
@@ -224,7 +224,7 @@ kubectl apply -f limit_restrict.yml
 
 ---
 
-## 🏆 Putting It All Together
+##  Putting It All Together
 Congratulations! You have now learned all the major properties of a Pod. Here is what a fully professional, production-ready Deployment object looks like, combining **Replicas, Ports, Resources, Probes, and Volumes**!
 
 *(Check out `deploy_complete.yml` in this folder to see the final master code!)*
@@ -248,3 +248,4 @@ Since you asked if there is anything else you need to know, here are three massi
 > In the Resources section, you learned about Limits. 
 > - CPU is a **compressible** resource. If your Pod hits the CPU limit, Kubernetes will just throttle it (slow it down). It won't kill it.
 > - Memory is an **incompressible** resource. If your Pod hits the Memory limit, Kubernetes has no choice but to terminate it immediately. This is the famous **OOMKilled** (Out Of Memory Killed) error!
+

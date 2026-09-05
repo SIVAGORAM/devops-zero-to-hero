@@ -1,13 +1,13 @@
-# Day 08: Kubernetes Volumes (Data Persistence)
+﻿# Day 08: Kubernetes Volumes (Data Persistence)
 
 Welcome to Day 08! Today we tackle one of the most critical topics in Kubernetes: **Storage and Data**.
 
-## 🚨 The Problem: Data Loss
+##  The Problem: Data Loss
 We know that containers are extremely lightweight, but they have a very short lifespan. Pods are **temporary** in nature. 
 
 If your application (like a database) writes logs or saves user data inside a container, and that container is deleted, **all the data is permanently deleted with it!** 
 
-## 🛡️ The Solution: Volumes (Folder Mapping)
+##  The Solution: Volumes (Folder Mapping)
 To protect our data, Kubernetes uses **Volumes**. 
 
 A Volume is simply **Folder Mapping**. You create a folder somewhere safe (outside the container), and you establish a connection to a folder *inside* the container. 
@@ -18,13 +18,13 @@ There are 3 main types of volumes you need to know. Let's break them down from z
 
 ---
 
-## 📁 1. emptyDir Volume
+##  1. emptyDir Volume
 
 **What is it?** This volume is created *inside the Pod itself*. It starts completely empty (`emptyDir: {}`).
 **When do you use it?** You use this when you want to share something between two or more containers inside a single pod.
 **The Golden Rule:** If a *container* crashes, the data in `emptyDir` survives! But if the *Pod* is deleted or recreated, all the data is deleted permanently.
 
-### 💻 Lab 1: emptyDir in Action
+###  Lab 1: emptyDir in Action
 Let's create a Pod with two containers (`c1` and `c2`) sharing an `emptyDir` volume.
 
 Create `emptydir.yml`:
@@ -78,12 +78,12 @@ kubectl delete -f emptydir.yml
 
 ---
 
-## 🖥️ 2. hostPath Volume
+##  2. hostPath Volume
 
 **What is it?** Instead of putting the volume inside the Pod, we map a folder from the Pod directly to the **Host Machine** (The physical Worker Node your Pod is running on). 
 **When do you use it?** When you need data to survive a Pod crash. It creates 2-way communication between the Node and the Pod.
 
-### 💻 Lab 2: hostPath in Action
+###  Lab 2: hostPath in Action
 
 Create `hostpath.yml`:
 ```yaml
@@ -120,7 +120,7 @@ kubectl exec myvolhostpath -- ls /tmp/hostpath
 
 ---
 
-## ☁️ 3. Centralized Storage (AWS EBS & Persistent Volumes)
+##  3. Centralized Storage (AWS EBS & Persistent Volumes)
 
 To ensure data is never lost, no matter which Node a Pod runs on, we use network storage. While NFS (Network File Storage) exists, the modern industry standard is using Cloud Storage like **AWS EBS** (Elastic Block Store).
 
@@ -216,3 +216,4 @@ kubectl get pods
 ```
 
 **Congratulations!** You now have a highly available Pod backed by a centralized, enterprise-grade AWS EBS volume. If that Pod is deleted, or the entire Worker Node explodes, the EBS volume is completely safe!
+

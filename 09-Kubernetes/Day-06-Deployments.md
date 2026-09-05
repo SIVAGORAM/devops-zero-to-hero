@@ -1,14 +1,14 @@
-# Day 06: Deployments (Updates and Rollbacks)
+﻿# Day 06: Deployments (Updates and Rollbacks)
 
 Welcome to Day 06! Today we are looking at the absolute most important object in Kubernetes: **The Deployment**.
 
-## 🔄 The Big Picture: CI/CD Pipeline
+##  The Big Picture: CI/CD Pipeline
 Before diving into Deployments, let's look at the complete flow of how an application goes from a developer's laptop to running in Kubernetes (Version 1):
 `Developer -> writes Code -> pushes to GitHub -> CI/CD Build -> Docker Image -> pushed to Docker Hub -> Kubernetes pulls Image -> runs in Pods`
 
 When Version 2 is released, this exact same pipeline runs again! But how does Kubernetes safely replace the V1 Pods with the V2 Pods? That is where Deployments come in.
 
-## 🏗️ The Evolution of Kubernetes Objects
+##  The Evolution of Kubernetes Objects
 To understand *why* Deployments exist, we have to look at the problems we solved step-by-step over the last few days:
 
 1. **Pods:** We started with naked Pods. 
@@ -25,7 +25,7 @@ To understand *why* Deployments exist, we have to look at the problems we solved
 
 ---
 
-## 📜 1. Creating a Deployment (Version 1)
+##  1. Creating a Deployment (Version 1)
 
 How do you write a Deployment YAML file? It is incredibly easy. 
 **A Deployment uses the exact same code structure as a ReplicaSet.** You literally just change the word `kind: ReplicaSet` to `kind: Deployment`.
@@ -57,7 +57,7 @@ spec:
           command: ["/bin/bash", "-c", "while true; do echo 'hello-devops'; sleep 4; done"]
 ```
 
-### 💻 Lab 1: Deploying Version 1
+###  Lab 1: Deploying Version 1
 First, connect to your instance (using MobaXterm or your terminal), start your cluster, and verify we have no deployments running yet:
 ```bash
 sudo su
@@ -91,13 +91,13 @@ kubectl logs -f <pod-name-here>
 
 ---
 
-## 🚀 2. Rolling Updates (Releasing Version 2)
+##  2. Rolling Updates (Releasing Version 2)
 
 Your development team just finished Version 2! They want the app to say "Welcome to DevOps K8s" instead of "hello-devops". 
 
 Instead of deleting everything (which would cause an outage for your customers), we will perform a **Rolling Update**. A Rolling Update gracefully deletes one old pod and replaces it with a new pod, one by one, until the entire cluster is upgraded with zero downtime!
 
-### 💻 Lab 2: Upgrading to Version 2
+###  Lab 2: Upgrading to Version 2
 Open `deploy.yml` and modify the container command to represent Version 2 ("Welcome to DevOps K8s" instead of "hello-devops"):
 
 ```yaml
@@ -152,13 +152,13 @@ kubectl logs -f <new-pod-name>
 
 ---
 
-## ⏪ 3. The "Undo" Button (Rollbacks)
+##  3. The "Undo" Button (Rollbacks)
 
 Imagine disaster strikes. Customers are complaining that Version 2 is completely broken. Your boss is screaming. You need to revert back to Version 1 immediately!
 
 Because the Deployment object kept the old ReplicaSet as a backup, reverting is as easy as typing one command.
 
-### 💻 Lab 3: Rolling Back
+###  Lab 3: Rolling Back
 First, check the status of your rollout to ensure nothing is currently updating:
 ```bash
 kubectl rollout status deployment/mydeploy
@@ -189,9 +189,10 @@ kubectl logs -f <new-v1-pod-name>
 
 ---
 
-### ⏭️ What's Next?
+###  What's Next?
 A Rolling Update is just one way to upgrade an application. Tomorrow, we will look at the **4 Major Deployment Strategies**:
 1. Recreate (Delete all, then create all - Causes Downtime)
 2. Rolling Update (One by one - Zero Downtime)
 3. Blue-Green Strategy (Running two identical environments and switching traffic)
 4. Canary Strategy (Testing V2 on 10% of users before fully releasing)
+

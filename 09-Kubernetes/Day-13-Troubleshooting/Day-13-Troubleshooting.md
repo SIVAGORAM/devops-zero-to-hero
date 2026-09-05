@@ -1,4 +1,4 @@
-# Day 13: Troubleshooting in Kubernetes
+﻿# Day 13: Troubleshooting in Kubernetes
 
 Welcome to Day 13! Troubleshooting is the most important skill for a DevOps engineer. To successfully troubleshoot an issue in Kubernetes, you must first deeply understand the **Lifecycle of a Pod**.
 
@@ -6,7 +6,7 @@ By looking at exactly which "Phase" a Pod is stuck in, you can immediately ident
 
 ---
 
-## ⏳ 1. The Pod Lifecycle (6 Phases)
+##  1. The Pod Lifecycle (6 Phases)
 
 Whenever you apply a manifest file (`kubectl apply -f pod.yml`), the Kubernetes Master receives the request and begins the lifecycle.
 
@@ -28,7 +28,7 @@ Whenever you apply a manifest file (`kubectl apply -f pod.yml`), the Kubernetes 
 
 ---
 
-## 🛠️ 2. The Core Troubleshooting Commands
+##  2. The Core Troubleshooting Commands
 
 When a Pod is broken, you only need four commands to solve 99% of issues:
 
@@ -43,7 +43,7 @@ When a Pod is broken, you only need four commands to solve 99% of issues:
 
 ---
 
-## 💻 3. Real-World Troubleshooting Labs
+##  3. Real-World Troubleshooting Labs
 
 Let's intentionally break things and learn how to debug them using the `describe` command!
 
@@ -119,7 +119,7 @@ If you apply the broken file, the Pod will hang in `ContainerCreating`. Running 
 
 ---
 
-## 🧠 4. Zero-to-Hero Bonus: Image Registries
+##  4. Zero-to-Hero Bonus: Image Registries
 
 During the `ContainerCreating` phase, Kubernetes downloads the Docker image from a centralized repository. If you are working in a real enterprise, you will likely encounter one of these common registries:
 - **DockerHub:** The public default.
@@ -127,3 +127,4 @@ During the `ContainerCreating` phase, Kubernetes downloads the Docker image from
 - **JFrog Artifactory / Nexus:** On-premise enterprise registries that store both Docker images and raw application binaries (like `.jar` files).
 
 If your Pod is stuck in `ContainerCreating` with an `ImagePullBackOff` error, it almost always means your cluster does not have the correct authentication credentials to pull from these private registries!
+

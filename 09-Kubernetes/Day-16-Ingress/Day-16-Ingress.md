@@ -1,4 +1,4 @@
-# Day 16: Ingress & Ingress Controllers
+﻿# Day 16: Ingress & Ingress Controllers
 
 Welcome to Day 16! So far, we have been using `NodePort` or `LoadBalancer` Services to expose our applications to the outside world. But in a modern microservices architecture, this approach creates a massive, expensive problem. 
 
@@ -6,7 +6,7 @@ Today, we solve that problem using **Ingress**.
 
 ---
 
-## 🏫 1. The School Analogy
+##  1. The School Analogy
 
 To understand Ingress, imagine your Kubernetes Cluster is a **School**.
 - **The Classrooms:** The individual applications running inside (Pods).
@@ -19,7 +19,7 @@ In Kubernetes: The user hits a single DNS name. The Ingress Controller catches t
 
 ---
 
-## 💸 2. Why use Ingress? (The Microservices Problem)
+##  2. Why use Ingress? (The Microservices Problem)
 
 Imagine you are building Flipkart. Flipkart is not one massive application; it is broken down into dozens of microservices:
 - A service for the Homepage (`/`)
@@ -35,7 +35,7 @@ Instead, we create **ONE** AWS LoadBalancer (the Ingress Controller). We expose 
 
 ---
 
-## 💻 3. Real-World Lab: Path-Based Routing
+##  3. Real-World Lab: Path-Based Routing
 
 Let's simulate our E-Commerce website. We will create a namespace, deploy our app, expose it internally, and then use Ingress to route traffic based on URL paths (`/men` and `/women`).
 
@@ -78,7 +78,7 @@ Create `ingress.yml`.
 kubectl apply -f ingress.yml
 ```
 
-### 🧩 Understanding the Ingress YAML Code
+###  Understanding the Ingress YAML Code
 In interviews, you might be asked to write or explain an Ingress YAML file. It looks huge, but it's actually incredibly simple once you break it down:
 - **`annotations` (rewrite-target: /):** This is a magic trick for the NGINX controller. It tells NGINX to strip away the `/men` or `/women` from the URL before sending it to the backend pod, so your pod just sees a normal request to its root `/`.
 - **`host:`** This is the domain name the user types into their browser (in this lab, our AWS LoadBalancer URL).
@@ -89,7 +89,7 @@ You can now open a browser, paste your LoadBalancer URL, and try appending `/men
 
 ---
 
-## 🧠 4. Zero-to-Hero Bonus: Interview Deep Dive
+##  4. Zero-to-Hero Bonus: Interview Deep Dive
 
 If you are interviewing for a Senior DevOps role, you must be able to speak deeply about the underlying architecture of Ingress.
 
@@ -120,3 +120,4 @@ If you are interviewing for a Senior DevOps role, you must be able to speak deep
 > **6. The Future: Kubernetes Gateway API**
 > If you want to blow away an interviewer, mention the **Gateway API**. 
 > While Ingress is the current standard, Kubernetes is actively replacing it with the new Gateway API. Why? Because Ingress puts all the rules (Hosts, Paths, TLS) into one massive file, which creates conflicts between Developers (who want to manage paths) and Admins (who want to manage SSL/Ports). The Gateway API separates these responsibilities, providing the ultimate modern traffic routing solution!
+

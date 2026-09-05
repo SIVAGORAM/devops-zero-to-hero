@@ -1,15 +1,15 @@
-# Day 01: Introduction to Kubernetes (Zero to Hero)
+﻿# Day 01: Introduction to Kubernetes (Zero to Hero)
 
 Welcome to the **Kubernetes** module! By the end of this journey, you will master the most powerful, industry-standard tool for managing containerized applications at an enterprise scale.
 
-## 🤖 What is Kubernetes (K8s)?
+##  What is Kubernetes (K8s)?
 Kubernetes is an open-source **Container Orchestration** tool. It was originally developed by Google (based on their internal system called Borg) and is now maintained by the Cloud Native Computing Foundation (CNCF).
 
 Because "Kubernetes" is a long word, it is often abbreviated as **K8s** (because there are 8 letters between the 'K' and the 's').
 
 ---
 
-## ⚠️ The Problem with Standalone Docker
+##  The Problem with Standalone Docker
 
 If you know Docker, you know how to build a container and run it using the Docker Daemon. But imagine a real-world scenario where a massive company has **1,000 physical servers (machines)**, and each machine has Docker installed on it. 
 
@@ -25,7 +25,7 @@ We need a mechanism that, if a container or a whole machine goes down, **automat
 
 ---
 
-## 🛠️ The Solution: Container Orchestration
+##  The Solution: Container Orchestration
 
 To solve all of these manual nightmare scenarios, we use a **Container Orchestration Tool**.
 
@@ -37,7 +37,7 @@ Orchestration simply means "Automated Management." An orchestration tool is a la
 
 ---
 
-## 🧠 Deep Dive: Core Concepts (Homework Explained)
+##  Deep Dive: Core Concepts (Homework Explained)
 
 To truly master Kubernetes, you must deeply understand the following real-world architectural concepts:
 
@@ -92,7 +92,7 @@ Let's say you have 10 containers running v1.0 of your Shopping Cart. You tell Ku
 1. Kubernetes creates *one* new container running v2.0.
 2. It waits to make sure this new v2.0 container is healthy and working.
 3. Once verified, it safely deletes *one* old v1.0 container.
-4. It repeats this process one by one—rolling through the cluster—until all 10 containers are running v2.0. 
+4. It repeats this process one by onerolling through the clusteruntil all 10 containers are running v2.0. 
 **Result:** During the entire upgrade process, your users never experienced a single second of downtime!
 
 **The Safety Net: Rollback (Roll-in)**
@@ -101,7 +101,8 @@ In Kubernetes, you simply issue a **Rollback** (also called a Roll-in) command. 
 
 ---
 
-### 🎓 Summary
+###  Summary
 Kubernetes is the brain that manages your Docker containers. It removes the need for manual intervention, providing Self-Healing, Auto-Scaling, and Zero-Downtime Updates. 
 
 Welcome to the big leagues of DevOps!
+

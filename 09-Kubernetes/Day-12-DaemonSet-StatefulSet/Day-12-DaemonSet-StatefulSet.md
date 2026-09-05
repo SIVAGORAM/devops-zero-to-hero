@@ -1,10 +1,10 @@
-# Day 12: DaemonSets & StatefulSets
+﻿# Day 12: DaemonSets & StatefulSets
 
 Welcome to Day 12! Today we are expanding beyond the standard Deployment object. We will learn how to deploy Pods uniquely to every single machine using **DaemonSets**, and how to manage Databases securely using **StatefulSets**.
 
 ---
 
-## 😈 1. DaemonSets
+##  1. DaemonSets
 
 If you have a requirement where you want to create exactly **one Pod for every one Machine (Node)** in your cluster, you must use a **DaemonSet**.
 
@@ -14,7 +14,7 @@ DaemonSets are exclusively used for cluster-wide background tasks. If you want t
 
 Notice that in a DaemonSet, **we do not define `replicas`**. The number of Pods is strictly equal to the number of Worker Nodes in your cluster!
 
-### 💻 Lab 1: Deploying a DaemonSet
+###  Lab 1: Deploying a DaemonSet
 
 Create `daemonset.yml`:
 ```yaml
@@ -48,7 +48,7 @@ kubectl get pods -o wide
 
 ---
 
-## 🗄️ 2. Stateful vs Stateless Applications
+##  2. Stateful vs Stateless Applications
 
 Before learning about StatefulSets, you must understand the difference between Stateful and Stateless applications. If you want to deploy an application to Kubernetes, your very first question must be: *"Is this application Stateful or Stateless?"*
 
@@ -64,7 +64,7 @@ Before learning about StatefulSets, you must understand the difference between S
 
 ---
 
-## 🏗️ 3. StatefulSets & Headless Services
+##  3. StatefulSets & Headless Services
 
 When deploying a StatefulSet, we cannot use a standard Service (like ClusterIP) because standard services load-balance traffic randomly. When talking to a database cluster (like a Primary-Replica setup), you need to talk to a *specific* database pod. 
 
@@ -74,7 +74,7 @@ To achieve this, we use a **Headless Service**.
 A Headless Service is simply a standard Service where `clusterIP` is set to `None`. 
 Instead of providing a single load-balanced IP, it creates a direct DNS record for every single individual Pod in your StatefulSet.
 
-### 💻 Lab 2: Deploying a StatefulSet
+###  Lab 2: Deploying a StatefulSet
 
 First, create the Headless Service (`headless.yml`):
 ```yaml
@@ -134,7 +134,7 @@ kubectl get sts
 kubectl get pods
 ```
 
-### 💻 Lab 3: Testing Stateful DNS Connectivity
+###  Lab 3: Testing Stateful DNS Connectivity
 
 StatefulSets give pods predictable, sticky names (`webapp-0`, `webapp-1`). Thanks to the Headless Service, we can reach these pods directly using the DNS format: `podname.servicename`.
 
@@ -178,3 +178,4 @@ Since you are mastering Kubernetes, here are three massive real-world concepts a
 > [!IMPORTANT]
 > **Gotcha 3: DaemonSets and New Nodes**
 > What happens if you add a brand new Worker Node to your cluster tomorrow? You do not need to update your DaemonSet! The DaemonSet controller automatically detects the new Node and instantly schedules a new Pod onto it. It is completely hands-off!
+

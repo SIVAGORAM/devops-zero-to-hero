@@ -1,4 +1,4 @@
-# Day 03: Kubernetes Objects, Pods, and YAML (Zero to Hero)
+﻿# Day 03: Kubernetes Objects, Pods, and YAML (Zero to Hero)
 
 Before we dive into writing code, let's briefly ground ourselves with a recap of what we've learned so far. You now know that **Kubernetes (K8s)** is an orchestration tool that automates the management of **Microservices**. You know that the **Master Node** acts as the brain, commanding the **Worker Nodes** to provide **Self-Healing** and **High Availability (24/7 Uptime)**.
 
@@ -6,7 +6,7 @@ But how do we actually tell the Master Node what to do? The answer is **Kubernet
 
 ---
 
-## 📦 1. What is a Kubernetes Object?
+##  1. What is a Kubernetes Object?
 In Kubernetes, an "Object" is simply a record of intent. When you create an object, you are telling the Kubernetes Master Node: *"Here is my desired state. Make it happen and keep it that way."*
 
 There are many types of objects in K8s (Deployments, Services, Secrets), but today we are focusing on the very first, and most fundamental object: **The Pod**.
@@ -23,7 +23,7 @@ Think of it like a pea pod in nature. The green shell is the Kubernetes Pod, and
 
 ---
 
-## 📜 2. Writing Kubernetes YAML Files
+##  2. Writing Kubernetes YAML Files
 To create these Objects, we write configuration files using **YAML** (Yet Another Markup Language). 
 
 YAML relies strictly on **indentation (spaces)** to define Parent and Child relationships. If your spacing is wrong, Kubernetes will throw an error!
@@ -37,7 +37,7 @@ Every single Kubernetes YAML file must contain these **4 required root fields**:
 
 ---
 
-## 💻 Lab 1: Creating Your First Pod (Nginx)
+##  Lab 1: Creating Your First Pod (Nginx)
 
 First, make sure your Minikube cluster is running:
 ```bash
@@ -67,7 +67,7 @@ spec:
     - containerPort: 80
 ```
 
-### 🧠 Code Breakdown:
+###  Code Breakdown:
 - `apiVersion: v1`: We are using the stable v1 API.
 - `kind: Pod`: We are telling the Master Node to create a Pod object.
 - `metadata.name`: We are explicitly naming this pod `web-server-pod`.
@@ -77,7 +77,7 @@ spec:
 - `image: nginx:latest`: The exact Docker image the Worker Node must download from Docker Hub.
 - `containerPort: 80`: This tells Kubernetes that the container inside is listening on port 80.
 
-### 🏃‍♂️ Running the Commands:
+###  Running the Commands:
 
 **1. Give the YAML to the Master Node:**
 ```bash
@@ -103,7 +103,7 @@ kubectl delete -f pod.yml
 
 ---
 
-## 🐛 Lab 2: Debugging a Pod (Ubuntu Loop)
+##  Lab 2: Debugging a Pod (Ubuntu Loop)
 
 What happens if a Pod crashes or behaves weirdly? You need to know how to troubleshoot!
 
@@ -126,7 +126,7 @@ Apply it to the cluster:
 kubectl apply -f pod2.yml
 ```
 
-### 🧰 The 3 Ultimate Troubleshooting Commands:
+###  The 3 Ultimate Troubleshooting Commands:
 
 **1. Find out WHY a pod failed to start:**
 ```bash
@@ -150,7 +150,7 @@ kubectl exec -it dummy-pod -- /bin/bash
 
 ---
 
-## 👯 Lab 3: The Multi-Container Pod
+##  Lab 3: The Multi-Container Pod
 
 Sometimes, you need two containers in the exact same Pod. Let's create a Pod that holds both Nginx AND Ubuntu.
 
@@ -193,8 +193,9 @@ kubectl exec -it multi-pod -c c1-nginx -- /bin/bash
 
 ---
 
-## 💡 Pro-Tip: The VS Code Extension
+##  Pro-Tip: The VS Code Extension
 Writing YAML completely from scratch is error-prone. 
 
 Go to the Extensions tab in VS Code and search for **"Kubernetes" by Microsoft**. Install it.
 Now, when you create a `.yml` file and start typing `Pod`, the extension will automatically auto-complete the entire `apiVersion`, `kind`, `metadata`, and `spec` structure for you! This is how professionals write YAML fast.
+
