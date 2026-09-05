@@ -1,0 +1,11 @@
+﻿apiVersion: certificates.k8s.io/v1
+kind: CertificateSigningRequest
+metadata:
+  name: Siva-csr
+spec:
+  # In a real scenario, you must paste the Base64 encoded output of `Siva.csr` below
+  request: <PASTE_BASE64_ENCODED_CSR_HERE>
+  signerName: kubernetes.io/kube-apiserver-client
+  usages:
+    - client auth
+
