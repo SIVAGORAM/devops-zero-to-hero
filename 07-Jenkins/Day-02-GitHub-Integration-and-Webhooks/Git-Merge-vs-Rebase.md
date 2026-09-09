@@ -35,13 +35,13 @@ gitGraph
     commit
     branch feature
     checkout feature
-    commit id: "Feature 1"
+    commit
     checkout main
-    commit id: "New Main 1"
-    commit id: "New Main 2"
+    commit
+    commit
     checkout feature
-    merge main id: "Merge Commit"
-    commit id: "Feature 2"
+    merge main
+    commit
 ```
 
 ### Pros:
@@ -72,14 +72,14 @@ When you run `git rebase master`, Git takes your `d1` and `d2` commits and repla
 ### The Flow:
 ```mermaid
 gitGraph
-    commit id: "c1"
-    commit id: "c2"
-    commit id: "c3"
-    commit id: "c4 (New on Master)"
+    commit
+    commit
+    commit
+    commit
     branch develop
     checkout develop
-    commit id: "d1' (Rebased)"
-    commit id: "d2' (Rebased)"
+    commit
+    commit
 ```
 
 ### Why do we use Rebase?
