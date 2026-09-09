@@ -17,6 +17,15 @@ The main goal is to deliver software **faster, more reliably, and with less manu
 ### 🧩 Continuous Integration (CI)
 Continuous Integration focuses on the initial phases of the pipeline: **Integrating, Building, and Testing.**
 
+```mermaid
+graph LR
+    A[Developer writes code] -->|git push| B(GitHub)
+    B --> C{CI Pipeline}
+    C --> D[⚙️ Build Artifact]
+    D --> E[🧪 Run Unit Tests]
+    E --> F[Success or Failure]
+```
+
 Whenever a developer pushes code to Git (GitHub), the CI pipeline automatically:
 1. Detects the new code.
 2. Builds the code into an Artifact (like a `.jar` or Docker image).
@@ -38,15 +47,29 @@ Both extend the pipeline toward the delivery phase, taking the successfully test
 ### Continuous Delivery
 The application is automatically built, tested, and prepared so that it is **ready for production**, but the final push to Production requires a **Manual Approval** (e.g., a Release Manager clicking a button).
 
-```text
-CODE -> BUILD -> TEST -> DEPLOY TO STAGING -> ACCEPTANCE TESTS -> [ MANUAL APPROVAL ] -> PROD
+```mermaid
+graph LR
+    A[Code] --> B[Build]
+    B --> C[Test]
+    C --> D[Deploy DEV]
+    D --> E[Deploy UAT]
+    E -->|🛑 MANUAL APPROVAL REQUIRED| F[Production]
+    style E fill:#f9d0c4,stroke:#333,stroke-width:2px
+    style F fill:#bbf,stroke:#333,stroke-width:2px
 ```
 
 ### Continuous Deployment
 The application is automatically built, tested, and deployed straight to Production without ANY human intervention. If the automated tests pass, the code goes live immediately!
 
-```text
-CODE -> BUILD -> TEST -> DEPLOY TO STAGING -> ACCEPTANCE TESTS -> [ AUTOMATIC DEPLOY ] -> PROD
+```mermaid
+graph LR
+    A[Code] --> B[Build]
+    B --> C[Test]
+    C --> D[Deploy DEV]
+    D --> E[Deploy UAT]
+    E -->|✅ 100% AUTOMATIC| F[Production]
+    style E fill:#dfd,stroke:#333,stroke-width:2px
+    style F fill:#bbf,stroke:#333,stroke-width:2px
 ```
 
 > [!IMPORTANT]
@@ -59,9 +82,23 @@ CODE -> BUILD -> TEST -> DEPLOY TO STAGING -> ACCEPTANCE TESTS -> [ AUTOMATIC DE
 
 ## 🏭 3. Understanding the Pipeline and Artifacts
 
+### The Complete CI/CD Flow
+Here is the ultimate picture of how code travels from a developer's laptop to real users:
+
+```mermaid
+graph TD
+    A[Developer] -->|git commit / push| B(Source Code / GitHub)
+    B --> C{Jenkins CI/CD Pipeline}
+    C --> D[⚙️ Stage 1: Build]
+    D --> E[🧪 Stage 2: Automated Tests]
+    E --> F[🚀 Stage 3: Deploy to DEV]
+    F --> G[✅ Stage 4: Deploy to UAT]
+    G --> H[🛑 Stage 5: Production Gate]
+    H --> I[🌍 Deploy to PROD / Users]
+```
+
 ### The Pipeline
-A CI/CD Pipeline is simply a sequence of automated **Stages**.
-`Stage 1 (Code) -> Stage 2 (Build) -> Stage 3 (Test) -> Stage 4 (Deploy)`
+A CI/CD Pipeline is simply a sequence of automated **Stages**, exactly as pictured above!
 
 ### The Artifact
 An artifact is the final output produced by the "Build" stage. It is the packaged version of the application that will be deployed to the servers.
