@@ -29,8 +29,27 @@ To understand what is happening inside Jenkins, remember these simple relationsh
 
 ---
 
-## 🛠️ 2. Prerequisite: Installing Git on Jenkins
+## 🛠️ 2. Prerequisite: Installing Jenkins & Git
 
+If you are starting on a fresh EC2 instance, you must install Jenkins first. Run these exact commands to install Java and Jenkins automatically on Amazon Linux/RedHat:
+
+```bash
+# 1. Install Java 17
+yum install java-17-amazon-corretto -y
+java -version
+
+# 2. Add Jenkins Repository and Keys
+sudo wget -O /etc/yum.repos.d/jenkins.repo https://pkg.jenkins.io/redhat-stable/jenkins.repo
+sudo rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io-2023.key
+
+# 3. Install and Start Jenkins
+yum install jenkins -y
+systemctl status jenkins
+systemctl start jenkins
+systemctl status jenkins
+```
+
+### Installing Git on Jenkins
 Before Jenkins can pull code from GitHub, the Jenkins server itself must have Git installed! If you forget this step, Jenkins will fail to clone your repositories.
 
 Run this on your Jenkins EC2 instance terminal:
