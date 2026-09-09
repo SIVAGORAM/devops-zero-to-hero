@@ -6,11 +6,18 @@ Welcome to the ultimate guide on `git merge` and `git rebase`. These are the two
 
 ## 🎯 1. The Core Concept
 
-Imagine you create a feature branch off of `main` to build a new login page. While you are working on your feature branch, another developer finishes their work and pushes new commits to `main`. 
+**What is Rebase?**
+`git rebase` is a command used to move or replay the commits of one branch on top of another branch. It is commonly used to update a development branch with the latest changes from the `main` or `master` branch.
+
+Imagine you create a feature/develop branch off of `main`. While you are working on your feature branch, another developer finishes their work and pushes new commits to `main`. 
 
 Now, your feature branch is **out of date**. You need to bring those new commits from `main` into your feature branch so your code doesn't conflict. 
 
 You have two choices: **Merge** or **Rebase**.
+
+### Easy Memory Trick
+- **MERGE:** Combine histories together.
+- **REBASE:** Replay my commits on top of another branch.
 
 ---
 
@@ -53,18 +60,33 @@ gitGraph
 ### What it does:
 Git literally "unplugs" your feature branch, moves over to the very tip of the updated `main` branch, and plugs your feature branch back in there. It **rewrites history** to make it look like you created your feature branch *after* the new updates to `main`.
 
+**What exactly happens?**
+Suppose your commit history looks like this:
+- **Master:** `c1 → c2 → c3 → c4`
+- **Develop:** `c1 → c2 → c3 → d1 → d2`
+*(Where c1, c2, c3 are common commits, c4 is new on master, and d1/d2 are your new work).*
+
+When you run `git rebase master`, Git takes your `d1` and `d2` commits and replays them on top of `c4`. The final linear history becomes:
+`c1 → c2 → c3 → c4 → d1' → d2'`
+
 ### The Flow:
 ```mermaid
 gitGraph
-    commit
-    commit
-    commit id: "New Main 1"
-    commit id: "New Main 2"
-    branch feature
-    checkout feature
-    commit id: "Feature 1 (Rebased)"
-    commit id: "Feature 2 (Rebased)"
+    commit id: "c1"
+    commit id: "c2"
+    commit id: "c3"
+    commit id: "c4 (New on Master)"
+    branch develop
+    checkout develop
+    commit id: "d1' (Rebased)"
+    commit id: "d2' (Rebased)"
 ```
+
+### Why do we use Rebase?
+1. To update a branch with the latest changes from master/main.
+2. To keep Git history cleaner.
+3. To maintain a linear history.
+4. To avoid unnecessary and messy merge commits.
 
 ### Pros:
 - **Perfectly Clean History:** You get a beautiful, straight, linear project history without any ugly "Merge Commits". 
@@ -117,9 +139,12 @@ git fetch origin
 # 3. Execute the rebase
 git rebase origin/main
 
-# 4. If there are conflicts, Git will pause. Fix the conflicts in your code, then run:
+# 4. If there are conflicts, Git will pause. Fix the conflicting files in your code, then run:
 git add .
 git rebase --continue
+
+# If you make a mistake and want to cancel the rebase entirely:
+git rebase --abort
 
 # 5. Because you REWROTE history, a normal push will fail! You MUST force push.
 git push origin feature-login --force
@@ -128,4 +153,14 @@ git push origin feature-login --force
 ### 🚨 The "Force Push" Warning
 Notice that after a Rebase, you must run `git push --force`. This is because GitHub looks at your newly rewritten commit IDs and says, "Wait, these don't match what I have!". The force push tells GitHub to overwrite the remote history with your new clean linear history. 
 
-*(Again, this is why you only rebase your personal feature branches!)*
+*(Again, this is why you only rebase your personal local feature branches!)*
+
+---
+
+## 🎤 6. Master Interview Questions
+
+**Q: What is Git Rebase?**
+**A:** "Git rebase is a command used to move or replay the commits of one branch on top of another branch. It is commonly used to update a development branch with the latest changes from the main/master branch while maintaining a cleaner, linear history."
+
+**Q: How do you handle conflicts during a Rebase?**
+**A:** "When a conflict happens, the rebase process pauses. I would open my editor, fix the conflicting files, run `git add <file>`, and then run `git rebase --continue`. If things get too messy, I can always back out by running `git rebase --abort`."
