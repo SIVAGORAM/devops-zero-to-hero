@@ -10,9 +10,9 @@ To understand CI/CD, you must understand the flow of code:
 
 ```mermaid
 graph LR
-    A[Developer Laptop] -->|PUSH| B(GitHub Repository)
-    B -->|PULL / CLONE| C[Jenkins Server]
-    C --> D[Build & Test]
+    A["Developer Laptop"] -->|"PUSH"| B("GitHub Repository")
+    B -->|"PULL / CLONE"| C("Jenkins Server")
+    C --> D["Build and Test"]
 ```
 
 - **PUSH:** The developer creates code and *pushes* it up to the central repository (GitHub).

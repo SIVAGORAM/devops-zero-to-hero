@@ -19,11 +19,11 @@ Continuous Integration focuses on the initial phases of the pipeline: **Integrat
 
 ```mermaid
 graph LR
-    A[Developer writes code] -->|git push| B(GitHub)
-    B --> C{CI Pipeline}
-    C --> D[⚙️ Build Artifact]
-    D --> E[🧪 Run Unit Tests]
-    E --> F[Success or Failure]
+    A["Developer writes code"] -->|"git push"| B("GitHub")
+    B --> C{"CI Pipeline"}
+    C --> D["Build Artifact"]
+    D --> E["Run Unit Tests"]
+    E --> F["Success or Failure"]
 ```
 
 Whenever a developer pushes code to Git (GitHub), the CI pipeline automatically:
@@ -56,11 +56,11 @@ The application is automatically built, tested, and prepared so that it is **rea
 
 ```mermaid
 graph LR
-    A[Code] --> B[Build]
-    B --> C[Test]
-    C --> D[Deploy DEV]
-    D --> E[Deploy UAT]
-    E -->|🛑 MANUAL APPROVAL REQUIRED| F[Production]
+    A["Code"] --> B["Build"]
+    B --> C["Test"]
+    C --> D["Deploy DEV"]
+    D --> E["Deploy UAT"]
+    E -->|"MANUAL APPROVAL REQUIRED"| F["Production"]
     style E fill:#f9d0c4,stroke:#333,stroke-width:2px
     style F fill:#bbf,stroke:#333,stroke-width:2px
 ```
@@ -70,11 +70,11 @@ The application is automatically built, tested, and deployed straight to Product
 
 ```mermaid
 graph LR
-    A[Code] --> B[Build]
-    B --> C[Test]
-    C --> D[Deploy DEV]
-    D --> E[Deploy UAT]
-    E -->|✅ 100% AUTOMATIC| F[Production]
+    A["Code"] --> B["Build"]
+    B --> C["Test"]
+    C --> D["Deploy DEV"]
+    D --> E["Deploy UAT"]
+    E -->|"100% AUTOMATIC"| F["Production"]
     style E fill:#dfd,stroke:#333,stroke-width:2px
     style F fill:#bbf,stroke:#333,stroke-width:2px
 ```
@@ -104,14 +104,14 @@ Here is the ultimate picture of how code travels from a developer's laptop to re
 
 ```mermaid
 graph TD
-    A[Developer] -->|git commit / push| B(Source Code / GitHub)
-    B --> C{Jenkins CI/CD Pipeline}
-    C --> D[⚙️ Stage 1: Build]
-    D --> E[🧪 Stage 2: Automated Tests]
-    E --> F[🚀 Stage 3: Deploy to DEV]
-    F --> G[✅ Stage 4: Deploy to UAT]
-    G --> H[🛑 Stage 5: Production Gate]
-    H --> I[🌍 Deploy to PROD / Users]
+    A["Developer"] -->|"git commit / push"| B("Source Code / GitHub")
+    B --> C{"Jenkins CI/CD Pipeline"}
+    C --> D["Stage 1: Build"]
+    D --> E["Stage 2: Automated Tests"]
+    E --> F["Stage 3: Deploy to DEV"]
+    F --> G["Stage 4: Deploy to UAT"]
+    G --> H["Stage 5: Production Gate"]
+    H --> I["Deploy to PROD / Users"]
 ```
 
 ### The Pipeline
@@ -202,9 +202,9 @@ You must configure two Inbound Rules for your Jenkins server:
 
 ```mermaid
 graph TD
-    A[Internet] -->|Port 22 & 8080| B(AWS Security Group Firewall)
-    B -->|Port 22| C[EC2 SSH Terminal]
-    B -->|Port 8080| D[EC2 Jenkins Web UI]
+    A["Internet"] -->|"Port 22 and 8080"| B("AWS Security Group Firewall")
+    B -->|"Port 22"| C["EC2 SSH Terminal"]
+    B -->|"Port 8080"| D["EC2 Jenkins Web UI"]
 ```
 
 ### Step 2: Connect and Install Dependencies
