@@ -177,7 +177,7 @@ pipeline {
         stage("command") {
             steps {
                 sh '''
-                    touch mustafa
+                    touch siva
                     mkdir mydevops
                     cal
                     timedatectl
@@ -357,7 +357,7 @@ pipeline {
    
    // GLOBAL VARIABLE
    environment {
-      name = "Mustafa"
+      name = "Siva"
    }
    
    stages {
