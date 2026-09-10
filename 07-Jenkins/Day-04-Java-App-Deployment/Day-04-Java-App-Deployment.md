@@ -18,7 +18,7 @@ A complete pipeline flows through these stages: **`Code ---> Build ---> Test ---
 ### The Visual Integration Flow
 Based on the architecture diagram, here is how the tools interact to deploy code:
 
-![Visual Integration Architecture](file:///C:/Users/SIVA%20GORAM/.gemini/antigravity-ide/brain/b197b719-9809-4e14-982f-7d615eedfe0d/.user_uploaded/media_1789017602545.png)
+![Visual Integration Architecture](./jenkins-tomcat-architecture.png)
 
 ```mermaid
 graph TD
