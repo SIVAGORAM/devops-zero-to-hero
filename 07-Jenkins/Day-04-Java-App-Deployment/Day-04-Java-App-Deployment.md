@@ -9,12 +9,34 @@ Welcome to Jenkins Day 4! Today is a major milestone. We are going to build a co
 Before writing pipelines, you must understand the architecture of what we are building. 
 A complete pipeline flows through these stages: **`Code ---> Build ---> Test ---> Deploy`**
 
-### The Tooling Stack
-To execute these stages, we need a specific set of DevOps tools:
-- **Code:** We use **Git** (and GitHub) to store and manage the source code.
-- **Build & Test:** We use **Maven** to compile the Java code and run unit tests (bug checking).
-- **Deploy:** We use **Tomcat** (an application server) to host the final web application.
-- **Automation:** We use **Jenkins** as the CI server to orchestrate all these tools together!
+### Understanding the Tools
+- **Git:** Stores your application code and tracks changes.
+- **Maven:** Builds and manages Java projects by handling dependencies.
+- **Jenkins:** Automates the CI/CD process by integrating code building, testing, and deployment.
+- **Tomcat:** A popular server for hosting Java-based applications.
+
+### The Visual Integration Flow
+Based on the architecture diagram, here is how the tools interact to deploy code:
+
+![Visual Integration Architecture](file:///C:/Users/SIVA%20GORAM/.gemini/antigravity-ide/brain/b197b719-9809-4e14-982f-7d615eedfe0d/.user_uploaded/media_1789017602545.png)
+
+```mermaid
+graph TD
+    A["Developer (CODE)"] --> B("GitHub")
+    B -->|"INTEGRATE"| C{"Jenkins CI Server"}
+    C -->|"BUILD"| D("Maven")
+    D -->|"Returns WAR file"| C
+    C -->|"Deploys WAR file"| E("Tomcat Server")
+```
+
+### Real-Time Scenario
+Imagine a software team working on an e-commerce web application. Every time a developer updates the product catalog, they push the changes to GitHub. Jenkins automatically:
+1. Pulls the updated code.
+2. Builds the application using Maven.
+3. Performs the unit test using Maven.
+4. Deploys the new `.war` version to Tomcat.
+
+*This process minimizes manual effort and ensures the application is always up-to-date.*
 
 ### 📦 Understanding Build Artifacts
 When Maven runs a "Build", it performs three actions: `Compile -> Unit Test -> Package`.
