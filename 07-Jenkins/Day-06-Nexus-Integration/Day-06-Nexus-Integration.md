@@ -130,8 +130,11 @@ We need a specific "folder" (repository) inside Nexus to hold our Java WAR files
 4. Select the recipe: **maven2 (hosted)**.
    ![Nexus Recipe List](./nexus-repo-recipe.png)
 5. **Name:** `myrepo`
+   ![Nexus Repo Name](./nexus-repo-name.png)
 6. **Deployment policy:** Change this to **Allow redeploy**.
+   ![Nexus Repo Policy](./nexus-repo-policy.png)
 7. Click **Create repository**.
+   ![Nexus Repo Success](./nexus-repo-success.png)
 
 ---
 
@@ -142,6 +145,7 @@ Now we must tell our Jenkins server to push the artifacts to Nexus after a succe
 ### Step A: Install the Nexus Plugin in Jenkins
 1. Go to Jenkins -> **Manage Jenkins** -> **Plugins**.
 2. Click **Available plugins**, search for **Nexus Artifact Uploader**, and install it.
+   ![Jenkins Nexus Plugin](./jenkins-nexus-plugin.png)
 
 ### Step B: Create the Jenkins Pipeline
 1. Create a new Freestyle job named `nexusjob`.
@@ -151,19 +155,23 @@ Now we must tell our Jenkins server to push the artifacts to Nexus after a succe
    - **Protocol:** `HTTP`
    - **Nexus URL:** `<nexus-public-ip>:8081`
    - **Credentials:** Click Add, select Jenkins, and enter your Nexus `admin` username and the new password you created in the wizard.
-   - **GroupId:** Take this from your developer's `pom.xml`
-   - **Version:** Take this from your `pom.xml`
+   - **GroupId:** Take this from your developer's `pom.xml` (e.g., `in.javahome`)
+   - **Version:** Take this from your `pom.xml` (e.g., `8.6.9`)
    - **Repository:** `myrepo` (The exact name you created in Nexus)
+   ![Jenkins Nexus Config 2](./jenkins-nexus-config-2.png)
    - **Artifacts:**
-     - **ArtifactId:** Take this from your `pom.xml`
+     - **ArtifactId:** Take this from your `pom.xml` (e.g., `myweb`)
      - **Type:** `war`
-     - **File:** `target/*.war` (or the exact name like `target/myweb-8.7.1.war`)
+     - **File:** `target/*.war` (or the exact name like `target/myweb-8.6.9.war`)
+   ![Jenkins Nexus Config 3](./jenkins-nexus-config-3.png)
 
 ### Step C: Execute and Verify
-Save the job and click **Build Now**.
+Save the job and click **Build Now**. 
 If the build succeeds, Jenkins will compile the code, test it, package the `.war` file, and then *upload* it over the network to Nexus!
+![Jenkins Build Success](./jenkins-build-success.png)
 
-Go to your Nexus Dashboard, click **Browse**, click on `myrepo`, and you will physically see your `.war` file safely stored in the vault!
+Go to your Nexus Dashboard, click **Browse**, click on `myrepo`, and drill down through the folders. You will physically see your `.war` file safely stored in the vault!
+![Nexus Uploaded Artifact](./nexus-uploaded-artifact.png)
 
 ---
 
