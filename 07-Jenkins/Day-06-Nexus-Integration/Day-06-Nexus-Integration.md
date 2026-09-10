@@ -7,7 +7,7 @@ Welcome to Jenkins Day 6! Today, we solve one of the biggest challenges in CI/CD
 ## 🏗️ 1. The Rollback Problem
 
 ### The Scenario
-Imagine your application server (Tomcat) is running `Version 1` (`v1`) of your application perfectly. Your developer updates the code to create `Version 2` (`v2`), and Jenkins automatically deploys it. 
+Imagine your application server (Tomcat) is running `Version 1` (e.g., `1.2.1`) of your application perfectly. Your developer updates the code to create `Version 2` (e.g., `1.2.2`), and Jenkins automatically deploys it. 
 
 Suddenly, `v2` crashes in production! The deployment failed. You need to immediately **rollback** to `v1`.
 
@@ -45,7 +45,7 @@ Nexus is a heavy application. We must create a dedicated AWS EC2 instance specif
 
 ### Step A: Launch the EC2 Instance
 - **Instance Type:** `t2.medium` (Minimum 2 CPUs & 4 GB RAM)
-- **Storage:** 20 GB EBS Volume
+- **Storage:** 20-25 GB EBS Volume minimum
 - **Security Group:** Open Custom TCP **Port 8081** (Nexus Default Port).
 
 ### Step B: The Nexus Installation Script
@@ -57,6 +57,7 @@ hostnamectl set-hostname "nexus"
 
 # 2. Install Java 17 (Nexus Dependency)
 yum install java-17-amazon-corretto -y
+java --version
 
 # 3. Create app directory and download Nexus
 mkdir /app
@@ -72,14 +73,17 @@ useradd nexus
 # 6. Change ownership of the folders to the new user
 chown -R nexus:nexus nexus-3.86.2-01-linux sonatype-work
 
-# 7. Switch to the nexus user
+# 7. Configure Nexus to run as the new user
+echo 'run_as_user="nexus"' > /app/nexus-3.86.2-01-linux/bin/nexus.rc
+
+# 8. Switch to the nexus user
 su - nexus
 
-# 8. Start the Nexus Service
+# 9. Start the Nexus Service
 cd /app/nexus-3.86.2-01-linux/bin/
 ./nexus start
 
-# 9. Verify it is running
+# 10. Verify it is running
 ./nexus status
 ```
 
@@ -147,10 +151,16 @@ Now we must tell our Jenkins server to push the artifacts to Nexus after a succe
 2. Click **Available plugins**, search for **Nexus Artifact Uploader**, and install it.
    ![Jenkins Nexus Plugin](./jenkins-nexus-plugin.png)
 
-### Step B: Create the Jenkins Pipeline
+### Step B: Configure Maven Tool
+Before creating the job, ensure Maven is configured globally:
+1. Go to **Manage Jenkins** -> **Tools**.
+2. Scroll to **Maven installations** and click **Add Maven**.
+3. Name it `mymaven` (or similar) and configure it to install automatically. Click Save.
+
+### Step C: Create the Jenkins Pipeline
 1. Create a new Freestyle job named `nexusjob`.
 2. **Source Code Management:** Select Git and provide your GitHub repository URL and branch.
-3. **Build Steps (Compile & Test):** Add an **Invoke top-level Maven targets** build step. Select your Maven version and enter Goal: `clean package`.
+3. **Build Steps (Compile & Test):** Add an **Invoke top-level Maven targets** build step. Select your Maven version (`mymaven`) and enter Goal: `clean package`.
 4. **Build Steps (Upload to Nexus):** Click **Add build step** and select **Nexus Artifact Uploader**. Fill out the exact details:
    - **Protocol:** `HTTP`
    - **Nexus URL:** `<nexus-public-ip>:8081`
@@ -165,7 +175,7 @@ Now we must tell our Jenkins server to push the artifacts to Nexus after a succe
      - **File:** `target/*.war` (or the exact name like `target/myweb-8.6.9.war`)
    ![Jenkins Nexus Config 3](./jenkins-nexus-config-3.png)
 
-### Step C: Execute and Verify
+### Step D: Execute and Verify
 Save the job and click **Build Now**. 
 If the build succeeds, Jenkins will compile the code, test it, package the `.war` file, and then *upload* it over the network to Nexus!
 ![Jenkins Build Success](./jenkins-build-success.png)
@@ -175,9 +185,48 @@ Go to your Nexus Dashboard, click **Browse**, click on `myrepo`, and drill down 
 
 ---
 
-## 🔄 6. Deployment and Rollbacks
+## 🔄 6. Automation and Tomcat Deployment
 
-Now that your artifact is safely stored in Nexus, you can deploy it to Tomcat just like we did in Day 4 (using the `appserver.sh` script to build Tomcat and the `Deploy to container` plugin in Jenkins).
+Now that your artifact is safely stored in Nexus, you can deploy it to Tomcat!
+
+### Step A: Setup Tomcat Server
+Launch a new EC2 instance (`t3.micro`) using the same Security Group. Connect to it and run the exact same Tomcat setup script from Day 4:
+```bash
+vim appserver.sh
+```
+Paste this inside:
+```bash
+yum install java-17-amazon-corretto -y
+wget https://dlcdn.apache.org/tomcat/tomcat-9/v9.0.112/bin/apache-tomcat-9.0.112.tar.gz
+tar -zxvf apache-tomcat-9.0.112.tar.gz
+sed -i '56 a\<role rolename="manager-gui"/>' apache-tomcat-9.0.112/conf/tomcat-users.xml
+sed -i '57 a\<role rolename="manager-script"/>' apache-tomcat-9.0.112/conf/tomcat-users.xml
+sed -i '58 a\<user username="tomcat" password="admin@123" roles="manager-gui, manager-script"/>' apache-tomcat-9.0.112/conf/tomcat-users.xml
+sed -i '59 a\</tomcat-users>' apache-tomcat-9.0.112/conf/tomcat-users.xml
+sed -i '56d' apache-tomcat-9.0.112/conf/tomcat-users.xml
+sed -i '21d' apache-tomcat-9.0.112/webapps/manager/META-INF/context.xml
+sed -i '22d' apache-tomcat-9.0.112/webapps/manager/META-INF/context.xml
+sh apache-tomcat-9.0.112/bin/startup.sh
+```
+Save and run it: `sh appserver.sh`. Access the Manager App on port `8080`.
+
+### Step B: Deploy from Jenkins
+1. Install the **Deploy to container** plugin in Jenkins.
+2. In your `nexusjob` configuration, add a **Post-build Action**: `Deploy war/ear to a container`.
+3. **WAR/EAR files:** `target/*.war` (or `.var`)
+4. **Context path:** `ECOMERCE`
+5. **Containers:** Select your Tomcat version and add the Tomcat credentials (`tomcat` / `admin@123`) and Tomcat URL (`http://<tomcat-ip>:8080`).
+6. Save and **Build Now**. 
+
+Access your application at `http://<tomcat-ip>:8080/ECOMERCE`!
+
+---
+
+## 🔙 7. Rollbacks and Webhooks
+
+### Updating the Code
+If the developer makes changes in GitHub and updates the version in `pom.xml`, you would typically have **GitHub Webhooks** or **Poll SCM** configured to trigger a build automatically. 
+When the build runs, you can refresh Nexus and see the brand new updated version stored alongside the old one!
 
 ### How to Rollback Manually
 If a developer pushes a bad update to GitHub, Jenkins will build it, store the bad `v2` in Nexus, and deploy it to Tomcat. The site crashes.
