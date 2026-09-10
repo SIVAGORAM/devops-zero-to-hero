@@ -10,6 +10,8 @@ By the end of this guide, you will be able to build and deploy an end-to-end ent
 
 Our pipeline contains 4 distinct stages. Whenever a developer pushes code, Jenkins will automatically execute this entire sequence:
 
+![Pipeline Stages Flow](./pipeline-stages-flow.png)
+
 ```text
 Complete Flow
   Developer
