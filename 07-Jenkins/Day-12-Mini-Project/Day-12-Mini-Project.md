@@ -269,7 +269,7 @@ pipeline {
     stages {
         stage('Code') {
             steps {
-                git "https://github.com/devops0014/one.git"
+                git "https://github.com/sivagoram/one.git"
             }
         }
         stage ("CQA") {
