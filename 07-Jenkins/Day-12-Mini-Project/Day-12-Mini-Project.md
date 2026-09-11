@@ -98,6 +98,7 @@ sh apache-tomcat-9.0.104/bin/startup.sh
 ### 3. `sonar.sh`
 ```bash
 cd /opt/
+yum install unzip -y
 wget https://binaries.sonarsource.com/Distribution/sonarqube/sonarqube-8.9.6.50800.zip
 unzip sonarqube-8.9.6.50800.zip
 yum install java-17-amazon-corretto -y
@@ -115,7 +116,7 @@ su - sonar
 ```bash
 sudo yum update -y
 sudo yum install wget -y
-sudo yum install java-17-amazon-corretto-jmods -y
+sudo yum install java-17-amazon-corretto -y
 sudo mkdir /app && cd /app
 sudo wget https://download.sonatype.com/nexus/3/nexus-3.79.1-04-linux-x86_64.tar.gz
 sudo tar -xvf nexus-3.79.1-04-linux-x86_64.tar.gz
@@ -123,7 +124,7 @@ sudo mv nexus-3.79.1-04 nexus
 sudo adduser nexus
 sudo chown -R nexus:nexus /app/nexus
 sudo chown -R nexus:nexus /app/sonatype*
-sudo sed -i '27  run_as_user="nexus"' /app/nexus/bin/nexus
+sudo sed -i 's/.*run_as_user=.*/run_as_user="nexus"/' /app/nexus/bin/nexus
 sudo tee /etc/systemd/system/nexus.service > /dev/null << EOL
 [Unit]
 Description=nexus service
@@ -150,6 +151,16 @@ sudo systemctl status nexus
 
 ---
 
+## 🔐 Tool Access & Initial Setup
+After running the scripts above, you can access your tools via the browser:
+
+- **Jenkins (`http://<jenkins-ip>:8080`)**: Retrieve the initial admin password from the server using `sudo cat /var/lib/jenkins/secrets/initialAdminPassword`. Install suggested plugins and create your admin user.
+- **Tomcat (`http://<tomcat-ip>:8080`)**: Access the Manager App using the credentials configured in our script: Username: `tomcat`, Password: `admin@123`.
+- **SonarQube (`http://<sonar-ip>:9000`)**: Log in with the default credentials: Username: `admin`, Password: `admin`. It will prompt you to change the password on your first login.
+- **Nexus (`http://<nexus-ip>:8081`)**: Log in as `admin`. Retrieve the temporary password from the server using `sudo cat /app/sonatype-work/nexus3/admin.password`. It will prompt you to set a new password. Enable anonymous access if prompted.
+
+---
+
 ## 📦 Create a repository in nexus
 ![Nexus Welcome Dashboard](./nexus-welcome.png)
 - SELECT REPOSITORIES
@@ -161,7 +172,12 @@ sudo systemctl status nexus
 - GIVE REPOSITORY NAME AS `myrepo` and deployment policy as `Allow redeploy` and click on create repositories
 - now you can see our repository created in dashboard
 
-After setting all the tools using above scripts, now we have to integrate with Jenkins. Lets install the following plugins to deploy an application.
+After setting all the tools using above scripts, now we have to integrate with Jenkins. Lets install the following plugins to deploy an application:
+- **SonarQube Scanner**
+- **Nexus Artifact Uploader**
+- **Deploy to container**
+- **Slack Notification**
+
 ![Jenkins Plugins](./jenkins-plugins.png)
 
 ---
@@ -185,7 +201,10 @@ Now it will ask the secret. To get the secret go to sonarqube dashboard and sele
 ![Copy Token](./sonar-token-copy.png)
 - Now click on add and select the credentials
 
-Now lets go to **manage jenkins** » **tools**. After adding maven and sonar tools, just click on save.
+Now lets go to **manage jenkins** » **tools**.
+- **Maven Installations:** Click Add Maven, name it `mymaven`, and select "Install automatically".
+- **SonarQube Scanner Installations:** Click Add SonarQube Scanner, name it `mysonar-scanner`, and select "Install automatically".
+After adding these tools, just click on save.
 
 ---
 
@@ -218,7 +237,7 @@ From the step-3 copy the **Team subdomain & Token**.
 Go back to Jenkins and manage jenkins and search for slack:
 ![Slack Jenkins Global Settings](./slack-jenkins-global-settings.png)
 - **Workspace:** `miniproject-cao6485`
-- **Credentials** ——> **kind:** `Secret` (add that token here)
+- **Credentials** ——> **kind:** `Secret text` (add that token here as a Secret text credential)
 
 ---
 
@@ -259,7 +278,7 @@ pipeline {
                     sh '''
                         mvn sonar:sonar \
                         -Dsonar.projectKey=MyProject \
-                        -Dsonar.host.url=<your-sonar-url> \
+                        -Dsonar.host.url=http://<your-sonar-ip>:9000 \
                         -Dsonar.login=<enter-your-token>
                     '''
                 }
@@ -272,21 +291,21 @@ pipeline {
         }
         stage ("Artifact") {
             steps {
-                nexusArtifactUploader artifacts: [[artifactId: 'myweb', classifier: '', file: 'target/myweb-8.7.3.war', type: '8.7.3']], credentialsId: 'nexus', groupId: 'in.javahome', nexusUrl: '<your-nexus-url>', nexusVersion: 'nexus3', protocol: 'http', repository: 'myrepo', version: '8.7.3'
+                nexusArtifactUploader artifacts: [[artifactId: 'myweb', classifier: '', file: 'target/myweb-8.7.3.war', type: 'war']], credentialsId: 'nexus', groupId: 'in.javahome', nexusUrl: '<your-nexus-ip>:8081', nexusVersion: 'nexus3', protocol: 'http', repository: 'myrepo', version: '8.7.3'
             }
         }
         stage ("Deploy") {
             steps {
-                deploy adapters: [tomcat9(credentialsId: 'tomcat', path: '', url: '<your-tomcat-url>')], contextPath: 'myapp', war: 'target/*.war'
+                deploy adapters: [tomcat9(credentialsId: 'tomcat', path: '', url: 'http://<your-tomcat-ip>:8080')], contextPath: 'myapp', war: 'target/*.war'
             }
         }
-        post {
-            always {
-                echo 'Slack Notifications'
-                slackSend (
-                    channel: '<your-channel-name>', message: "*${currentBuild.currentResult}:* Job ${env.JOB_NAME} \n build ${env.BUILD_NUMBER} \n More info at: ${env.BUILD_URL}"
-                )
-            }
+    }
+    post {
+        always {
+            echo 'Slack Notifications'
+            slackSend (
+                channel: '<your-channel-name>', message: "*${currentBuild.currentResult}:* Job ${env.JOB_NAME} \n build ${env.BUILD_NUMBER} \n More info at: ${env.BUILD_URL}"
+            )
         }
     }
 }
@@ -310,6 +329,3 @@ SLACK NOTIFICATION:
 
 **And that’s a wrap! 🎉**
 Through this mini Jenkins pipeline project, you’ve touched key DevOps concepts and tools — from source control and quality checks to builds, artifact management, and team communication.
-
----
-*this is day:-12 of jenkines end to end mini project once check this notes end to to n deeply we we missing anything add them use previous notes if u want if any user read this notes they can able to understnad withotua any confusion they can understand the read all they can able to implement by reading this document they can implement end to end jenkins pipeline without any confuison i given you some of the image use them remaming images i will give u by next so make it update end to end deeply perfect project notes withotu any confuson and errors*
