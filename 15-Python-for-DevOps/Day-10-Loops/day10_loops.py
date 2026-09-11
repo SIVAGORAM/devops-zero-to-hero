@@ -77,3 +77,4 @@ for line in log_file:
     error_count += 1
 
 print(f"Log scan complete. Total errors found: {error_count}")
+
