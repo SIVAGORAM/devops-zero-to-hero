@@ -78,8 +78,8 @@ if __name__ == "__main__":
 ## 4. Webhook Security
 If your Python server is exposed to the internet, **anyone** can send a fake HTTP POST request to `/github-webhook` and trigger your automation.
 
-### Level 1: Simple Secret Validation
-You can configure a Custom Header in your webhook provider.
+You must configure a **Webhook Secret** in GitHub, and your Python script must verify it.
+
 ```python
 @app.route("/webhook", methods=["POST"])
 def webhook():
@@ -90,50 +90,9 @@ def webhook():
         return {"error": "Unauthorized: Invalid Secret!"}, 401
 ```
 
-### Level 2: Advanced DevOps (HMAC Signatures)
-The simple secret check above is prone to timing attacks. The industry standard (used by GitHub Enterprise, Stripe, and Slack) is **HMAC Signatures**. 
-The provider hashes the entire JSON payload using your secret key and sends the hash in a header (e.g., `X-Hub-Signature-256`). You must recalculate the hash locally and compare them securely!
-
-```python
-import hmac
-import hashlib
-
-@app.route("/github-webhook", methods=["POST"])
-def secure_webhook():
-    secret = os.getenv("GITHUB_WEBHOOK_SECRET").encode('utf-8')
-    payload = request.get_data() # Get raw bytes, not parsed JSON
-    
-    # Calculate what the signature SHOULD be
-    expected_hash = "sha256=" + hmac.new(secret, payload, hashlib.sha256).hexdigest()
-    
-    # Get what GitHub says the signature is
-    received_hash = request.headers.get("X-Hub-Signature-256")
-    
-    # Compare them securely to prevent timing attacks!
-    if not hmac.compare_digest(expected_hash, received_hash):
-        return {"error": "Unauthorized: Signature Mismatch!"}, 401
-```
-
 ---
 
-## 5. Advanced DevOps: Testing Webhooks Locally (`ngrok`)
-If your Flask server is running on `http://localhost:5000`, GitHub cannot reach it to send the webhook (because `localhost` is on your private Wi-Fi network).
-
-DevOps engineers use a tool called **ngrok** to create a secure, temporary public URL that tunnels directly to their local machine.
-
-```bash
-# 1. Download and start ngrok in your terminal
-ngrok http 5000
-
-# 2. ngrok gives you a public URL:
-# Forwarding  https://a1b2-c3d4.ngrok.app -> http://localhost:5000
-
-# 3. Paste https://a1b2-c3d4.ngrok.app/github-webhook into GitHub's Webhook Settings!
-```
-
----
-
-## 6. Idempotency
+## 5. Idempotency
 If GitHub times out waiting for your Python script to reply, it might send the exact same Webhook again.
 **Idempotency** means designing your script so that processing the identical webhook twice does not result in creating two duplicate Jira tickets!
 
