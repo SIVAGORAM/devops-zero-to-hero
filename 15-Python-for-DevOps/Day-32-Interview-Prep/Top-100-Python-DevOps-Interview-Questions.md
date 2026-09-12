@@ -551,3 +551,23 @@ If you are interviewing for a Senior or Lead DevOps role, expect questions that 
 - **Definition**: `pickle` serializes Python objects into a binary format, but it can execute arbitrary code upon un-pickling.
 - **Example**: Attackers craft a malicious pickle payload that spawns a reverse shell.
 - **DevOps Use Case**: If two automation servers need to share state or configuration data, **never** use `pickle`. Always serialize the data safely using **JSON** or **YAML**.
+
+---
+
+## 💎 The Final Polish: Non-Scripting Interview Topics
+
+Before you walk into the interview room, be mentally prepared for these three non-scripting areas:
+
+### 106. How do you extract complex data from logs? (Regex)
+- **Definition**: Using the `re` module (Regular Expressions) to match complex string patterns.
+- **Example**: `import re; ips = re.findall(r'[0-9]+(?:\.[0-9]+){3}', log_line)`
+- **DevOps Use Case**: When simple string `.split()` isn't enough to parse a 10GB NGINX log, a DevOps engineer uses Regex to extract specific IP addresses, HTTP status codes, or User-Agents.
+
+### 107. How do you ensure your team writes clean Python? (Linting)
+- **Definition**: Using automated tools to enforce PEP 8 style guides and catch syntax errors before code is merged.
+- **Example**: Running `black .` and `flake8 .` in the terminal.
+- **DevOps Use Case**: You enforce it directly in the CI/CD pipeline. If a developer's Python script fails the `flake8` linter, the GitHub Action blocks the Pull Request from being merged.
+
+### 108. The Behavioral Question: "Tell me about a time your script broke production."
+- **Definition / Golden Answer**: 
+> "Do not say 'I've never broken anything.' Instead, explain a time a script failed gracefully (or non-gracefully, like an API token expiring or a disk filling up). Focus heavily on **how you fixed it**. Emphasize that because of that outage, you implemented `try/except` blocks, `logging`, and Slack webhook alerts so it never happens silently again."
