@@ -1,0 +1,14 @@
+application:
+  name: python-devops-toolkit
+  environment: dev
+
+health_check:
+  url: https://example.com
+  timeout: 10
+
+backup:
+  source: ./config
+  destination: ./backups
+
+aws:
+  region: ap-south-1

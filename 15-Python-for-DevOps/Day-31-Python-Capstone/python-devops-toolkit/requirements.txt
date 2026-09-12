@@ -1,0 +1,6 @@
+requests
+PyYAML
+python-dotenv
+boto3
+Flask
+pytest
