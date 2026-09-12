@@ -75,7 +75,51 @@ Memorize this. If you need to do X, you use Python library Y.
 
 ---
 
-## 6. Final Mental Model
+## 6. Common DevOps Coding Challenges
+Interviewers often ask you to write a quick script to test your data structure knowledge.
+
+**1. Count Server Occurrences (Dictionary)**
+```python
+servers = ["web", "db", "web", "web", "db"]
+count = {}
+for server in servers:
+    count[server] = count.get(server, 0) + 1
+print(count) # {'web': 3, 'db': 2}
+```
+
+**2. Find Errors in a Log File (List Comprehension)**
+```python
+logs = ["INFO started", "ERROR failed", "INFO request", "ERROR timeout"]
+errors = [line for line in logs if "ERROR" in line]
+print(errors)
+```
+
+**3. Find Duplicate IP Addresses (Sets)**
+```python
+ips = ["10.0.0.1", "10.0.0.2", "10.0.0.1", "10.0.0.3"]
+duplicates, seen = set(), set()
+for ip in ips:
+    duplicates.add(ip) if ip in seen else seen.add(ip)
+print(duplicates) # {'10.0.0.1'}
+```
+
+---
+
+## 7. Advanced: Generators (`yield`) for Massive Files
+If an interviewer asks: *"How do you parse a 50GB log file without crashing the server's RAM?"*
+Do not say `file.read()` or `file.readlines()` (these load the whole file into RAM).
+**Answer:** "I would use a Python Generator with the `yield` keyword. It processes the file one line at a time, making it extremely memory efficient."
+
+```python
+def read_large_log(file_path):
+    with open(file_path, 'r') as file:
+        for line in file:
+            yield line # Yields one line at a time instead of returning a massive list
+```
+
+---
+
+## 8. Final Mental Model
 When an interviewer hands you a problem, process it like this:
 
 1. **Input**: How do I get data? (CLI args? YAML?)
