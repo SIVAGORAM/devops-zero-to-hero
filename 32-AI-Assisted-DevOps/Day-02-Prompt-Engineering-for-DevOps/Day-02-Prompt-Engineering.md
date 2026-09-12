@@ -62,7 +62,8 @@
 55. The Golden Prompt Formula
 56. Day 2 — Master Mental Model
 57. Interview Questions
-58. Final Cheat Sheet
+58. Advanced DevOps Prompting Concepts
+59. Final Cheat Sheet
 
 ---
 
@@ -670,7 +671,42 @@ Because AI can assist with Bash, Python, K8s, Terraform, Docker, CI/CD, RCA, etc
 
 ---
 
-## 58. Final Cheat Sheet
+## 58. Advanced DevOps Prompting Concepts (Beyond the Basics)
+
+While the fundamentals cover 90% of day-to-day tasks, modern AI-Assisted DevOps Engineers must also master these advanced concepts:
+
+### 1. Data Security and Secret Masking
+**Never paste sensitive data into a public LLM.** 
+Before pasting logs or configurations into a prompt, you must sanitize:
+- AWS Access Keys & Secret Keys
+- Database Passwords
+- Private IP addresses or internal domain names (if highly sensitive)
+- Personally Identifiable Information (PII) of users in logs.
+**Tip:** Use placeholders like `<AWS_ACCOUNT_ID>` or `<REDACTED_PASSWORD>` before hitting send.
+
+### 2. System Prompts (Custom Instructions)
+Many AI coding tools (like GitHub Copilot, Cursor, or ChatGPT Custom Instructions) allow you to set a "System Prompt." This is a global context that runs invisibly before every prompt you send.
+**Example DevOps System Prompt:**
+> "You are a Senior SRE. Always write Terraform using the AWS Provider v5.0+. Always use Bash over Python for simple automation. Never suggest `chmod 777`."
+
+### 3. Structured Data Generation (JSON/YAML)
+Often, you need the AI to generate data that a script can parse (like using `jq`).
+**Prompt Addition:** 
+> "Output the results STRICTLY as a valid JSON array of strings. Do not include markdown formatting or backticks. My script needs to pipe this output directly into `jq`."
+
+### 4. Self-Correction Prompting
+If the AI generates a script and it fails, don't write a new prompt from scratch. Feed the error directly back into the same conversation context.
+**Example:** 
+> "The Bash script you generated threw this error on line 12: `unary operator expected`. Analyze why this failed in an Ubuntu 24.04 environment and provide the corrected script."
+
+### 5. Retrieval-Augmented Generation (RAG) Awareness
+AI models have a training cutoff date. If you ask about a tool released yesterday (like a brand new AWS service or a new Terraform provider feature), it will hallucinate.
+**Solution:** Copy the specific section of the new official documentation and paste it at the top of your prompt.
+> "Context: Here is the official documentation for the new AWS API: `<PASTE DOCS>`. Based ONLY on this documentation, write a Bash script to..."
+
+---
+
+## 59. Final Cheat Sheet
 
 ### Four Important Components
 1. Context
