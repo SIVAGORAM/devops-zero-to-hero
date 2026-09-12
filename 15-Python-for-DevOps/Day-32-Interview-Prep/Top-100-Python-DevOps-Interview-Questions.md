@@ -571,3 +571,24 @@ Before you walk into the interview room, be mentally prepared for these three no
 ### 108. The Behavioral Question: "Tell me about a time your script broke production."
 - **Definition / Golden Answer**: 
 > "Do not say 'I've never broken anything.' Instead, explain a time a script failed gracefully (or non-gracefully, like an API token expiring or a disk filling up). Focus heavily on **how you fixed it**. Emphasize that because of that outage, you implemented `try/except` blocks, `logging`, and Slack webhook alerts so it never happens silently again."
+
+---
+
+## 🚀 Beyond Python: Advanced Engineering Domains
+
+If an interviewer continues to drill you past the 108 questions documented above, they are no longer testing your Python automation skills. They are testing boundary domains. Here is what to expect if they cross that line:
+
+### 109. Pure Site Reliability Engineering (SRE)
+- **What to Expect**: Questions about Linux Kernel tuning, TCP/IP networking, DNS resolution, and low-level system performance.
+- **Example**: "How would you troubleshoot a server where the CPU load is 100% but `top` shows python using 0%?"
+- **The Pivot**: Explain how you would use Linux tools (`strace`, `lsof`, `tcpdump`) to diagnose it, and then write a Python daemon to monitor and alert on those specific syscall spikes in the future.
+
+### 110. Pure Computer Science (Data Structures & Algorithms)
+- **What to Expect**: Whiteboarding complex Big-O notation, Tree traversals, or building sorting algorithms from scratch (LeetCode style).
+- **Example**: "Write a Python script to reverse a Linked List in O(n) time."
+- **The Pivot**: Complete the algorithm to the best of your ability, but remind the interviewer that in a DevOps context, you rely on Python's highly-optimized built-in data structures (like standard dictionaries and sets) because code readability and maintainability in CI/CD pipelines trump micro-optimizations.
+
+### 111. Database Administration & Engineering
+- **What to Expect**: Questions regarding Postgres indexing, SQL query optimization, or managing database connections via Python (`SQLAlchemy`, `psycopg2`).
+- **Example**: "How would you automate a daily backup of a 5TB PostgreSQL database using Python?"
+- **The Pivot**: Explain that rather than using Python to pull the data row-by-row into memory, you would use Python's `subprocess` to trigger a native `pg_dump` or snapshot the underlying AWS EBS volume via `boto3`, because leveraging native tools is much safer and faster.
