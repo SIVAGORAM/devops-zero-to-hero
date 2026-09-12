@@ -87,3 +87,45 @@
 
 **Q21. How do you handle API Rate Limiting (HTTP 429) when building Python automation that calls LLM APIs?**
 > If you write a Python script to automatically analyze Datadog alerts using an LLM API, you will eventually hit rate limits (HTTP 429 - Too Many Requests). A DevOps engineer must implement **Exponential Backoff** and retry logic in their scripts to handle API throttling gracefully.
+
+**Q22. RAG vs Fine-Tuning: If your team has 5,000 internal Confluence runbooks, which approach is better to help an AI answer troubleshooting questions?**
+> **RAG (Retrieval-Augmented Generation)** is almost always better for DevOps runbooks. Fine-tuning is expensive, takes time, and the model's knowledge becomes instantly outdated when a runbook is updated. RAG fetches the exact, real-time document during the prompt, is much cheaper, and allows the AI to provide exact source links to the original runbook.
+
+**Q23. How do you optimize costs when running large-scale automated prompts in CI/CD?**
+> A DevOps engineer optimizes cost by routing tasks to appropriately sized models. For simple tasks (like formatting JSON or parsing standard log structures), use smaller, cheaper models (e.g., GPT-4o-mini). Save the expensive, high-reasoning models (e.g., GPT-4o or Claude 3.5 Sonnet) only for complex Root Cause Analysis (RCA) or architectural planning. Additionally, strictly limit the `max_tokens` output.
+
+**Q24. If you deploy an autonomous AI Agent to fix Kubernetes clusters, how do you handle security?**
+> You must strictly enforce the **Principle of Least Privilege**. The AI agent must run under a dedicated Kubernetes `ServiceAccount` with highly restricted RBAC permissions (never `cluster-admin`). Furthermore, any destructive actions (like deleting pods or modifying deployments) must require a **Human-in-the-Loop** approval workflow before execution.
+
+**Q25. When using AI to summarize Slack incidents for Post-Mortems, what is the biggest risk?**
+> **Summarization Bias.** The AI might focus on the sheer volume of chat messages (e.g., 50 messages of people saying "API is down") and completely omit a single highly technical message from an engineer stating the actual root cause (e.g., "DNS entry expired"). SREs must review AI summaries to ensure critical technical details are not lost.
+
+**Q26. How do you prompt an AI to review Infrastructure as Code (IaC) without getting overwhelmed by generic feedback?**
+> Do not use a generic prompt like *"Review this code."* Instead, restrict the output by prompting: *"Act as a strict cloud security auditor. Review this Terraform code. Output ONLY Critical and High severity issues related to IAM, Networking, or Encryption. Explicitly ignore formatting, linting, and stylistic issues."*
+
+**Q27. How do you handle Context Limits when using AI to analyze a massive Monorepo?**
+> You cannot paste a massive monorepo into an LLM because it will break the context window. Instead, you must first generate a dependency graph or directory tree, and selectively pass only the relevant configuration files (e.g., `package.json`, `go.mod`, or specific `.tf` files) into the prompt rather than the entire codebase.
+
+**Q28. What are "LLM Evals" and how do they apply to DevOps?**
+> LLM Evals (Evaluations) are programmatic ways to test if a new prompt is actually better than an old one. In DevOps, if you build an automated log-analyzer, you maintain a testing dataset of past incident logs and their known root causes. You run your new prompt against the dataset to measure accuracy and hallucination rates before deploying the prompt to production.
+
+**Q29. How do you enforce Zero-Trust when prompting an AI to generate Kubernetes RBAC?**
+> You must explicitly build zero-trust constraints directly into the prompt: *"Generate a Kubernetes Role and RoleBinding. CONSTRAINT: Do not grant cluster-admin. Do not use the wildcard `*` for verbs or resources. Only grant `get, list, watch` permissions strictly confined to the `default` namespace."*
+
+**Q30. Can Multimodal Prompts be used in DevOps? Give an example.**
+> Yes. Multimodal LLMs (like GPT-4o) can process images alongside text. A DevOps engineer can upload a screenshot of a spiked Grafana dashboard or a Datadog network topology map, paste the application logs into the text prompt, and ask the AI to correlate the visual CPU spike with the specific log errors for rapid RCA.
+
+**Q31. What is "Reverse Prompting" and how can a DevOps Engineer use it?**
+> Reverse Prompting (or AI as a Questioner) is when you flip the dynamic and instruct the AI to ask *you* questions. For example: *"I need to build an AWS EKS architecture. Ask me one technical question at a time until you have enough context to generate the exact Terraform code."* This ensures you don't forget to provide crucial context.
+
+**Q32. How do you mitigate the "Yes-Man" problem (Sycophancy) in AI model outputs?**
+> AI models have a psychological bias known as Sycophancy, where they tend to agree with the user to be polite, even if the user proposes a terrible idea. A DevOps engineer must use explicit "Devil's Advocate" prompts: *"Act as a strict Principal Engineer. Review my proposed database migration plan. You MUST highlight the flaws, security risks, and bottlenecks. Do not agree with me just to be polite."*
+
+**Q33. If you integrate an LLM directly into a live CI/CD pipeline, how do you handle Latency Optimization?**
+> Large reasoning models (like GPT-4o or Claude 3 Opus) can take 15-30 seconds to generate a response, which will drastically slow down a synchronous CI/CD pipeline. For live pipeline checks (like automated code formatting reviews), you must use smaller, extremely fast models (like GPT-4o-mini or Claude 3 Haiku) to achieve sub-second latency.
+
+**Q34. What is Semantic Caching in AI DevOps tools?**
+> Semantic Caching is an optimization technique. If multiple engineers ask an internal AI Slack bot variations of the same question (e.g., *"How do I connect to prod DB?"* vs *"What is the command to access the production database?"*), the caching layer recognizes the similar *semantic intent* and serves a cached response without making a costly round-trip call to the LLM API.
+
+**Q35. How do you prompt an AI bot added to a live P1 Incident War Room (ChatOps)?**
+> You must prompt the bot to act as a silent observer. *"You are a P1 Incident Assistant. Only respond when explicitly tagged. When commanded, summarize the thread history for new engineers joining the channel, extract action items, and format the final output as a Jira ticket payload. Do NOT hallucinate system statuses."*
