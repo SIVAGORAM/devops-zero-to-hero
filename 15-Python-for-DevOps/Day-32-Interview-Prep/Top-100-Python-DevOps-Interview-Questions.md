@@ -592,3 +592,53 @@ If an interviewer continues to drill you past the 108 questions documented above
 - **What to Expect**: Questions regarding Postgres indexing, SQL query optimization, or managing database connections via Python (`SQLAlchemy`, `psycopg2`).
 - **Example**: "How would you automate a daily backup of a 5TB PostgreSQL database using Python?"
 - **The Pivot**: Explain that rather than using Python to pull the data row-by-row into memory, you would use Python's `subprocess` to trigger a native `pg_dump` or snapshot the underlying AWS EBS volume via `boto3`, because leveraging native tools is much safer and faster.
+
+---
+
+## 🔮 The Absolute Frontier: Architect & Platform Engineering
+
+To make this the most complete guide on the internet, here are the final 9 concepts bridging DevOps into Platform Engineering and deep Infrastructure Automation, bringing our list to exactly **120 questions**.
+
+### 112. Flask vs FastAPI for DevOps?
+- **Definition**: Flask is a microframework. FastAPI is a modern, fast (high-performance) web framework based on standard Python type hints.
+- **Example**: `from fastapi import FastAPI; app = FastAPI()`
+- **DevOps Use Case**: While Flask is great for simple webhooks, Senior DevOps engineers are moving to FastAPI because of its automatic Swagger documentation and native `async` support for building internal Developer Portals.
+
+### 113. How do you optimally Dockerize a Python script?
+- **Definition**: Using Multi-stage Docker builds to keep the image small and secure.
+- **Example**: Compiling dependencies in a `builder` image, then copying only the `.whl` files to a minimal `python:3.12-alpine` runtime image.
+- **DevOps Use Case**: Reducing a massive 1GB Jenkins runner image down to a 50MB alpine image, which drastically speeds up pipeline execution times and reduces security vulnerabilities.
+
+### 114. How does Python integrate with HashiCorp Vault?
+- **Definition**: Using the `hvac` Python library to communicate with Vault's API.
+- **Example**: `import hvac; client = hvac.Client(url); client.secrets.kv.v2.read_secret_version(path='my-secret')`
+- **DevOps Use Case**: Moving away from basic `.env` files in production and having your Python script dynamically fetch short-lived AWS keys or database passwords directly from HashiCorp Vault at runtime.
+
+### 115. How do you profile Python memory usage?
+- **Definition**: Using tools like `cProfile` or the `memory_profiler` library to find bottlenecks.
+- **Example**: `@profile` decorator on a function.
+- **DevOps Use Case**: A custom Kubernetes auto-scaler written in Python keeps getting OOMKilled (Out of Memory). You use a profiler to find out which API response is leaking memory.
+
+### 116. Why use `aiohttp` over `requests`?
+- **Definition**: `requests` is synchronous (blocking). `aiohttp` is an asynchronous HTTP client.
+- **Example**: `async with aiohttp.ClientSession() as session:`
+- **DevOps Use Case**: If you need to hit 1,000 different external health-check endpoints, `requests` will do it one by one (taking minutes). `aiohttp` will do them concurrently (taking seconds).
+
+### 117. How do you interact with GraphQL APIs in Python?
+- **Definition**: Unlike REST where you hit multiple endpoints, GraphQL hits a single endpoint with a dynamic query payload.
+- **Example**: `requests.post(url, json={'query': 'query { users { name } }'})`
+- **DevOps Use Case**: Querying modern platforms (like GitHub's v4 GraphQL API) to programmatically fetch all open Pull Requests across 500 repositories in a single API call instead of 500 REST calls.
+
+### 118. How do you automate Network Hardware (Switches/Routers) with Python?
+- **Definition**: Using specialized libraries like `Netmiko` or `Nornir`.
+- **Example**: `from netmiko import ConnectHandler; net_connect.send_command('show ip int brief')`
+- **DevOps Use Case**: While AWS uses APIs, physical on-premise hardware (Cisco, Juniper) requires SSH automation. Netmiko handles the SSH connections to thousands of physical switches to backup configurations.
+
+### 119. What is `Testinfra`?
+- **Definition**: A pytest plugin for infrastructure testing.
+- **Example**: `def test_nginx_is_installed(host): assert host.package("nginx").is_installed`
+- **DevOps Use Case**: Instead of just testing the Python code, you use Python to test the actual Linux Server. You write tests to verify that an Ansible playbook actually started the Docker service and opened port 80.
+
+### 120. Platform Engineering vs DevOps: Where does Python fit?
+- **Definition / Golden Answer**: 
+> "DevOps is the culture of developers and operations working together. Platform Engineering is the practice of building internal tools to make that easier. Python is the ultimate glue language for Platform Engineering. As a Senior Engineer, I don't just use Python to write a script for myself; I use Python (FastAPI, Docker, Boto3) to build a self-service Developer Portal so software engineers can automatically provision their own AWS infrastructure without ever filing a Jira ticket."
